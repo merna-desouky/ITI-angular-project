@@ -1,0 +1,18 @@
+:root {
+  --color-var1: #221f1f;
+  --color-var2: #f5f5f1;
+  --color-var3: #e50914;
+  --color-var4: #b81d24;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Martel Sans", Helvetica Neue, Segoe UI, Roboto, sans-serif;
+  background-color: var(--color-var1);
+  color: var(--color-var2);
+}
