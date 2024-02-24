@@ -1,6 +1,6 @@
 <div class="parent">
   <div class="form-container">
-    <div>
+    <div class="first-column">
       <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
         <h1>Create New Account</h1>
 
@@ -15,9 +15,14 @@
           />
           <label>Name</label>
         </div>
-        <span *ngIf="validateField('name')"
+
+        @if(validateField('name')) {
+        <span>Name should be at least 5 characters long</span>
+        } @else {
+        <span style="visibility: hidden"
           >Name should be at least 5 characters long</span
         >
+        }
 
         <!------------------------------------------------------------------------------------------------->
         <div class="input-field">
@@ -30,7 +35,12 @@
           />
           <label>Email</label>
         </div>
-        <span *ngIf="validateField('email')">Email is required</span>
+
+        @if(validateField('email')) {
+        <span>Email is required</span>
+        } @else {
+        <span style="visibility: hidden">Email is required</span>
+        }
 
         <!------------------------------------------------------------------------------------------------->
         <div class="input-field">
@@ -58,9 +68,14 @@
             />
           </div>
         </div>
-        <span *ngIf="validateField('password')"
+
+        @if(validateField('password')) {
+        <span>Password should be at least 8 characters long</span>
+        } @else {
+        <span style="visibility: hidden"
           >Password should be at least 8 characters long</span
         >
+        }
 
         <!------------------------------------------------------------------------------------------------->
         <div class="input-field">
@@ -88,33 +103,34 @@
             />
           </div>
         </div>
-        <span
-          *ngIf="
-            validateField('confirmPassword') &&
-            signUpForm.get('confirmPassword').errors?.required
-          "
-        >
-          Confirm Password is required
-        </span>
-        <span
-          *ngIf="
-            signUpForm.get('confirmPassword').value !==
-            signUpForm.get('password').value
-          "
-        >
-          Passwords don't match
-        </span>
+
+        @if(validateField('confirmPassword') &&
+        signUpForm.get('confirmPassword').errors?.required) {
+        <span>Confirm Password is required</span>
+        } @else {
+        <span style="visibility: hidden">Confirm Password is required</span>
+        } @if(signUpForm.get('confirmPassword').value !==
+        signUpForm.get('password').value) {
+        <span>Passwords don't match</span>
+        } @else {
+        <span style="visibility: hidden">Passwords don't match</span>
+        }
+
         <!------------------------------------------------------------------------------------------------->
         <button class="btn" type="submit">Sign Up</button>
 
         <div class="form-footer">
-          <p>Already have an account? <a href="/sign-in">Login</a></p>
+          <p>Already have an account? <a routerLink="/sign-in">Login</a></p>
         </div>
       </form>
     </div>
 
-    <div class="intro-container">
-      <img src="assets/intro.svg" alt="intro" width="350" height="350" />
+    <div class="second-column">
+      <img src="assets/sign-up-img.svg" class="intro-img" alt="intro" />
+
+      <!-- <div class="intro-text">
+        <h1>I-WATCH</h1>
+      </div> -->
     </div>
   </div>
 </div>
