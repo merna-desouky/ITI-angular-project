@@ -1,18 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import {
   ReactiveFormsModule,
   FormGroup,
   Validators,
   FormControl,
-  AbstractControl,
-  ValidationErrors,
+  // AbstractControl,
+  // ValidationErrors,
 } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
