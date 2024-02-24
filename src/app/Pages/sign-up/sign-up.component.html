@@ -1,114 +1,120 @@
 <div class="parent">
   <div class="form-container">
-    <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
-      <h1>Create New Account</h1>
+    <div>
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <h1>Create New Account</h1>
 
-      <!------------------------------------------------------------------------------------------------->
-      <div class="input-field">
-        <input
-          type="text"
-          name="name"
-          autocomplete="off"
-          formControlName="name"
-          required
-        />
-        <label>Name</label>
-      </div>
-      <span *ngIf="validateField('name')"
-        >Name should be at least 5 characters long</span
-      >
-
-      <!------------------------------------------------------------------------------------------------->
-      <div class="input-field">
-        <input
-          type="text"
-          name="email"
-          autocomplete="off"
-          formControlName="email"
-          required
-        />
-        <label>Email</label>
-      </div>
-      <span *ngIf="validateField('email')">Email is required</span>
-
-      <!------------------------------------------------------------------------------------------------->
-      <div class="input-field">
-        <div style="display: flex; justify-content: space-between">
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
           <input
-            type="password"
-            name="password"
-            formControlName="password"
+            type="text"
+            name="name"
+            autocomplete="off"
+            formControlName="name"
             required
-            #passwordInput
           />
-          <label>Password</label>
-
-          <img
-            src="assets/eye-off.svg"
-            style="filter: invert(100%); cursor: pointer"
-            (click)="togglePasswordVisibility(passwordInput)"
-            [hidden]="showPassword"
-          />
-          <img
-            src="assets/eye.svg"
-            style="filter: invert(100%); cursor: pointer"
-            (click)="togglePasswordVisibility(passwordInput)"
-            [hidden]="!showPassword"
-          />
+          <label>Name</label>
         </div>
-      </div>
-      <span *ngIf="validateField('password')"
-        >Password should be at least 8 characters long</span
-      >
+        <span *ngIf="validateField('name')"
+          >Name should be at least 5 characters long</span
+        >
 
-      <!------------------------------------------------------------------------------------------------->
-      <div class="input-field">
-        <div style="display: flex; justify-content: space-between">
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
           <input
-            type="password"
-            name="confirmPassword"
-            formControlName="confirmPassword"
+            type="text"
+            name="email"
+            autocomplete="off"
+            formControlName="email"
             required
-            #confirmPasswordInput
           />
-          <label>Confirm Password</label>
-
-          <img
-            src="assets/eye-off.svg"
-            style="filter: invert(100%); cursor: pointer"
-            (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
-            [hidden]="showConfirmPassword"
-          />
-          <img
-            src="assets/eye.svg"
-            style="filter: invert(100%); cursor: pointer"
-            (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
-            [hidden]="!showConfirmPassword"
-          />
+          <label>Email</label>
         </div>
-      </div>
-      <span
-        *ngIf="
-          validateField('confirmPassword') &&
-          signUpForm.get('confirmPassword').errors?.required
-        "
-      >
-        Confirm Password is required
-      </span>
-      <span
-        *ngIf="
-          signUpForm.get('confirmPassword').value !==
-          signUpForm.get('password').value
-        "
-      >
-        Passwords don't match
-      </span>
-      <!------------------------------------------------------------------------------------------------->
-      <button class="btn" type="submit">Sign Up</button>
+        <span *ngIf="validateField('email')">Email is required</span>
 
-      <div class="form-footer">
-        <p>Already have an account? <a href="/sign-in">Login</a></p>
-      </div>
-    </form>
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <div style="display: flex; justify-content: space-between">
+            <input
+              type="password"
+              name="password"
+              formControlName="password"
+              required
+              #passwordInput
+            />
+            <label>Password</label>
+
+            <img
+              src="assets/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+              [hidden]="showPassword"
+            />
+            <img
+              src="assets/eye.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+              [hidden]="!showPassword"
+            />
+          </div>
+        </div>
+        <span *ngIf="validateField('password')"
+          >Password should be at least 8 characters long</span
+        >
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <div style="display: flex; justify-content: space-between">
+            <input
+              type="password"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+              required
+              #confirmPasswordInput
+            />
+            <label>Confirm Password</label>
+
+            <img
+              src="assets/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
+              [hidden]="showConfirmPassword"
+            />
+            <img
+              src="assets/eye.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
+              [hidden]="!showConfirmPassword"
+            />
+          </div>
+        </div>
+        <span
+          *ngIf="
+            validateField('confirmPassword') &&
+            signUpForm.get('confirmPassword').errors?.required
+          "
+        >
+          Confirm Password is required
+        </span>
+        <span
+          *ngIf="
+            signUpForm.get('confirmPassword').value !==
+            signUpForm.get('password').value
+          "
+        >
+          Passwords don't match
+        </span>
+        <!------------------------------------------------------------------------------------------------->
+        <button class="btn" type="submit">Sign Up</button>
+
+        <div class="form-footer">
+          <p>Already have an account? <a href="/sign-in">Login</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="intro-container">
+      <img src="assets/intro.svg" alt="intro" width="350" height="350" />
+    </div>
   </div>
 </div>
