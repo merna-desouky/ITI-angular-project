@@ -1,0 +1,136 @@
+<div class="parent">
+  <div class="form-container">
+    <div class="first-column">
+      <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <h1>Create New Account</h1>
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <input
+            type="text"
+            name="name"
+            autocomplete="off"
+            formControlName="name"
+            required
+          />
+          <label>Name</label>
+        </div>
+
+        @if(validateField('name')) {
+        <span>Name should be at least 5 characters long</span>
+        } @else {
+        <span style="visibility: hidden"
+          >Name should be at least 5 characters long</span
+        >
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <input
+            type="text"
+            name="email"
+            autocomplete="off"
+            formControlName="email"
+            required
+          />
+          <label>Email</label>
+        </div>
+
+        @if(validateField('email')) {
+        <span>Email is required</span>
+        } @else {
+        <span style="visibility: hidden">Email is required</span>
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <div style="display: flex; justify-content: space-between">
+            <input
+              type="password"
+              name="password"
+              formControlName="password"
+              required
+              #passwordInput
+            />
+            <label>Password</label>
+
+            <img
+              src="assets/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+              [hidden]="showPassword"
+            />
+            <img
+              src="assets/eye.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+              [hidden]="!showPassword"
+            />
+          </div>
+        </div>
+
+        @if(validateField('password')) {
+        <span>Password should be at least 8 characters long</span>
+        } @else {
+        <span style="visibility: hidden"
+          >Password should be at least 8 characters long</span
+        >
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <div style="display: flex; justify-content: space-between">
+            <input
+              type="password"
+              name="confirmPassword"
+              formControlName="confirmPassword"
+              required
+              #confirmPasswordInput
+            />
+            <label>Confirm Password</label>
+
+            <img
+              src="assets/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
+              [hidden]="showConfirmPassword"
+            />
+            <img
+              src="assets/eye.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
+              [hidden]="!showConfirmPassword"
+            />
+          </div>
+        </div>
+
+        @if(validateField('confirmPassword') &&
+        signUpForm.get('confirmPassword').errors?.required) {
+        <span>Confirm Password is required</span>
+        } @else {
+        <span style="visibility: hidden">Confirm Password is required</span>
+        } @if(signUpForm.get('confirmPassword').value !==
+        signUpForm.get('password').value) {
+        <span>Passwords don't match</span>
+        } @else {
+        <span style="visibility: hidden">Passwords don't match</span>
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <button class="btn" type="submit">Sign Up</button>
+
+        <div class="form-footer">
+          <p>Already have an account? <a routerLink="/sign-in">Login</a></p>
+        </div>
+      </form>
+    </div>
+
+    <div class="second-column">
+      <img src="assets/sign-up-img.svg" class="intro-img" alt="intro" />
+
+      <!-- <div class="intro-text">
+        <h1>I-WATCH</h1>
+      </div> -->
+    </div>
+  </div>
+</div>
