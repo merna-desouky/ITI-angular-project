@@ -29,12 +29,17 @@ export class CarouselComponent {
       },
       {
         breakpoint: '991px',
-        numVisible: 4,
+        numVisible: 3,
         numScroll: 1
       },
       {
         breakpoint: '767px',
-        numVisible: 3,
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '600px',
+        numVisible: 1,
         numScroll: 1
       }
     ];
