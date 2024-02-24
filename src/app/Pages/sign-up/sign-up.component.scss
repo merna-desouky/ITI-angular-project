@@ -40,7 +40,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.input-field + span {
+.input-field ~ span {
   display: block;
   color: #ff6666;
   font-weight: 600;
@@ -107,8 +107,4 @@ h1 {
 .form-footer {
   font-size: 1.4rem;
   margin-top: 28px;
-}
-
-.icon-btn {
-  background-color: transparent;
 }

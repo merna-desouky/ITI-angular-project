@@ -3,6 +3,7 @@
     <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
       <h1>Create New Account</h1>
 
+      <!------------------------------------------------------------------------------------------------->
       <div class="input-field">
         <input
           type="text"
@@ -17,6 +18,7 @@
         >Name should be at least 5 characters long</span
       >
 
+      <!------------------------------------------------------------------------------------------------->
       <div class="input-field">
         <input
           type="text"
@@ -29,6 +31,7 @@
       </div>
       <span *ngIf="validateField('email')">Email is required</span>
 
+      <!------------------------------------------------------------------------------------------------->
       <div class="input-field">
         <div style="display: flex; justify-content: space-between">
           <input
@@ -58,6 +61,7 @@
         >Password should be at least 8 characters long</span
       >
 
+      <!------------------------------------------------------------------------------------------------->
       <div class="input-field">
         <div style="display: flex; justify-content: space-between">
           <input
@@ -83,16 +87,23 @@
           />
         </div>
       </div>
-      <span *ngIf="validateField('confirmPassword')">
-        <span *ngIf="signUpForm.get('confirmPassword').errors.required">
-          Confirm Password is required
-        </span>
-
-        <span *ngIf="signUpForm.get('confirmPassword').errors.passwordMatch">
-          Passwords do not match
-        </span>
+      <span
+        *ngIf="
+          validateField('confirmPassword') &&
+          signUpForm.get('confirmPassword').errors?.required
+        "
+      >
+        Confirm Password is required
       </span>
-
+      <span
+        *ngIf="
+          signUpForm.get('confirmPassword').value !==
+          signUpForm.get('password').value
+        "
+      >
+        Passwords don't match
+      </span>
+      <!------------------------------------------------------------------------------------------------->
       <button class="btn" type="submit">Sign Up</button>
 
       <div class="form-footer">

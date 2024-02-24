@@ -34,23 +34,25 @@ export class SignUpComponent {
     }),
   });
 
-  constructor() {
-    this.signUpForm
-      .get('confirmPassword')
-      ?.setValidators(this.passwordMatch.bind(this));
-  }
+  // constructor() {
+  //   this.signUpForm
+  //     .get('confirmPassword')
+  //     ?.setValidators(this.passwordMatch.bind(this));
+  // }
 
   // Custom validator to check if password and confirm password match
-  passwordMatch(control: AbstractControl): ValidationErrors | null {
-    const password = this.signUpForm.get('password')?.value;
-    const confirmPassword = control.value;
-    return password !== confirmPassword ? null : { passwordMatch: true };
-  }
+  // passwordMatch(control: AbstractControl): ValidationErrors | null {
+  //   const password = this.signUpForm.get('password')?.value;
+  //   const confirmPassword = control.value;
+  //   return password !== confirmPassword ? null : { passwordMatch: true };
+  // }
 
   validateField(fieldName: string): boolean | undefined {
     const field = this.signUpForm.get(fieldName);
     return field?.invalid && field?.touched;
   }
+
+  /////////////////////////////////////////////////////////////////////////
 
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
@@ -66,11 +68,15 @@ export class SignUpComponent {
   }
 
   onSubmit() {
-    console.log(this.signUpForm);
-    console.log(this.passwordMatch(this.signUpForm.get('confirmPassword')));
-    this.validateField('name');
-    this.validateField('email');
-    this.validateField('password');
-    this.validateField('confirmPassword');
+    if (
+      this.signUpForm.valid &&
+      this.signUpForm.get('password')?.value ===
+        this.signUpForm.get('confirmPassword')?.value
+    ) {
+      console.log(this.signUpForm);
+    } else {
+      // Mark all form controls as touched to trigger error message display
+      this.signUpForm.markAllAsTouched();
+    }
   }
 }
