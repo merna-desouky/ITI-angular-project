@@ -3,6 +3,34 @@
     <div class="col-1"></div>
     <div class="col-22">
       <!-- Home Content Goes Here-->
+      <!-- Start of movies card -->
+      <div class="moviesCards">
+        <div class="row">
+          <div class="col-24">
+            <div class="movies-title">
+              <h3>Movies</h3>
+              <app-filter></app-filter>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          @for (movie of movies?.slice(5,15); track movie.id) {
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <app-movies-cards [movie]="movie"></app-movies-cards>
+          </div>
+          }
+        </div>
+      </div>
+      <div class="moviesCarousel">
+        <div class="row">
+          <div class="col-24">
+            <app-carousel [movies]="movies"></app-carousel>
+          </div>
+        </div>
+      </div>
+
+      <!-- End of movies card -->
     <app-footer></app-footer>
     </div>
     <div class="col-1"></div>

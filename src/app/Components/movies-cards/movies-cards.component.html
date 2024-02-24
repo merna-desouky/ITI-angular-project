@@ -1,0 +1,23 @@
+@if (movie) {
+
+<div class="cards cards--one">
+  <div>
+    <img
+      src="{{ movie.posterURL }}"
+      class="img-responsive myimg"
+      alt="Cards Image"
+    />
+    <div class="desc">
+      <div class="name">{{ movie.title }}</div>
+      <div class="imdb">{{ movie.imdbId }}</div>
+      <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
+    </div>
+  </div>
+
+  <span class="cards--one__rect"></span>
+  <span class="cards--one__tri"></span>
+  <button class="watch-btn">Watch Now!</button>
+</div>
+}@else {
+<div>loading</div>
+}
