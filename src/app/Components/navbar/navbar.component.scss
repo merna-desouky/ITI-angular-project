@@ -1,16 +1,29 @@
 nav {
   display: grid;
-  grid-template-columns: 37% 33% 20%;
+  grid-template-columns: repeat(3, auto);
   align-items: center;
   justify-content: space-between;
   gap: 20px;
   margin: 22px 60px 0 60px;
-  width: 1390px;
+  width: 92%;
   background-color: transparent;
 
   // To make the navbar above image layer
   position: absolute;
   z-index: 100;
+}
+
+@media (max-width: 1200px) {
+  // nav {
+  //   grid-template-columns: repeat(2, 1fr) 20%;
+  // }
+}
+
+@media (max-width: 768px) {
+  nav {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
 }
 
 .logo-container {
@@ -48,7 +61,7 @@ nav {
 .logo {
   font-size: 3rem;
   font-weight: 800;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   color: var(--color-var3);
 }
 
