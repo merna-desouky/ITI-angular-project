@@ -20,6 +20,7 @@
     "@angular/router": "^17.2.2",
     "@auth0/angular-jwt": "^5.2.0",
     "bootstrap": "^5.3.3",
+    "primeicons": "^6.0.1",
     "jsonwebtoken": "^9.0.2",
     "jwt-decode": "^4.0.0",
     "rxjs": "^6.6.7",
