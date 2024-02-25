@@ -17,12 +17,46 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Martel Sans", Helvetica Neue, Segoe UI, Roboto, sans-serif;
   background-color: var(--color-var1);
   color: var(--color-var2);
+}
+
+.primary-btn {
+  background-color: var(--color-var3);
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+  background-color: var(--color-var4);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background-color: var(--color-var2);
+  color: var(--color-var1);
+  border: 1px solid var(--color-var1);
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background-color: var(--color-var1);
+  color: var(--color-var2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
 }
 
 .col-1 {

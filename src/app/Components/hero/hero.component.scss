@@ -6,6 +6,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-image: url("/assets/hero.jpg");
+  display: grid;
+  place-items: center;
 }
 
 .bg-img::after {
@@ -20,10 +22,50 @@
 }
 
 .content {
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  z-index: 2;
-  margin: 0 60px;
-  width: 1390px;
+  z-index: 50;
+  width: 40%;
+  text-align: center;
+}
+
+a {
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  min-height: 4.4rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  text-decoration: none;
+}
+
+a:hover {
+  transform: translateY(-2px);
+}
+
+h1 {
+  font-family: "Allura", cursive;
+  font-size: 16rem;
+  text-align: center;
+}
+
+p {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3.6rem;
+}
+
+span {
+  color: var(--color-var3);
+  font-weight: 800;
 }

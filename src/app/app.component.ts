@@ -29,7 +29,8 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
-        this.hideNavbar = currentRoute !== '/' && currentRoute !== '/movie/:id';
+        this.hideNavbar =
+          currentRoute === '/sign-up' || currentRoute === '/sign-in';
       }
     });
   }

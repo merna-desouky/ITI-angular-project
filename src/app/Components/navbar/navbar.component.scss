@@ -6,6 +6,11 @@ nav {
   gap: 20px;
   margin: 22px 60px 0 60px;
   width: 1390px;
+  background-color: transparent;
+
+  // To make the navbar above image layer
+  position: absolute;
+  z-index: 100;
 }
 
 .logo-container {
@@ -90,4 +95,26 @@ nav {
 
 .btns {
   justify-self: end;
+}
+
+button {
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0.5rem 10px;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 }
