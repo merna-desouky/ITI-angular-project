@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 import { FooterComponent } from "./Components/footer/footer.component";
@@ -12,4 +12,5 @@ import { FooterComponent } from "./Components/footer/footer.component";
 })
 export class AppComponent {
   title = 'IWatch';
+
 }
