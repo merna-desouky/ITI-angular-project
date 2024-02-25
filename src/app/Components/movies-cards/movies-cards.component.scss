@@ -29,7 +29,10 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     width: 100%;
-    height: 380px;
+    height: 250px;
+    @media (max-width: "430px") {
+      height: 340px;
+    }
   }
   .desc {
     padding: 15px;
@@ -65,7 +68,7 @@
 
   &:hover {
     button {
-      left: 8%;
+      left: 5%;
     }
 
     img {
@@ -78,11 +81,26 @@
       &:before {
         transform: translateY(15px);
       }
-      @media (max-width: "1322px") {
-        top: 85%;
+      @media (max-width: "1390px") {
+        top: 69%;
       }
-      @media (max-width: "990px") {
-        top: 68%;
+      @media (max-width: "1175px") {
+        top: 64%;
+      }
+      @media (max-width: "960px") {
+        top: 78%;
+      }
+      @media (max-width: "770px") {
+        top: 60%;
+      }
+      @media (max-width: "665px") {
+        top: 75%;
+      }
+      @media (max-width: "565px") {
+        top: 83%;
+      }
+      @media (max-width: "430px") {
+        top: 61%;
       }
     }
 
@@ -91,16 +109,31 @@
     }
 
     .cards--one__tri {
-      right: -40%;
+      right: -80%;
 
       &:before {
         right: -312px;
       }
-      @media (max-width: "1322px") {
+      @media (max-width: "1390px") {
         right: -78%;
       }
-      @media (max-width: "990px") {
+      @media (max-width: "1175px") {
         right: -46%;
+      }
+      @media (max-width: "960px") {
+        right: -76%;
+      }
+      @media (max-width: "770px") {
+        right: -65%;
+      }
+      @media (max-width: "665px") {
+        right: -80%;
+      }
+      @media (max-width: "565px") {
+        right: -106%;
+      }
+      @media (max-width: "430px") {
+        right: -56%;
       }
     }
   }
@@ -116,8 +149,8 @@
     opacity: 0.9;
     position: absolute;
     display: block;
-    top: 0;
-    right: -105%;
+    top: -95px;
+    right: -132%;
     transition: all 0.3s ease-in-out;
 
     &:before {
@@ -133,7 +166,7 @@
       transition-delay: 0.2s;
     }
     @media (max-width: "1322px") {
-      right: -143%;
+      right: -180%;
     }
   }
 
@@ -144,7 +177,7 @@
     display: block;
     position: absolute;
     top: 175%;
-    left: -78%;
+    left: -107%;
     transform: rotate(30deg);
     z-index: 5;
     opacity: 0.9;
