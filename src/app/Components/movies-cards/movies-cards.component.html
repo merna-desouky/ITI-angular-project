@@ -1,15 +1,15 @@
 @if (movie) {
 
-<div class="cards cards--one">
+<div class="cards cards--one" routerLink="movie/{{ movie.id }}">
   <div>
     <img
-      src="{{ movie.posterURL }}"
+      src="{{ movie.Poster }}"
       class="img-responsive myimg"
       alt="Cards Image"
     />
     <div class="desc">
-      <div class="name">{{ movie.title }}</div>
-      <div class="imdb">{{ movie.imdbId }}</div>
+      <div class="name">{{ movie.Title }}</div>
+      <div class="imdb">{{ movie.Genre }}</div>
       <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
     </div>
   </div>

@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class MoviesService {
-  private readonly URL_DB = "https://api.sampleapis.com/movies/comedy"
+  private readonly URL_DB = "http://localhost:3000/movies"
 
   constructor(private readonly myClient: HttpClient) { }
   getAllMovies() {
