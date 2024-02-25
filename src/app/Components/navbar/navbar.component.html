@@ -1,6 +1,6 @@
 <div class="col-1"></div>
 <div class="col-22">
-  <nav>
+  <nav [ngClass]="{ 'home-page': isHomePage }">
     <div class="logo-container">
       <p class="logo"><span>I</span>Watch</p>
 
@@ -12,7 +12,7 @@
 
     <div class="links">
       <a routerLink="/">Home</a>
-      <a routerLink="/">Trending</a>
+      <a href="#Trending">Trending</a>
       <a routerLink="/">Cart</a>
     </div>
 
