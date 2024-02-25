@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 
@@ -11,4 +11,5 @@ import { HomeComponent } from './Pages/home/home.component';
 })
 export class AppComponent {
   title = 'IWatch';
+
 }
