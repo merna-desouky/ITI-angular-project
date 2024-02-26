@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (
         this.router.url === '/' ||
-        this.router.url === '/home' ||
         this.router.url === '/#Movies' ||
         this.router.url === '/#Trending'
       ) {

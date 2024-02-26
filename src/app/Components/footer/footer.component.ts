@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
+  imports: [ToastModule],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.scss'
+  styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  showToast: boolean = false;
 
+  showBottomRight() {
+    this.showToast = true;
+    setTimeout(() => {
+      this.showToast = false;
+    }, 3000);
+  }
 }

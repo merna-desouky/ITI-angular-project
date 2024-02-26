@@ -69,3 +69,17 @@ span {
   color: var(--color-var3);
   font-weight: 800;
 }
+
+@media (max-width: 768px) {
+  .content {
+    width: 80%;
+  }
+
+  h1 {
+    font-size: 10rem;
+  }
+
+  p {
+    font-size: 1.6rem;
+  }
+}
