@@ -104,6 +104,7 @@
           style="margin-top: -60px"
         />
       </div>
+
       } @if(paymentOption === 'credit'){
       <div class="paypal" style="display: flex; justify-content: center">
         <img
@@ -119,27 +120,15 @@
         <input
           type="tel"
           inputmode="numeric"
-          pattern="[0-9\s]{13,19}"
           maxlength="19"
           placeholder="xxxx xxxx xxxx xxxx"
         />
         <input type="text" placeholder="Name on Card" class="input" />
 
         <div style="display: flex; gap: 30px; justify-content: space-between">
-          <input
-            type="text"
-            placeholder="CVV"
-            class="input"
-            pattern="\d{3}"
-            maxlength="3"
-          />
+          <input type="text" placeholder="CVV" class="input" maxlength="3" />
 
-          <input
-            type="text"
-            placeholder="Expiry Date"
-            class="input"
-            pattern="(0[1-9]|1[0-2])\/\d{2}"
-          />
+          <input type="text" placeholder="Expiry Date" class="input" />
         </div>
       </div>
       }
