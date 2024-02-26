@@ -38,9 +38,14 @@ li {
   background-color: #e50914;
 }
 
+.children {
+  filter: drop-shadow(0 0 0.75rem rgb(22, 22, 22));
+}
+
 .btn-test:hover {
   background-color: var(--color-var4);
 }
+
 input[type="checkbox"] {
   accent-color: var(--color-var3);
 }
