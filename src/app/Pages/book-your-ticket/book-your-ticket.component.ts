@@ -27,10 +27,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 })
 export class BookYourTicketComponent {
   value = 4;
-  totalPrice=0;
-  takenSeats:{}[]=[];
-  tickets:number=0;
-  rows:string='';
+  totalPrice = 0;
+  takenSeats: {}[] = [];
+  tickets: number = 0;
+  rows: string = '';
   firstRow = [
     { num: 1, isTaken: false, row: 1 },
     { num: 2, isTaken: false, row: 1 },
@@ -190,15 +190,21 @@ export class BookYourTicketComponent {
     res.push(date.toString().split(' ')[3]);
     this.choosenDateForDisplay = res.join(' ');
   }
-  getSeat(seat:any){
+
+  
+
+  
+  getSeat(seat: any, eve: any) {
     //check if the seat is taken
+    console.log(eve.target);
+
+    // this.isTakenByUser=true;
     if (!seat.isTaken) {
       seat.isTaken = true;
       this.takenSeats.push(seat);
-      this.totalPrice+=100
+      this.totalPrice += 100;
     }
-    console.log(this.takenSeats);
-    this.tickets=this.tickets+1;
-    this.rows+=''+seat.row+','
+    this.tickets = this.tickets + 1;
+    this.rows += '' + seat.row + ',';
   }
 }

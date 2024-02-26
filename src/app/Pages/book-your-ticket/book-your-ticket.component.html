@@ -112,7 +112,7 @@
               <div class="seats">
                 <div class="row-seats-1 d-flex">
                   @for (seat of firstRow; track firstRow) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -122,7 +122,7 @@
                 <div class="row-seats-2 d-flex">
                   @for (seat of secondRow; track secondRow) {
                   @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -131,7 +131,7 @@
                 </div>
                 <div class="row-seats-3 d-flex">
                   @for (seat of thirdRow; track thirdRow) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -141,7 +141,7 @@
                 <div class="row-seats-4 d-flex">
                   @for (seat of fourthRow; track fourthRow) {
                   @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -150,7 +150,7 @@
                 </div>
                 <div class="row-seats-5 d-flex">
                   @for (seat of fifthRow; track fifthRow) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -158,8 +158,8 @@
                   } }
                 </div>
                 <div class="row-seats-6 d-flex">
-                  @for (seat of sixth; track sixth) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  @for (seat of sixth; track sixth;let i = $index) { @if(!seat.isTaken){
+                  <div class="seat text-center"    (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -168,7 +168,7 @@
                 </div>
                 <div class="row-seats-7 d-flex">
                   @for (seat of siventh; track siventh) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
@@ -177,7 +177,7 @@
                 </div>
                 <div class="row-seats-8 d-flex">
                   @for (seat of eight; track eight) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat)">
+                  <div class="seat text-center" (click)="getSeat(seat,$event)">
                     {{ seat.num }}
                   </div>
                   } @if(seat.isTaken){
