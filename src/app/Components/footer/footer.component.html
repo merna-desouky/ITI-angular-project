@@ -7,7 +7,13 @@
         <p>Book now for an unforgettable movie experience</p>
         <p>Your ticket to cinematic delight awaits !</p>
 
-        <img class="glasses" src="/assets/3d.png" alt="3d" width="400" height="200" />
+        <img
+          class="glasses"
+          src="/assets/3d.png"
+          alt="3d"
+          width="400"
+          height="200"
+        />
       </div>
     </div>
     <div class="col-24 col-md-11 mt-sm-4 d-flex justify-content-center">
@@ -79,7 +85,19 @@
           >I would like to receive emails from iWatch:</label
         >
       </div>
-      <button class="btn-test py-2 px-3 text-white">Subscribe</button>
+
+      <button
+        class="btn-test py-2 px-3 text-white"
+        pButton
+        pRipple
+        (click)="showBottomRight()"
+      >
+        Subscribe
+      </button>
+
+      <!-- @if(showToast) {
+        <p-toast position="bottom-right" key="br"></p-toast>
+      } -->
     </div>
   </div>
 
@@ -110,5 +128,29 @@
       </div>
     </div>
     <div class="col-8"></div>
+  </div>
+
+  <!-- Bootstrap Toast -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div
+      id="liveToast"
+      class="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+    >
+      <div class="toast-header">
+        <img src="..." class="rounded me-2" alt="..." />
+        <strong class="me-auto">Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="toast-body">Hello, world! This is a toast message.</div>
+    </div>
   </div>
 </div>

@@ -15,19 +15,6 @@ nav {
   z-index: 100;
 }
 
-@media (max-width: 1200px) {
-  // nav {
-  //   grid-template-columns: repeat(2, 1fr) 20%;
-  // }
-}
-
-@media (max-width: 768px) {
-  nav {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-}
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -92,7 +79,7 @@ nav {
 
 .search-box:hover input,
 .search-box input:not(:placeholder-shown) {
-  width: 250px;
+  width: 220px;
   font-size: 1.3rem;
 }
 
@@ -133,4 +120,83 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+}
+
+@media (max-width: 1224px) {
+  nav {
+    margin: 22px 40px 0 40px;
+  }
+
+  .search-box:hover input,
+  .search-box input:not(:placeholder-shown) {
+    width: 130px;
+  }
+
+  .search-box {
+    margin-left: 1rem;
+  }
+
+  .links {
+    width: 30%;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .btns button {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  nav {
+    margin: 22px 20px 0 20px;
+  }
+
+  .search-box:hover input,
+  .search-box input:not(:placeholder-shown) {
+    width: 100px;
+  }
+
+  .links {
+    width: 40%;
+    gap: 20px;
+  }
+
+  .btns button {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    margin: 22px 10px 0 10px;
+  }
+
+  .search-box {
+    margin-left: 0.5rem;
+  }
+
+  .search-box:hover input,
+  .search-box input:not(:placeholder-shown) {
+    width: 80px;
+  }
+
+  .links {
+    width: 50%;
+    gap: 10px;
+  }
+
+  .links a {
+    font-size: 1.5rem;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+
+  .btns button {
+    font-size: 10px;
+  }
 }
