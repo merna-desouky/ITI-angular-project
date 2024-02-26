@@ -190,16 +190,13 @@ export class BookYourTicketComponent {
     res.push(date.toString().split(' ')[3]);
     this.choosenDateForDisplay = res.join(' ');
   }
-
-  
-
-  
-  getSeat(seat: any, eve: any) {
+  getSeat(seat: any, eve: any, i?: any) {
     //check if the seat is taken
-    console.log(eve.target);
+    // console.log(eve.target);
 
     // this.isTakenByUser=true;
     if (!seat.isTaken) {
+
       seat.isTaken = true;
       this.takenSeats.push(seat);
       this.totalPrice += 100;

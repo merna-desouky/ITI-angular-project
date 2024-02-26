@@ -475,30 +475,118 @@ body {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: #4a4a4a !important;
-  
 }
-
 
 // done
-.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label--float-above{
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-floating-label--float-above {
   color: white !important;
   font-size: smaller;
 }
-.mdc-text-field__input{
+.mdc-text-field__input {
   color: white !important;
   font-size: smaller;
 }
-.mdc-text-field__input option{
+.mdc-text-field__input option {
   color: black !important;
   font-size: smaller;
 }
-.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label, .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label--float-above {
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-floating-label--float-above {
   color: white !important;
   font-size: smaller;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 25% !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 25% !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 180px !important;
+    margin-right: 5px;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100% !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}

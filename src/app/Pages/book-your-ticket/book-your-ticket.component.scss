@@ -39,6 +39,25 @@
 .seats div{
   margin-top: 5px;
 }
+
+.checkout-container{
+  font-size: 20px;
+  font-weight: 400;
+  padding:10px;
+  background-color: #323232;
+  border-radius: 10px;
+}
+.checkout{
+  background-color: #ca0913;
+  text-align: center;
+  color:white;
+  border-radius: 8px;
+ 
+}
+.checkout:hover{
+  background-color: #b81d24;
+}
+
 .seat{
   width:40px;
   height:40px;
@@ -65,28 +84,64 @@
   border-radius: 5px;
 
 }
-.checkout-container{
-  font-size: 20px;
-  font-weight: 400;
-  padding:10px;
-  background-color: #323232;
-  border-radius: 10px;
+
+
+// Extra Small
+@media only screen and (max-width: 600px) {
+  .seat{
+    width:22px;
+    height:22px;
+  }
+  .takenSeat{
+    width:22px;
+    height:22px;
+  }
+  
 }
-.checkout{
-  background-color: #ca0913;
-  text-align: center;
-  color:white;
-  border-radius: 8px;
- 
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .seat{
+    width:22px;
+    height:22px;
+  }
+  .takenSeat{
+    width:22px;
+    height:22px;
+  }
 }
-.checkout:hover{
-  background-color: #b81d24;
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .seat{
+    width:30px;
+    height:30px;
+  }
+  .takenSeat{
+    width:30px;
+    height:30px;
+  }
 }
-.test{
-    background-color: red;
-  color: gray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .seat{
+    width:40px;
+    height:40px;
+  }
+  .takenSeat{
+    width:40px;
+    height:40px;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .seat{
+    width:40px;
+    height:40px;
+  }
+  .takenSeat{
+    width:40px;
+    height:40px;
+  }
 }
