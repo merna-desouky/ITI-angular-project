@@ -22,6 +22,7 @@ export class AppComponent implements OnInit {
   title = 'IWatch';
 
   hideNavbar: boolean = false;
+  hideFooter: boolean = false;
 
   constructor(private router: Router) {}
 
@@ -30,6 +31,9 @@ export class AppComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
         this.hideNavbar =
+          currentRoute === '/sign-up' || currentRoute === '/sign-in';
+
+        this.hideFooter =
           currentRoute === '/sign-up' || currentRoute === '/sign-in';
       }
     });
