@@ -9,7 +9,6 @@ import {
   Validators,
   FormsModule,
 } from '@angular/forms';
-// import { Movie } from '../../Utils/Movie';
 
 @Component({
   selector: 'app-checkout',
@@ -22,11 +21,13 @@ import {
 export class CheckoutComponent implements OnInit {
   // Data will be fetched from the query string + service
 
-  movies: any[] = []; // Changed to any[] instead of []
-
+  // Dummy data
+  movies: any[] = [];
   checkoutMoviesIds: number[] = [2, 3];
 
   paymentOption: string = '';
+
+  testID = 1;
 
   constructor(private moviesService: MoviesService) {}
 
@@ -37,11 +38,11 @@ export class CheckoutComponent implements OnInit {
   private loadDummyMovies(): void {
     this.checkoutMoviesIds.forEach((id) => {
       this.moviesService.getMovieById(id).subscribe({
-        next: (data) => {
+        next: (data: any) => {
           const checkoutMovie = {
             id: data.id,
-            imgSrc: data.Poster,
-            movieName: data.Title,
+            Poster: data.Poster,
+            Title: data.Title,
             totalSeats: 5,
             totalPrice: 500,
           };

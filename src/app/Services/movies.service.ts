@@ -9,9 +9,12 @@ export class MoviesService {
   private readonly URL_DB = 'http://localhost:3000/movies';
 
   constructor(private readonly myClient: HttpClient) {}
+
   getAllMovies() {
     return this.myClient.get(this.URL_DB);
   }
+
+  // (pipe & map) are both operators provided by the RxJS library for processing observable sequences.
   getMovieById(movieId: number) {
     return this.getAllMovies().pipe(
       map((movies: any) => movies.find((movie: any) => movie.id === movieId))
