@@ -1,3 +1,5 @@
+<app-hero></app-hero>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-1"></div>
@@ -7,7 +9,7 @@
       <div class="moviesCards">
         <div class="row">
           <div class="col-24">
-            <div class="movies-title">
+            <div class="movies-title" id="Movies">
               <h3>Movies</h3>
               <app-filter></app-filter>
             </div>
@@ -16,7 +18,7 @@
 
         <div class="row">
           <div class="wrapper">
-            @for (movie of movies?.slice(5,15); track movie.id) {
+            @for (movie of movies?.slice(1,27); track movie.id) {
             <app-movies-cards [movie]="movie"></app-movies-cards>
             }
           </div>

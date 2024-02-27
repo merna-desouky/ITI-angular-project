@@ -1,15 +1,16 @@
 @if (movie) {
 
-<div class="cards cards--one">
+<div class="cards cards--one" routerLink="movie/{{ movie.id }}">
   <div>
     <img
-      src="{{ movie.posterURL }}"
+      src="{{ movie.Poster }}"
       class="img-responsive myimg"
       alt="Cards Image"
+      loading="lazy"
     />
     <div class="desc">
-      <div class="name">{{ movie.title }}</div>
-      <div class="imdb">{{ movie.imdbId }}</div>
+      <div class="name">{{ movie.Title }}</div>
+      <div class="imdb">{{ movie.Genre }}</div>
       <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
     </div>
   </div>
@@ -19,5 +20,11 @@
   <button class="watch-btn">Watch Now!</button>
 </div>
 }@else {
-<div>loading</div>
+<div
+  class="spinner-border text-danger"
+  style="width: 3rem; height: 3rem"
+  role="status"
+>
+  <span class="visually-hidden">Loading...</span>
+</div>
 }

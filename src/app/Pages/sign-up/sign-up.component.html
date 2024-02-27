@@ -2,6 +2,10 @@
   <div class="form-container">
     <div class="first-column">
       <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="logo">
+          <img src="/assets/logo.png" alt="logo" width="130" height="130" />
+        </div>
+
         <h1>Create New Account</h1>
 
         <!------------------------------------------------------------------------------------------------->
@@ -127,10 +131,6 @@
 
     <div class="second-column">
       <img src="assets/sign-up-img.svg" class="intro-img" alt="intro" />
-
-      <!-- <div class="intro-text">
-        <h1>I-WATCH</h1>
-      </div> -->
     </div>
   </div>
 </div>
