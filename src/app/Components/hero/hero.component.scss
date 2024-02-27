@@ -1,7 +1,7 @@
 .bg-img {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -16,7 +16,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.65);
   z-index: 1;
 }
@@ -68,18 +68,4 @@ p {
 span {
   color: var(--color-var3);
   font-weight: 800;
-}
-
-@media (max-width: 768px) {
-  .content {
-    width: 80%;
-  }
-
-  h1 {
-    font-size: 10rem;
-  }
-
-  p {
-    font-size: 1.6rem;
-  }
 }
