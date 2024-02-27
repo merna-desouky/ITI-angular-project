@@ -50,10 +50,15 @@ input[type="checkbox"] {
   accent-color: var(--color-var3);
 }
 
+.glasses {
+  width: 400px;
+  height: 200px;
+}
+
 @media (max-width: 768px) {
   .glasses {
     margin: 4rem auto;
-    width: 200;
-    height: 100;
+    width: 200px;
+    height: 100px;
   }
 }
