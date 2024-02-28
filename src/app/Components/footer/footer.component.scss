@@ -71,7 +71,19 @@ input[type="checkbox"] {
   padding: 20px;
   margin-bottom: 10px;
   display: flex;
+
+  svg {
+    fill: var(--color-var2) !important;
+    color: var(--color-var2) !important;
+  }
 }
-.p-toast-icon-close {
-  color: #2d313c;
+
+.disabled-button {
+  background-color: #727272;
+  color: #ccc;
+  cursor: not-allowed;
 }
+
+// .p-toast-icon-close-icon {
+//   margin-top: 12px;
+// }
