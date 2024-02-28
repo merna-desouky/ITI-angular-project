@@ -28,6 +28,56 @@
   }
 }
 
+.empty-cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h3 {
+    font-size: 4rem;
+    margin: 20px;
+  }
+
+  @media (max-width: 768px) {
+    h3 {
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
+
+  button {
+    align-items: center;
+    justify-content: center;
+    background-clip: padding-box;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25;
+    min-height: 4.4rem;
+    padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+    position: relative;
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+      color: var(--color-var2);
+    }
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+  }
+}
+
 .payment {
   background-color: #14141a;
   padding: 20px;

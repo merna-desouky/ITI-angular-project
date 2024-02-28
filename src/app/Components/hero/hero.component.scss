@@ -30,7 +30,7 @@
   text-align: center;
 }
 
-a {
+button {
   align-items: center;
   justify-content: center;
   background-clip: padding-box;
@@ -52,8 +52,13 @@ a {
   text-decoration: none;
 }
 
-a:hover {
+button:hover {
   transform: translateY(-2px);
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-var2);
 }
 
 h1 {
