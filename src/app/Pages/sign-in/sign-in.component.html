@@ -1,0 +1,87 @@
+<div class="parent">
+  <div class="form-container">
+    <div class="first-column">
+      <img src="/assets/svg/sign-in-img.svg" class="intro-img" alt="intro" />
+
+      <!-- <div class="intro-text">
+        <h1>I-WATCH</h1>
+      </div> -->
+    </div>
+
+    <div class="second-column">
+      <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+        <div class="logo">
+          <img
+            src="/assets/images/logo.png"
+            alt="logo"
+            width="130"
+            height="130"
+          />
+        </div>
+
+        <h1>Welcome Back</h1>
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <input
+            type="text"
+            name="email"
+            autocomplete="off"
+            formControlName="email"
+            required
+          />
+          <label>Email</label>
+        </div>
+
+        @if(validateField('email')) {
+        <span>Email is required</span>
+        } @else {
+        <span style="visibility: hidden">Email is required</span>
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <div class="input-field">
+          <div style="display: flex; justify-content: space-between">
+            <input
+              type="password"
+              name="password"
+              formControlName="password"
+              required
+              #passwordInput
+            />
+            <label>Password</label>
+
+            @if(showPassword) {
+            <img
+              src="assets/svg/eye.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+            />
+            } @else {
+            <img
+              src="assets/svg/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+            />
+            }
+          </div>
+        </div>
+
+        @if(validateField('password')) {
+        <span>Password should be at least 8 characters long</span>
+        } @else {
+        <span style="visibility: hidden"
+          >Password should be at least 8 characters long</span
+        >
+        }
+
+        <!------------------------------------------------------------------------------------------------->
+        <button class="btn" type="submit">Sign In</button>
+
+        <div class="form-footer">
+          <p>Need an account? <a routerLink="/sign-up">Register</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

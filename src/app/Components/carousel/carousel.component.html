@@ -1,0 +1,26 @@
+<div id="Trending">
+  <h3>Trending</h3>
+
+  <div class="carousel">
+    <p-carousel
+      *ngIf="movies"
+      [value]="movies.slice(28, 38)"
+      [numVisible]="6"
+      [numScroll]="2"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-movie pTemplate="item">
+        <div class="myCardCarousel" [routerLink]="'movie/' + movie.id">
+          <div class="myimg">
+            <img [src]="movie.Poster" class="w-6 shadow-2" />
+          </div>
+          <div class="txt">
+            <div class="title">{{ movie.Title }}</div>
+            <div class="date">{{ movie.Year }}</div>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </div>
+</div>

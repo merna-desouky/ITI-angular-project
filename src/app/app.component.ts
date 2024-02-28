@@ -1,13 +1,41 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
+import { HomeComponent } from './Pages/home/home.component';
+import { FooterComponent } from './Components/footer/footer.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  imports: [
+    RouterOutlet,
+    CommonModule,
+    NavbarComponent,
+    HomeComponent,
+    FooterComponent,
+  ],
 })
-export class AppComponent {
-  title = 'Hamdaaa';
+export class AppComponent implements OnInit {
+  title = 'IWatch';
+
+  hideNavbar: boolean = false;
+  hideFooter: boolean = false;
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = this.router.url;
+        this.hideNavbar =
+          currentRoute === '/sign-up' || currentRoute === '/sign-in';
+
+        this.hideFooter =
+          currentRoute === '/sign-up' || currentRoute === '/sign-in';
+      }
+    });
+  }
 }
