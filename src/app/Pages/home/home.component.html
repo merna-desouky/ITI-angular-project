@@ -11,9 +11,8 @@
           <div class="col-24">
             <div class="movies-title" id="Movies">
               <h3>Movies</h3>
-
-              <div class="filter-container">
-                <app-filter></app-filter>
+             <div class="filter-container">
+              <app-filter (myEvent)="getSelectedCatg($event)"></app-filter>
               </div>
             </div>
           </div>
@@ -21,12 +20,14 @@
 
         <div class="row">
           <div class="wrapper">
-            @for (movie of movies?.slice(1,27); track movie.id) {
+            @for (movie of filterdMovies; track movie.id) {
             <app-movies-cards [movie]="movie"></app-movies-cards>
+
             }
           </div>
         </div>
       </div>
+
       <div class="moviesCarousel">
         <div class="row">
           <div class="col-24">
