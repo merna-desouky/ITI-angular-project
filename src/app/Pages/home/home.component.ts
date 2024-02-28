@@ -7,13 +7,16 @@ import { FilterComponent } from '../../Components/filter/filter.component';
 import { MoviesCardsComponent } from '../../Components/movies-cards/movies-cards.component';
 import { CarouselComponent } from '../../Components/carousel/carousel.component';
 import { HeroComponent } from '../../Components/hero/hero.component';
+
+import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-home',
   standalone: true,
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  providers: [MoviesService],
   imports: [
     NavbarComponent,
     FooterComponent,
@@ -21,12 +24,19 @@ import { CommonModule } from '@angular/common';
     CarouselComponent,
     HttpClientModule,
     FilterComponent,
-    HeroComponent, CommonModule
+    HeroComponent,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    CommonModule
   ],
+  providers: [MoviesService],
   encapsulation: ViewEncapsulation.None,
-
 })
 export class HomeComponent implements OnInit {
+pageChanged($event: number) {
+throw new Error('Method not implemented.');
+}
+  p: number = 1;
   movies: any;
   selectedCatg = "All"
   filterdMovies: any
