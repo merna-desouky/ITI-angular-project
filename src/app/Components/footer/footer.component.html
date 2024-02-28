@@ -73,9 +73,16 @@
         placeholder="Email..."
         required
         style="padding: 3px; outline: none"
+        [(ngModel)]="email"
       />
+
       <div style="display: flex; align-items: center">
-        <input type="checkbox" id="emailC" style="margin-top: 12px" />
+        <input
+          type="checkbox"
+          id="emailC"
+          style="margin-top: 12px"
+          [(ngModel)]="emailChecked"
+        />
         <label for="emailC" class="m-2" style="padding-top: 2.6rem"
           >I would like to receive emails from iWatch:</label
         >
@@ -87,7 +94,8 @@
         pButton
         pRipple
         (click)="showBottomRight()"
-        label="Bottom Right"
+        [disabled]="isButtonDisabled()"
+        [ngClass]="{ 'disabled-button': isButtonDisabled() }"
       >
         Subscribe
       </button>

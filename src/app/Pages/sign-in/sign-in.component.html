@@ -46,18 +46,19 @@
             />
             <label>Password</label>
 
-            <img
-              src="assets/eye-off.svg"
-              style="filter: invert(100%); cursor: pointer"
-              (click)="togglePasswordVisibility(passwordInput)"
-              [hidden]="showPassword"
-            />
+            @if(showPassword) {
             <img
               src="assets/eye.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="togglePasswordVisibility(passwordInput)"
-              [hidden]="!showPassword"
             />
+            } @else {
+            <img
+              src="assets/eye-off.svg"
+              style="filter: invert(100%); cursor: pointer"
+              (click)="togglePasswordVisibility(passwordInput)"
+            />
+            }
           </div>
         </div>
 
