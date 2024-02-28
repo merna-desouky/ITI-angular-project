@@ -10,6 +10,15 @@
       />
       <h2>Cart</h2>
     </div>
+
+    @if(movies.length === 0){
+    <div class="empty-cart">
+      <h3>No Movies in Cart</h3>
+      <button class="primary-btn">
+        <a href="#Movies">Reserve Now</a>
+      </button>
+    </div>
+    } @else {
     <div class="movie-header">
       <h5 class="header">Poster</h5>
       <h5 class="header">Movie</h5>
@@ -46,6 +55,7 @@
       <img src="/assets/back.svg" alt="arrow" style="filter: invert(100%)" />
       <h3>Need More Seats ?</h3>
     </div>
+    }
   </div>
 
   <div class="payment">
@@ -139,3 +149,5 @@
     </div>
   </div>
 </div>
+
+<hr style="color: #ccc; margin: 40px 60px" />

@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-book-your-ticket',
@@ -23,6 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    RouterModule,
   ],
 })
 export class BookYourTicketComponent {
@@ -196,7 +198,6 @@ export class BookYourTicketComponent {
 
     // this.isTakenByUser=true;
     if (!seat.isTaken) {
-
       seat.isTaken = true;
       this.takenSeats.push(seat);
       this.totalPrice += 100;

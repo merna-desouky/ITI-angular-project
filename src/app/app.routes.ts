@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'movie/:id', component: SingleMovieComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'book-ticket', component: BookYourTicketComponent },
+  { path: 'booking', component: BookYourTicketComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: '**', component: ErrorComponent },
 ];
