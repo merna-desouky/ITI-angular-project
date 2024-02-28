@@ -62,3 +62,16 @@ input[type="checkbox"] {
     height: 100px;
   }
 }
+
+.p-toast-message-custom {
+  background-color: #2d313c;
+  border: solid 1px rgb(0, 170, 0);
+  border-width: 0 0 0 6px;
+  color: var(--color-var2);
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+}
+.p-toast-icon-close {
+  color: #2d313c;
+}

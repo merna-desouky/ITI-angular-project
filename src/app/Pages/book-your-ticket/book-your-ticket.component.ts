@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FooterComponent } from '../../Components/footer/footer.component';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
@@ -26,6 +26,7 @@ import { RouterModule } from '@angular/router';
     MatNativeDateModule,
     RouterModule,
   ],
+  encapsulation: ViewEncapsulation.None,
 })
 export class BookYourTicketComponent {
   value = 4;
