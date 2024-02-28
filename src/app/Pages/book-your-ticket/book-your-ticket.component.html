@@ -1,0 +1,232 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-22">
+      <!-- Booking Content Goes Here-->
+      <div class="row my-5">
+        <div class="col-24 col-md-24 col-lg-8">
+          <div class="container">
+            <img
+              src="assets/movie.jpg"
+              width="400"
+              height="450"
+              style="
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+              "
+            />
+            <div class="mt-5">
+              <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
+            </div>
+            <p class="movie-name mt-3">The Revenant</p>
+            <div class="container d-flex justify-content-between mt-5">
+              <div class="d-flex">
+                <div class="me-3">
+                  <i class="fa-regular fa-clock"></i>
+                </div>
+                <div>
+                  <small>2 H 36 M</small>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div>
+                  <i class="fa-solid fa-bars me-3"></i>
+                </div>
+                <div>
+                  <small>action / adventure / drama</small>
+                </div>
+              </div>
+              <div class="d-flex">
+                <div>
+                  <i class="fa-solid fa-calendar-days me-3"></i>
+                </div>
+                <div>
+                  <small>2015</small>
+                </div>
+              </div>
+            </div>
+            <div class="summary mt-5">
+              A frontiersman on a fur trading expedition in the 1820s fights for
+              survival after being mauled by a bear and left for dead by members
+              of his own hunting team.
+            </div>
+          </div>
+        </div>
+        <div class="col-24 col-md-24 col-lg-16">
+          <div class="container w-100">
+            <div
+              class="input-collection d-flex justify-content-around gap-lg-2 mt-5 mt-md-5 mt-lg-0"
+            >
+              <div>
+                <mat-form-field>
+                  <mat-label>Cinema :</mat-label>
+                  <select
+                    matNativeControl
+                    [(ngModel)]="choosenCinema"
+                    name="cinema"
+                  >
+                    <option value="" selected></option>
+                    @for (cinema of cinemas; track cinemas) {
+                    <option [value]="cinema">{{ cinema }}</option>
+                    }
+                  </select>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Screen :</mat-label>
+                  <select
+                    matNativeControl
+                    [(ngModel)]="choosenScreen"
+                    name="screen"
+                  >
+                    <option value="" selected></option>
+                    @for (screen of screens; track screen) {
+                    <option [value]="screen">{{ screen }}</option>
+                    }
+                  </select>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Date :</mat-label>
+                  <input
+                    matInput
+                    [matDatepicker]="picker"
+                    [(ngModel)]="choosenDate"
+                    (dateChange)="formateDate(choosenDate)"
+                  />
+                  <mat-datepicker-toggle
+                    matIconSuffix
+                    [for]="picker"
+                  ></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field>
+                  <mat-label>Time :</mat-label>
+                  <select matNativeControl [(ngModel)]="choosenTime" name="car">
+                    <option value="" selected></option>
+                    @for (time of time; track time) {
+                    <option [value]="time">{{ time }}</option>
+                    }
+                  </select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="cinema-hall mt-3">
+              <div class="screen-container">
+                <div class="screen"></div>
+              </div>
+              <div class="seats">
+                <div class="row-seats-1 d-flex">
+                  @for (seat of firstRow; track firstRow;let i =$index) {
+                  @if(!seat.isTaken){
+                  <div
+                    class="seat text-center"
+                    (click)="getSeat(seat, $event, i)"
+                  >
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-2 d-flex">
+                  @for (seat of secondRow; track secondRow) {
+                  @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-3 d-flex">
+                  @for (seat of thirdRow; track thirdRow) { @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-4 d-flex">
+                  @for (seat of fourthRow; track fourthRow) {
+                  @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-5 d-flex">
+                  @for (seat of fifthRow; track fifthRow) { @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-6 d-flex">
+                  @for (seat of sixth; track sixth;let i = $index) {
+                  @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-7 d-flex">
+                  @for (seat of siventh; track siventh) { @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+                <div class="row-seats-8 d-flex">
+                  @for (seat of eight; track eight) { @if(!seat.isTaken){
+                  <div class="seat text-center" (click)="getSeat(seat, $event)">
+                    {{ seat.num }}
+                  </div>
+                  } @if(seat.isTaken){
+                  <div class="takenSeat text-center">{{ seat.num }}</div>
+                  } }
+                </div>
+              </div>
+              <div
+                class="checkout-container d-flex flex-column flex-md-row d-md-flex mt-5 mt-md-0"
+              >
+                <div class="tickets mt-md-0 w-100 w-md-50 p-4">
+                  @if(tickets===0){ Tickets , Row }@else{
+                  {{ tickets }}: Tickets , Row {{ rows }}
+                  }
+                </div>
+                <div class="totla-price mt-5 mt-md-0 w-100 w-md-25 p-4">
+                  Total Price : {{ totalPrice }} L.E
+                </div>
+                <div
+                  class="d-flex justify-content-center align-items-center w-md-25"
+                >
+                  <div
+                    routerLink="/checkout"
+                    class="checkout primary-btn mt-md-0 col-12 col-md-24"
+                  >
+                    Checkout
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>

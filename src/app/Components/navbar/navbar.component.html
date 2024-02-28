@@ -1,8 +1,6 @@
-<div class="col-1"></div>
-<div class="col-22">
-  <nav>
-    <div class="logo-container">
-      <p class="logo"><span>I</span>Watch</p>
+<nav>
+  <div class="logo-container">
+    <p class="logo"><span>I</span>Watch</p>
 
       <div class="search-box">
         <input
@@ -31,18 +29,21 @@
         </div>
         }
       </div>
-    </div>
+  </div>
 
-    <div class="links">
-      <a routerLink="/">Home</a>
-      <a routerLink="/">Trending</a>
-      <a routerLink="/">Cart</a>
-    </div>
+  <div class="links">
+    <a routerActiveLink="active" routerLink="/">Home</a>
+    <a href="#Trending">Trending</a>
+    <a routerActiveLink="active" routerLink="/checkout">Cart</a>
+  </div>
 
-    <div class="btns">
-      <button class="secondary-btn" routerLink="/sign-in">Sign In</button>
-      <button class="primary-btn" routerLink="/sign-up">Sign Up</button>
-    </div>
-  </nav>
-</div>
-<div class="col-1"></div>
+  <div class="btns">
+    <button class="primary-btn" routerLink="/sign-up">
+      Login / Register
+      <img
+        src="./assets/user.svg"
+        style="filter: invert(100%); padding-bottom: 4px"
+      />
+    </button>
+  </div>
+</nav>

@@ -1,18 +1,22 @@
 
+
 import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, FormsModule, HttpClientModule, RouterLink],
+  imports: [RouterModule, FormsModule, HttpClientModule, RouterLink, CommonModule],
   providers: [MoviesService],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
+
 export class NavbarComponent implements OnInit {
   movies: any;
   item: any;
@@ -62,3 +66,4 @@ export class NavbarComponent implements OnInit {
     }
   }
 }
+

@@ -1,30 +1,34 @@
-import { HttpClientModule } from '@angular/common/http';
+// import { HttpClientModule } from '@angular/common/http';
+// import { MoviesService } from '../../Services/movies.service';
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
-import { MoviesService } from '../../Services/movies.service';
 import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
-import { FormsModule } from '@angular/forms'; import { CarouselModule } from 'primeng/carousel';
+import { FormsModule } from '@angular/forms';
+import { CarouselModule } from 'primeng/carousel';
 import { RouterLink } from '@angular/router';
-
-
 
 @Component({
   selector: 'app-movies-cards',
   standalone: true,
-  imports: [ButtonModule, CarouselModule, FormsModule, RatingModule, RouterLink],
+  imports: [
+    ButtonModule,
+    CarouselModule,
+    FormsModule,
+    RatingModule,
+    RouterLink,
+  ],
   templateUrl: './movies-cards.component.html',
   styleUrl: './movies-cards.component.scss',
   encapsulation: ViewEncapsulation.None,
-
 })
 export class MoviesCardsComponent implements OnInit {
-  @Input() movie: any
+  @Input() movie: any;
+  value: any;
 
-  value: any
-  constructor() {
-  }
+  constructor() {}
   ngOnInit(): void {
-    this.value = Number(this.movie.Ratings[0].Value)
+    this.value = Number(this.movie.Ratings[0].Value);
 
+    console.log(this.value);
   }
 }

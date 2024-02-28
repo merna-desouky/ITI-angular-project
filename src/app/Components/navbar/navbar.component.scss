@@ -1,30 +1,24 @@
 nav {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  align-items: center;
+  display: flex;
   justify-content: space-between;
-  gap: 20px;
-  margin: 22px 60px 0 60px;
-  width: 92%;
+  align-items: center;
   background-color: transparent;
+  width: 100%;
+  height: 80px;
+  position: sticky;
+  z-index: 1000;
+  padding: 0 40px;
 
-  // To make the navbar above image layer
-  position: absolute;
-  z-index: 100;
+  // relative for search box
+  position: relative;
 }
 
-@media (max-width: 1200px) {
-  // nav {
-  //   grid-template-columns: repeat(2, 1fr) 20%;
-  // }
-}
-
-@media (max-width: 768px) {
-  nav {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-}
+// Conditional Class for Home Page Only
+// .home-page {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+// }
 
 .logo-container {
   display: flex;
@@ -32,49 +26,80 @@ nav {
   margin-top: 10px;
 }
 
-.links a {
-  text-decoration: none;
-  color: var(--color-var2);
-  font-size: 1.7rem;
-  font-weight: 600;
+.logo {
+  font-size: 2.8rem;
+  font-weight: 800;
   letter-spacing: 1px;
-  transition: color 0.3s ease;
-}
-
-.links a:hover {
   color: var(--color-var3);
-}
 
-.links a:focus {
-  border-bottom: 3px solid var(--color-var3);
-  color: var(--color-var2);
+  span {
+    color: var(--color-var2);
+  }
 }
 
 .links {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 20%;
-  gap: 40px;
+  gap: 50px;
+  padding-left: 54px;
 }
 
-.logo {
-  font-size: 3rem;
-  font-weight: 800;
+.links a {
+  text-decoration: none;
+  color: #adadad;
+  font-size: 1.7rem;
+  font-weight: 600;
   letter-spacing: 1px;
-  color: var(--color-var3);
+  transition: color 0.3s ease;
+  position: relative;
 }
 
-.logo span {
-  color: white;
+.links a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--color-var3);
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out 0s;
 }
+
+.links a:hover,
+.links a:focus,
+.links a:active {
+  color: var(--color-var2);
+}
+
+.links a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.links a:focus::before,
+.links a:active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+// .links a:focus,
+// .links a:active {
+//   border-bottom: 3px solid var(--color-var3);
+//   color: var(--color-var2);
+// }
 
 .search-box a {
   text-decoration: none;
   color: black;
 }
 
+// Using absolute position to prevent the search box animation from affecting the links container movement
 .search-box {
+  position: absolute;
+  left: 9.7%;
   height: 30px;
   display: flex;
   cursor: pointer;
@@ -88,10 +113,16 @@ nav {
   position: relative;
 }
 
-.search-box:hover input,
-.search-box input:not(:placeholder-shown) {
-  width: 250px;
-  font-size: 1.3rem;
+@media (max-width: 1024px) {
+  .search-box {
+    left: 14%;
+  }
+}
+
+@media (max-width: 768px) {
+  .search-box {
+    left: 21%;
+  }
 }
 
 .search-box input {
@@ -100,6 +131,12 @@ nav {
   background: transparent;
   width: 0;
   transition: width 0.4s ease;
+}
+
+.search-box:hover input,
+.search-box input:not(:placeholder-shown) {
+  width: 220px;
+  font-size: 1.3rem;
 }
 
 .search-box i {
@@ -169,5 +206,37 @@ button {
         color: #aca6a5;
       }
     }
+
+@media (max-width: 1024px) {
+  .links {
+    gap: 20px;
+  }
+
+  .search-box:hover input,
+  .search-box input:not(:placeholder-shown) {
+    width: 150px;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .links {
+    display: none;
+  }
+
+  .search-box:hover input,
+  .search-box input:not(:placeholder-shown) {
+    width: 150px;
+    font-size: 1.3rem;
+  }
+
+  .search-box {
+    margin-left: 0.2rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .logo {
+    font-size: 2rem;
   }
 }

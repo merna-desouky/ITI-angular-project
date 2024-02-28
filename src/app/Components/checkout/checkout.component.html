@@ -1,0 +1,153 @@
+<div class="parent">
+  <div class="cart-section">
+    <div class="cart-header">
+      <img
+        src="/assets/cart.svg"
+        alt="checkout"
+        width="30"
+        height="30"
+        style="filter: invert(100%)"
+      />
+      <h2>Cart</h2>
+    </div>
+
+    @if(movies.length === 0){
+    <div class="empty-cart">
+      <h3>No Movies in Cart</h3>
+      <button class="primary-btn">
+        <a href="#Movies">Reserve Now</a>
+      </button>
+    </div>
+    } @else {
+    <div class="movie-header">
+      <h5 class="header">Poster</h5>
+      <h5 class="header">Movie</h5>
+      <h5 class="header">Seats</h5>
+      <h5 class="header">Price</h5>
+    </div>
+
+    @for(movie of movies; track movie.id) {
+    <div class="movie">
+      <div class="first-col">
+        <img [src]="movie.imgSrc" alt="poster" width="150" height="200" />
+      </div>
+      <div class="second-col">
+        <p>{{ movie.movieName }}</p>
+      </div>
+      <div
+        class="third-col"
+        style="display: flex; justify-content: center; gap: 10px"
+      >
+        <p>{{ movie.totalSeats }}</p>
+        @if(movie.totalSeats > 1){
+        <p>Seats</p>
+        } @if(movie.totalSeats === 1){
+        <p>Seat</p>
+        }
+      </div>
+      <div class="fourth-col">
+        <p><span style="color: #ffd789">$</span> {{ movie.totalPrice }}</p>
+      </div>
+    </div>
+    }
+
+    <div class="back-container" [routerLink]="'/booking'">
+      <img src="/assets/back.svg" alt="arrow" style="filter: invert(100%)" />
+      <h3>Need More Seats ?</h3>
+    </div>
+    }
+  </div>
+
+  <div class="payment">
+    <div class="cart-header" style="margin-bottom: 20px">
+      <img
+        src="/assets/credit.svg"
+        alt="checkout"
+        width="30"
+        height="30"
+        style="filter: invert(100%)"
+      />
+      <h2>Payment</h2>
+    </div>
+
+    <div class="payment-options">
+      <div class="payment-option">
+        <input
+          type="radio"
+          id="paypal"
+          name="payment"
+          value="paypal"
+          [(ngModel)]="paymentOption"
+        />
+        <label for="paypal">
+          <img src="/assets/paypal.png" width="30" height="30" alt="Paypal" />
+          Paypal
+        </label>
+      </div>
+
+      <div class="payment-option">
+        <input
+          type="radio"
+          id="credit"
+          name="payment"
+          value="credit"
+          [(ngModel)]="paymentOption"
+        />
+        <label for="credit">
+          <img
+            src="/assets/master.png"
+            width="30"
+            height="25"
+            alt="Credit Card"
+          />
+          Credit Card
+        </label>
+      </div>
+
+      @if(paymentOption === 'paypal'){
+      <div class="paypal" style="display: flex; justify-content: center">
+        <img
+          src="/assets/paypal-img.svg"
+          width="250"
+          height="250"
+          alt="Paypal"
+          style="margin-top: -60px"
+        />
+      </div>
+
+      } @if(paymentOption === 'credit'){
+      <div class="paypal" style="display: flex; justify-content: center">
+        <img
+          src="/assets/credit-img.svg"
+          width="250"
+          height="250"
+          alt="Paypal"
+          style="margin-top: -60px"
+        />
+      </div>
+
+      <div class="inputs" style="margin-top: -40px">
+        <input
+          type="tel"
+          inputmode="numeric"
+          maxlength="19"
+          placeholder="xxxx xxxx xxxx xxxx"
+        />
+        <input type="text" placeholder="Name on Card" class="input" />
+
+        <div style="display: flex; gap: 30px; justify-content: space-between">
+          <input type="text" placeholder="CVV" class="input" maxlength="3" />
+
+          <input type="text" placeholder="Expiry Date" class="input" />
+        </div>
+      </div>
+      }
+    </div>
+
+    <div class="checkout">
+      <button class="checkout-btn">Make a Payment</button>
+    </div>
+  </div>
+</div>
+
+<hr style="color: #ccc; margin: 40px 60px" />

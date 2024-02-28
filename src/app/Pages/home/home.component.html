@@ -11,7 +11,9 @@
           <div class="col-24">
             <div class="movies-title" id="Movies">
               <h3>Movies</h3>
+             <div class="filter-container">
               <app-filter (myEvent)="getSelectedCatg($event)"></app-filter>
+              </div>
             </div>
           </div>
         </div>
@@ -33,9 +35,6 @@
           </div>
         </div>
       </div>
-
-      <!-- End of movies card -->
-      <app-footer></app-footer>
     </div>
     <div class="col-1"></div>
   </div>
