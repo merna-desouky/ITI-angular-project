@@ -45,22 +45,49 @@ nav {
 
 .links a {
   text-decoration: none;
-  color: var(--color-var2);
+  color: #adadad;
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 1px;
   transition: color 0.3s ease;
+  position: relative;
 }
 
-.links a:hover {
-  color: var(--color-var3);
+.links a::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--color-var3);
+  visibility: hidden;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out 0s;
 }
 
+.links a:hover,
 .links a:focus,
 .links a:active {
-  border-bottom: 3px solid var(--color-var3);
   color: var(--color-var2);
 }
+
+.links a:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+.links a:focus::before,
+.links a:active::before {
+  visibility: visible;
+  width: 100%;
+}
+
+// .links a:focus,
+// .links a:active {
+//   border-bottom: 3px solid var(--color-var3);
+//   color: var(--color-var2);
+// }
 
 .search-box a {
   text-decoration: none;
