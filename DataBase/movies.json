@@ -28,7 +28,7 @@
       "Title": "The Godfather",
       "Year": "1972",
       "Rated": "R",
-      "Genre": "Crime, Drama",
+      "Genre": "Crime",
       "Language": "English, Italian, Latin",
       "Poster": "https://m.media-amazon.com/images/M/MV5BM2MyNjYxNmUtYTAwNi00MTYxLWJmNWYtYzZlODY3ZTk3OTFlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -51,7 +51,7 @@
       "Title": "The Dark Knight",
       "Year": "2008",
       "Rated": "PG-13",
-      "Genre": "Action, Crime, Drama",
+      "Genre": "Action",
       "Language": "English, Mandarin",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_SX300.jpg",
       "Ratings": [
@@ -74,7 +74,7 @@
       "Title": "The Godfather: Part II",
       "Year": "1974",
       "Rated": "R",
-      "Genre": "Crime, Drama",
+      "Genre": "Crime",
       "Language": "English, Italian, Spanish, Latin, Sicilian",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMWMwMGQzZTItY2JlNC00OWZiLWIyMDctNDk2ZDQ2YjRjMWQ0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -97,7 +97,7 @@
       "Title": "12 Angry Men",
       "Year": "1957",
       "Rated": "Approved",
-      "Genre": "Crime, Drama",
+      "Genre": "Crime",
       "Language": "English",
       "Country": "United States",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_SX300.jpg",
@@ -121,7 +121,7 @@
       "Title": "Schindler's List",
       "Year": "1993",
       "Rated": "R",
-      "Genre": "Biography, Drama, History",
+      "Genre": "Biography",
       "Language": "English, Hebrew, German, Polish, Latin",
       "Country": "United States",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNDE4OTMxMTctNmRhYy00NWE2LTg3YzItYTk3M2UwOTU5Njg4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
@@ -145,7 +145,7 @@
       "Title": "The Lord of the Rings: The Return of the King",
       "Year": "2003",
       "Rated": "PG-13",
-      "Genre": "Action, Adventure, Drama",
+      "Genre": "Action",
       "Language": "English, Quenya, Old English, Sindarin",
       "Country": "New Zealand, United States",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
@@ -170,7 +170,7 @@
       "Year": "1994",
       "Released": "17 Dec 2005",
       "Rated": "R",
-      "Genre": "Crime, Drama",
+      "Genre": "Crime",
       "Language": "English, Spanish, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNGNhMDIzZTUtNTBlZi00MTRlLWFjM2ItYzViMjE3YzI5MjljXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -194,7 +194,7 @@
       "Year": "2001",
       "Rated": "PG-13",
       "Released": "19 Dec 2001",
-      "Genre": "Action, Adventure, Drama",
+      "Genre": "Action",
       "Language": "English, Sindarin",
       "Poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg",
       "Ratings": [
@@ -218,7 +218,7 @@
       "Year": "1966",
       "Rated": "R",
       "Released": "29 Dec 1967",
-      "Genre": "Adventure, Western",
+      "Genre": "Adventure",
       "Language": "Italian",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNjJlYmNkZGItM2NhYy00MjlmLTk5NmQtNjg1NmM2ODU4OTMwXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg",
       "Ratings": [
@@ -242,7 +242,7 @@
       "Year": "1994",
       "Rated": "PG-13",
       "Released": "06 Jul 1994",
-      "Genre": "Drama, Romance",
+      "Genre": "Drama",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNWIwODRlZTUtY2U3ZS00Yzg1LWJhNzYtMmZiYmEyNmU1NjMzXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "Ratings": [
@@ -290,7 +290,7 @@
       "Year": "2010",
       "Rated": "PG-13",
       "Released": "16 Jul 2010",
-      "Genre": "Action, Adventure, Sci-Fi",
+      "Genre": "Action",
       "Language": "English, Japanese, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
       "Ratings": [
@@ -314,7 +314,7 @@
       "Year": "2002",
       "Rated": "PG-13",
       "Released": "18 Dec 2002",
-      "Genre": "Action, Adventure, Drama",
+      "Genre": "Action",
       "Language": "English, Sindarin, Old English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -338,7 +338,7 @@
       "Year": "1980",
       "Rated": "PG",
       "Released": "20 Jun 1980",
-      "Genre": "Action, Adventure, Fantasy",
+      "Genre": "Action",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -362,7 +362,7 @@
       "Year": "1999",
       "Rated": "R",
       "Released": "31 Mar 1999",
-      "Genre": "Action, Sci-Fi",
+      "Genre": "Action",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -386,7 +386,7 @@
       "Year": "1990",
       "Rated": "R",
       "Released": "21 Sep 1990",
-      "Genre": "Biography, Crime, Drama",
+      "Genre": "Biography",
       "Language": "English, Italian",
       "Poster": "https://m.media-amazon.com/images/M/MV5BY2NkZjEzMDgtN2RjYy00YzM1LWI4ZmQtMjIwYjFjNmI3ZGEwXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -434,7 +434,7 @@
       "Year": "1995",
       "Rated": "R",
       "Released": "22 Sep 1995",
-      "Genre": "Crime, Drama, Mystery",
+      "Genre": "Crime",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BOTUwODM5MTctZjczMi00OTk4LTg3NWUtNmVhMTAzNTNjYjcyXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -458,7 +458,7 @@
       "Year": "1954",
       "Rated": "Not Rated",
       "Released": "19 Nov 1956",
-      "Genre": "Action, Drama",
+      "Genre": "Action",
       "Language": "Japanese",
       "Poster": "https://lh6.googleusercontent.com/proxy/yvRRYa_myU7xUov260Bvd5RVTmpeumBulkGT_jMh51e7bmVNJlVeR4xzBLmXf8t_4uOys2RrxjT-ZtTgE4MDuCZ-qs5qGYr6q5EDr5MmBIdBK6ivXRRVyTXoMrI",
       "Ratings": [
@@ -478,7 +478,7 @@
       "Year": "1946",
       "Rated": "PG",
       "Released": "07 Jan 1947",
-      "Genre": "Drama, Family, Fantasy",
+      "Genre": "Drama",
       "Language": "English, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZjc4NDZhZWMtNGEzYS00ZWU2LThlM2ItNTA0YzQ0OTExMTE2XkEyXkFqcGdeQXVyNjUwMzI2NzU@._V1_SX300.jpg",
       "Ratings": [
@@ -502,7 +502,7 @@
       "Year": "1991",
       "Rated": "R",
       "Released": "14 Feb 1991",
-      "Genre": "Crime, Drama, Thriller",
+      "Genre": "Crime",
       "Language": "English, Latin",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNjNhZTk0ZmEtNjJhMi00YzFlLWE1MmEtYzM1M2ZmMGMwMTU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -526,7 +526,7 @@
       "Year": "1998",
       "Rated": "R",
       "Released": "24 Jul 1998",
-      "Genre": "Drama, War",
+      "Genre": "Drama",
       "Language": "English, French, German, Czech",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZjhkMDM4MWItZTVjOC00ZDRhLThmYTAtM2I5NzBmNmNlMzI1XkEyXkFqcGdeQXVyNDYyMDk5MTU@._V1_SX300.jpg",
       "Ratings": [
@@ -550,7 +550,7 @@
       "Year": "2002",
       "Rated": "R",
       "Released": "13 Feb 2004",
-      "Genre": "Crime, Drama",
+      "Genre": "Crime",
       "Language": "Portuguese",
       "Poster": "https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -574,7 +574,7 @@
       "Year": "1997",
       "Rated": "PG-13",
       "Released": "20 Dec 1997",
-      "Genre": "Comedy, Drama, Romance",
+      "Genre": "Comedy",
       "Language": "Italian, German, English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYmJmM2Q4NmMtYThmNC00ZjRlLWEyZmItZTIwOTBlZDQ3NTQ1XkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "Ratings": [
@@ -598,7 +598,7 @@
       "Year": "1999",
       "Rated": "R",
       "Released": "10 Dec 1999",
-      "Genre": "Crime, Drama, Fantasy",
+      "Genre": "Crime",
       "Language": "English, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMTUxMzQyNjA5MF5BMl5BanBnXkFtZTYwOTU2NTY3._V1_SX300.jpg",
       "Ratings": [
@@ -622,7 +622,7 @@
       "Year": "1977",
       "Rated": "PG",
       "Released": "25 May 1977",
-      "Genre": "Action, Adventure, Fantasy",
+      "Genre": "Adventure",
       "Language": "English",
       "Poster": "https://img.elo7.com.br/product/original/2C260B0/big-poster-filme-star-wars-os-ultimos-jedi-lo03-90x60-cm-poster-cinema.jpg",
       "Ratings": [
@@ -646,7 +646,7 @@
       "Year": "2014",
       "Rated": "PG-13",
       "Released": "07 Nov 2014",
-      "Genre": "Adventure, Drama, Sci-Fi",
+      "Genre": "Adventure",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
       "Ratings": [
@@ -670,7 +670,7 @@
       "Year": "1991",
       "Rated": "R",
       "Released": "03 Jul 1991",
-      "Genre": "Action, Sci-Fi",
+      "Genre": "Action",
       "Language": "English, Spanish",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMGU2NzRmZjUtOGUxYS00ZjdjLWEwZWItY2NlM2JhNjkxNTFmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -694,7 +694,7 @@
       "Year": "1985",
       "Rated": "PG",
       "Released": "03 Jul 1985",
-      "Genre": "Adventure, Comedy, Sci-Fi",
+      "Genre": "Comedy",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BZmU0M2Y1OGUtZjIxNi00ZjBkLTg1MjgtOWIyNThiZWIwYjRiXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg",
       "Ratings": [
@@ -719,7 +719,7 @@
       "Year": "1960",
       "Rated": "R",
       "Released": "08 Sep 1960",
-      "Genre": "Horror, Mystery, Thriller",
+      "Genre": "Horror",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BNTQwNDM1YzItNDAxZC00NWY2LTk0M2UtNDIwNWI5OGUyNWUxXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",
       "Ratings": [
@@ -743,7 +743,7 @@
       "Year": "2002",
       "Rated": "R",
       "Released": "28 Mar 2003",
-      "Genre": "Biography, Drama, Music",
+      "Genre": "Biography",
       "Language": "English, German, Russian",
       "Poster": "https://m.media-amazon.com/images/M/MV5BOWRiZDIxZjktMTA1NC00MDQ2LWEzMjUtMTliZmY3NjQ3ODJiXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -767,7 +767,7 @@
       "Year": "1994",
       "Rated": "R",
       "Released": "18 Nov 1994",
-      "Genre": "Action, Crime, Drama",
+      "Genre": "Action",
       "Language": "English, Italian, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BODllNWE0MmEtYjUwZi00ZjY3LThmNmQtZjZlMjI2YTZjYmQ0XkEyXkFqcGdeQXVyNTc1NTQxODI@._V1_SX300.jpg",
       "Ratings": [
@@ -791,7 +791,7 @@
       "Year": "2019",
       "Rated": "R",
       "Released": "08 Nov 2019",
-      "Genre": "Comedy, Drama, Thriller",
+      "Genre": "Comedy",
       "Language": "Korean, English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
       "Ratings": [
@@ -815,7 +815,7 @@
       "Year": "1994",
       "Rated": "G",
       "Released": "24 Jun 1994",
-      "Genre": "Animation, Adventure, Drama",
+      "Genre": "Animation",
       "Language": "English, Swahili, Xhosa, Zulu",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYTYxNGMyZTYtMjE3MS00MzNjLWFjNmYtMDk3N2FmM2JiM2M1XkEyXkFqcGdeQXVyNjY5NDU4NzI@._V1_SX300.jpg",
       "Ratings": [
@@ -839,7 +839,7 @@
       "Year": "2000",
       "Rated": "R",
       "Released": "05 May 2000",
-      "Genre": "Action, Adventure, Drama",
+      "Genre": "Adventure",
       "Language": "English",
       "Poster": "https://m.media-amazon.com/images/M/MV5BMDliMmNhNDEtODUyOS00MjNlLTgxODEtN2U3NzIxMGVkZTA1L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [
@@ -887,7 +887,7 @@
       "Year": "1995",
       "Rated": "R",
       "Released": "16 Aug 1995",
-      "Genre": "Crime, Drama, Mystery",
+      "Genre": "Crime",
       "Language": "English, Hungarian, Spanish, French",
       "Poster": "https://m.media-amazon.com/images/M/MV5BYTViNjMyNmUtNDFkNC00ZDRlLThmMDUtZDU2YWE4NGI2ZjVmXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
       "Ratings": [

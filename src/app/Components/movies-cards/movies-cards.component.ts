@@ -26,6 +26,5 @@ export class MoviesCardsComponent implements OnInit {
   ngOnInit(): void {
     this.value = Number(this.movie.Ratings[0].Value)
 
-    console.log(this.value)
   }
 }
