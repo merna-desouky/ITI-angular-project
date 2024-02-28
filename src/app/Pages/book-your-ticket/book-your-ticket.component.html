@@ -6,11 +6,19 @@
       <div class="row my-5">
         <div class="col-24 col-md-24 col-lg-8">
           <div class="container">
-            <img src="assets/movie.jpg" />
-            <div class="mt-4">
+            <img
+              src="assets/movie.jpg"
+              width="400"
+              height="450"
+              style="
+                border-radius: 10px;
+                filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.5));
+              "
+            />
+            <div class="mt-5">
               <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
             </div>
-            <p class="movie-name mt-5">The Revenant</p>
+            <p class="movie-name mt-3">The Revenant</p>
             <div class="container d-flex justify-content-between mt-5">
               <div class="d-flex">
                 <div class="me-3">
@@ -218,8 +226,6 @@
           </div>
         </div>
       </div>
-
-      <app-footer></app-footer>
     </div>
     <div class="col-1"></div>
   </div>
