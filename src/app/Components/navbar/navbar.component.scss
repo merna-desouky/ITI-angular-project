@@ -85,6 +85,7 @@ nav {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   margin-bottom: 22px;
   margin-left: 2rem;
+  position: relative;
 }
 
 .search-box:hover input,
@@ -130,4 +131,43 @@ button {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
+}
+
+.mySearch {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(53 47 47);
+  box-shadow: 1px 1px 4px 3px #1c1818;
+  position: absolute;
+  width: 350px;
+  height: 250px;
+  overflow-y: scroll;
+  top: 30px;
+  left: 0px;
+  padding: 10px;
+  .singleRes {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    .poster {
+      display: flex;
+      margin-inline-end: 15px;
+      img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      .name {
+        color: var(--color-var3);
+        font-size: 1.4rem;
+      }
+      .catg {
+        color: #aca6a5;
+      }
+    }
+  }
 }
