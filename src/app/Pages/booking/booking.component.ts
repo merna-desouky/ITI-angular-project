@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class BookYourTicketComponent {
+export class BookingComponent {
   value = 4;
   totalPrice = 0;
   takenSeats: {}[] = [];
