@@ -18,10 +18,13 @@
 
         <div class="row">
           <div class="wrapper">
-            @for (movie of movies?.slice(1,27); track movie.id) {
+            @for (movie of movies?.slice(1,31) | paginate:{itemsPerPage:10 , currentPage:p}; track movie.id ;) {
             <app-movies-cards [movie]="movie"></app-movies-cards>
             }
           </div>
+          <div class="mt-5 pagination">
+            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
+        </div>
         </div>
       </div>
       <div class="moviesCarousel">
