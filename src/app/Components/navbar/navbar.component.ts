@@ -9,24 +9,25 @@ import { Router, RouterModule } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss',
 })
-export class NavbarComponent implements OnInit {
-  isHomePage: boolean = false;
+export class NavbarComponent {}
+// export class NavbarComponent implements OnInit {
+//   isHomePage: boolean = false;
 
-  constructor(private router: Router) {}
+//   constructor(private router: Router) {}
 
-  ngOnInit() {
-    // Subscribe to router events to detect route changes
-    this.router.events.subscribe((event) => {
-      if (
-        this.router.url === '/' ||
-        this.router.url === '/#Movies' ||
-        this.router.url === '/#Trending'
-      ) {
-        this.isHomePage = true;
-        console.log('Home Page');
-      } else {
-        this.isHomePage = false;
-      }
-    });
-  }
-}
+//   ngOnInit() {
+//     // Subscribe to router events to detect route changes
+//     this.router.events.subscribe((event) => {
+//       if (
+//         this.router.url === '/' ||
+//         this.router.url === '/#Movies' ||
+//         this.router.url === '/#Trending'
+//       ) {
+//         this.isHomePage = true;
+//         console.log('Home Page');
+//       } else {
+//         this.isHomePage = false;
+//       }
+//     });
+//   }
+// }
