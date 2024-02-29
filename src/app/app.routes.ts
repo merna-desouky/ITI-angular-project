@@ -1,4 +1,3 @@
-import { TestGoogleComponent } from './Components/test-google/test-google.component';
 import { Routes } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
@@ -18,6 +17,5 @@ export const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'checkout', component: CheckoutComponent },
-  { path: 'test', component: TestGoogleComponent },
   { path: '**', component: ErrorComponent },
 ];
