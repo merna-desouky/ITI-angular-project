@@ -1,20 +1,25 @@
 
 
-import { Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { SidebarModule } from 'primeng/sidebar';
+
+
 
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, FormsModule, HttpClientModule, RouterLink, CommonModule],
+  imports: [RouterModule, FormsModule, HttpClientModule, RouterLink, CommonModule, SidebarModule,],
   providers: [MoviesService],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+
 })
 
 export class NavbarComponent implements OnInit {
@@ -23,6 +28,7 @@ export class NavbarComponent implements OnInit {
   resultMovies: any[] = [];
   showResults: boolean = false;
   myInput: any
+  sidebarVisible: boolean = false;
   @ViewChild('targetDiv', { static: false }) targetDivRef!: ElementRef;
 
   constructor(private moviesService: MoviesService) { }
@@ -65,5 +71,9 @@ export class NavbarComponent implements OnInit {
       this.item = ""
     }
   }
+
+
+
+
 }
 

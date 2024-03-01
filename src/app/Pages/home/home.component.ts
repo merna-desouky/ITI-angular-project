@@ -9,7 +9,7 @@ import { CarouselComponent } from '../../Components/carousel/carousel.component'
 import { HeroComponent } from '../../Components/hero/hero.component';
 
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
-import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { NgxPaginationModule } from 'ngx-pagination';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -33,9 +33,9 @@ import { CommonModule } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent implements OnInit {
-pageChanged($event: number) {
-throw new Error('Method not implemented.');
-}
+  pageChanged($event: number) {
+    throw new Error('Method not implemented.');
+  }
   p: number = 1;
   movies: any;
   selectedCatg = "All"

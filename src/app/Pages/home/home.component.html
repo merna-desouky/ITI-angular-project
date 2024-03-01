@@ -11,8 +11,8 @@
           <div class="col-24">
             <div class="movies-title" id="Movies">
               <h3>Movies</h3>
-             <div class="filter-container">
-              <app-filter (myEvent)="getSelectedCatg($event)"></app-filter>
+              <div class="filter-container">
+                <app-filter (myEvent)="getSelectedCatg($event)"></app-filter>
               </div>
             </div>
           </div>
@@ -20,16 +20,19 @@
 
         <div class="row">
           <div class="wrapper">
-
-            @for (movie of filterdMovie?.slice(1,31) | paginate:{itemsPerPage:10 , currentPage:p}; track movie.id ;) {
+            @for (movie of filterdMovies | paginate:{itemsPerPage:10 ,
+            currentPage:p}; track movie.id ;) {
 
             <app-movies-cards [movie]="movie"></app-movies-cards>
 
             }
           </div>
           <div class="mt-5 pagination">
-            <pagination-controls class="pagination" (pageChange)="p = $event"></pagination-controls>
-        </div>
+            <pagination-controls
+              class="pagination"
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
         </div>
       </div>
 
