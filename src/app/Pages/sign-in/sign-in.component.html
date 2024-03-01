@@ -1,7 +1,7 @@
 <div class="parent">
   <div class="form-container">
     <div class="first-column">
-      <img src="assets/sign-in-img.svg" class="intro-img" alt="intro" />
+      <img src="/assets/svg/sign-in-img.svg" class="intro-img" alt="intro" />
 
       <!-- <div class="intro-text">
         <h1>I-WATCH</h1>
@@ -11,7 +11,12 @@
     <div class="second-column">
       <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
         <div class="logo">
-          <img src="/assets/logo.png" alt="logo" width="130" height="130" />
+          <img
+            src="/assets/images/logo.png"
+            alt="logo"
+            width="130"
+            height="130"
+          />
         </div>
 
         <h1>Welcome Back</h1>
@@ -46,18 +51,19 @@
             />
             <label>Password</label>
 
+            @if(showPassword) {
             <img
-              src="assets/eye-off.svg"
+              src="assets/svg/eye.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="togglePasswordVisibility(passwordInput)"
-              [hidden]="showPassword"
             />
+            } @else {
             <img
-              src="assets/eye.svg"
+              src="assets/svg/eye-off.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="togglePasswordVisibility(passwordInput)"
-              [hidden]="!showPassword"
             />
+            }
           </div>
         </div>
 

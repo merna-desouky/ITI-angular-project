@@ -1,5 +1,5 @@
-{
-  "movies": [
+
+ [
     {
       "id": 1,
       "Title": "The Shawshank Redemption",
@@ -944,4 +944,3 @@
       "Reviews": []
     }
   ]
-}

@@ -2,7 +2,6 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { FooterComponent } from '../../Components/footer/footer.component';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -13,8 +12,8 @@ import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-book-your-ticket',
   standalone: true,
-  templateUrl: './book-your-ticket.component.html',
-  styleUrl: './book-your-ticket.component.scss',
+  templateUrl: './booking.component.html',
+  styleUrl: './booking.component.scss',
   imports: [
     FooterComponent,
     FormsModule,
@@ -28,7 +27,7 @@ import { RouterModule } from '@angular/router';
   ],
   encapsulation: ViewEncapsulation.None,
 })
-export class BookYourTicketComponent {
+export class BookingComponent {
   value = 4;
   totalPrice = 0;
   takenSeats: {}[] = [];
