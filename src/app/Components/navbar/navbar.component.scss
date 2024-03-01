@@ -13,13 +13,6 @@ nav {
   position: relative;
 }
 
-// Conditional Class for Home Page Only
-// .home-page {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-// }
-
 .logo-container {
   display: flex;
   align-items: center;
@@ -369,9 +362,10 @@ button {
     display: flex;
     flex-direction: column;
     align-items: start;
+
     a {
       text-decoration: none;
-      color: #adadad;
+      color: var(--color-var2);
       font-size: 1.7rem;
       font-weight: 600;
       letter-spacing: 1px;
@@ -402,5 +396,29 @@ button {
   }
   .toggleIcon {
     display: flex;
+  }
+}
+
+.google-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  img {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-inline-end: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  img:hover {
+    transform: scale(1.15);
+  }
+
+  p {
+    font-size: 1.6rem;
+    color: var(--color-var2);
   }
 }

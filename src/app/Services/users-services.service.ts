@@ -1,11 +1,15 @@
+declare var google: any;
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersServicesService {
+  router = inject(Router);
   constructor(private http: HttpClient) {}
 
   Register(userData: {}): Observable<any> {
@@ -15,6 +19,7 @@ export class UsersServicesService {
       }),
     });
   }
+
   Login(userData: {}): Observable<any> {
     return this.http.post('http://localhost:2024/auth/login', userData, {
       headers: new HttpHeaders({
@@ -22,7 +27,12 @@ export class UsersServicesService {
       }),
     });
   }
+
   Logout(): void {
     localStorage.clear();
+  }
+
+  GoogleLogOut(): void {
+    google.accounts.id.disableAutoSelect();
   }
 }
