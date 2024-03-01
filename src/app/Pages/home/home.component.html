@@ -20,8 +20,9 @@
 
         <div class="row">
           <div class="wrapper">
-            @for (movie of filterdMovies?.slice(1,31) |
-            paginate:{itemsPerPage:10 , currentPage:p}; track movie.id ;) {
+            @for (movie of filterdMovies | paginate:{itemsPerPage:10 ,
+            currentPage:p}; track movie.id ;) {
+
 
             <app-movies-cards [movie]="movie"></app-movies-cards>
 
@@ -35,6 +36,7 @@
               (pageChange)="p = $event"
             ></pagination-controls>
           </div>
+
           }
         </div>
       </div>

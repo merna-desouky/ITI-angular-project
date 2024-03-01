@@ -32,6 +32,65 @@
     </div>
   </div>
 
+  <p-sidebar [(visible)]="sidebarVisible" position="right" class="sidemenu">
+    <ng-template pTemplate="header"
+      ><div class="mob-logo">
+        <p class="logo"><span>I</span>Watch</p>
+      </div></ng-template
+    >
+    <div class="search-container">
+      <div class="mob-search-box">
+        <input
+          type="text"
+          placeholder="Search..."
+          [(ngModel)]="item"
+          (input)="result($event)"
+          id="targetDiv"
+          #targetDiv
+          autocomplete="off"
+        />
+        <a href="#"><i class="search pi pi-search"></i></a>
+      </div>
+
+      @if (resultMovies.length!=0 &&showResults) {
+      <div class="mob-mySearch">
+        @for (movie of resultMovies; track movie.id) {
+        <div class="singleRes" routerLink="movie/{{ movie.id }}">
+          <div class="poster">
+            <img src="{{ movie.Poster }}" />
+          </div>
+          <div class="content">
+            <div class="name">{{ movie.Title }}</div>
+            <div class="catg">{{ movie.Genre }}</div>
+            <div class="catg">{{ movie.Language }}</div>
+          </div>
+        </div>
+        }
+      </div>
+      }
+    </div>
+    <div class="mob-links">
+      <a routerActiveLink="active" routerLink="/">Home</a>
+      <a href="#Trending">Trending</a>
+      <a routerActiveLink="active" routerLink="/checkout">Cart</a>
+    </div>
+
+    <div class="mob-btns">
+      <button class="reg-btn" routerLink="/sign-up">
+        <img src="./assets/user.svg" style="padding-bottom: 4px" />
+        Login / Register
+      </button>
+    </div>
+  </p-sidebar>
+
+  <button
+    type="button"
+    class="pi pi-bars toggleIcon"
+    (click)="sidebarVisible = true"
+    icon="pi pi-arrow-left"
+  ></button>
+  </div>
+
   <div class="links">
     <a routerActiveLink="active" routerLink="/">Home</a>
     <a href="#Trending">Trending</a>
@@ -39,7 +98,7 @@
   </div>
 
   <div class="btns">
-    <button class="primary-btn" routerLink="/sign-up">
+    <button class="primary-btn reg-btn" routerLink="/sign-up">
       Login / Register
       <img
         src="./assets/svg/user.svg"
