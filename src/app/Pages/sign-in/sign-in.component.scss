@@ -11,7 +11,7 @@
 
 .form-container {
   width: 1000px;
-  height: 500px;
+  height: 540px;
   border-radius: 8px;
   padding: 30px;
   text-align: center;
@@ -68,6 +68,12 @@ h1 {
   text-align: left;
 }
 
+.not-found {
+  color: #ff6666;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
 .input-field label {
   position: absolute;
   top: 50%;
@@ -99,14 +105,14 @@ h1 {
 
 .btn {
   display: block;
-  margin: 32px auto;
-  width: 50%;
+  margin: 20px auto;
+  width: 250px;
   background: #fff;
   color: #000;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
-  padding: 12px 20px;
+  padding: 6px 20px;
   cursor: pointer;
   border-radius: 8px;
   border: 2px solid transparent;
@@ -125,17 +131,26 @@ h1 {
   color: #fff;
 }
 
-.form-footer {
-  font-size: 1.4rem;
-  margin-top: 28px;
+.google-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.form-footer a {
-  font-weight: 600;
-  font-size: 1.4rem;
-  color: #fff;
-  text-decoration: none;
-  margin-left: 8px;
+.form-footer {
+  margin-top: 20px;
+
+  p {
+    font-size: 1.4rem;
+  }
+
+  a {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 8px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -171,5 +186,11 @@ h1 {
   .logo {
     display: block;
     margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    width: 180px;
   }
 }

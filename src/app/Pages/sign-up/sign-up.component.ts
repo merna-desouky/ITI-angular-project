@@ -15,18 +15,18 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, RouterModule,HttpClientModule],
-  providers:[UsersServicesService,HttpClient],
+  imports: [ReactiveFormsModule, CommonModule, RouterModule, HttpClientModule],
+  providers: [UsersServicesService, HttpClient],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss',
 })
 export class SignUpComponent {
   constructor(
-    private usersService:UsersServicesService, 
-    private http:HttpClient,
-    private route: Router){}
+    private usersService: UsersServicesService,
+    private http: HttpClient,
+    private route: Router
+  ) {}
 
-    
   signUpForm: any = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
@@ -44,19 +44,6 @@ export class SignUpComponent {
     }),
   });
 
-  // constructor() {
-  //   this.signUpForm
-  //     .get('confirmPassword')
-  //     ?.setValidators(this.passwordMatch.bind(this));
-  // }
-
-  // Custom validator to check if password and confirm password match
-  // passwordMatch(control: AbstractControl): ValidationErrors | null {
-  //   const password = this.signUpForm.get('password')?.value;
-  //   const confirmPassword = control.value;
-  //   return password !== confirmPassword ? null : { passwordMatch: true };
-  // }
-
   validateField(fieldName: string): boolean | undefined {
     const field = this.signUpForm.get(fieldName);
     return field?.invalid && field?.touched;
@@ -66,7 +53,6 @@ export class SignUpComponent {
 
   showPassword: boolean = false;
   showConfirmPassword: boolean = false;
-
 
   togglePasswordVisibility(passwordInput: HTMLInputElement) {
     this.showPassword = !this.showPassword;
@@ -85,10 +71,13 @@ export class SignUpComponent {
         this.signUpForm.get('confirmPassword')?.value
     ) {
       this.usersService.Register(this.signUpForm.value).subscribe(
-        (data)=>{
-          this.route.navigate(['/sign-in'])
+        (data) => {
+          this.route.navigate(['/sign-in']);
         },
-        (err)=>{console.log(err.message)})
+        (err) => {
+          console.log(err.message);
+        }
+      );
     } else {
       // Mark all form controls as touched to trigger error message display
       this.signUpForm.markAllAsTouched();
