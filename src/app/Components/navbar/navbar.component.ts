@@ -88,8 +88,8 @@ export class NavbarComponent implements OnInit {
       this.noUser = false;
     }
 
-    console.log(`${this.noUser},${this.mongoUser},${this.googleUser} `);
-    console.log(localStorage.getItem('token'));
+    // console.log(`${this.noUser},${this.mongoUser},${this.googleUser} `);
+    // console.log(localStorage.getItem('token'));
   }
 
   handleSignOut() {
@@ -111,7 +111,7 @@ export class NavbarComponent implements OnInit {
           this.movies[i].Title.toLowerCase().startsWith(this.item.toLowerCase())
         ) {
           this.resultMovies.push(this.movies[i]);
-          console.log(this.resultMovies, 'sssss');
+          // console.log(this.resultMovies, 'sssss');
         }
       }
     }
@@ -119,7 +119,7 @@ export class NavbarComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   handleDocumentClick(event: Event) {
-    console.log(this.targetDivRef.nativeElement);
+    // console.log(this.targetDivRef.nativeElement);
     if (
       this.targetDivRef &&
       this.targetDivRef.nativeElement &&
