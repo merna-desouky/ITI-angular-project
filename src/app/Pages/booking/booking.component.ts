@@ -54,8 +54,6 @@ export class BookingComponent implements OnInit {
       .subscribe((data) => {});
   }
   getTimes() {
-    console.log('started');
-
     this.bookingService
       .getTimes({
         movie: 'The Shawshank Redemption',
@@ -210,15 +208,16 @@ export class BookingComponent implements OnInit {
   ];
   onInputChange() {
     this.showOverlay = false;
-    this.bookingService.getReservedSeats({
-      movie: 'The Shawshank Redemption',
-      cinema: 'Imax',
-      date: '12,Oct 2025',
-      time: 12,
-    }).subscribe((data)=>{
-      console.log(data);
-      
-    });
+    this.bookingService
+      .getReservedSeats({
+        movie: 'The Shawshank Redemption',
+        cinema: 'Imax',
+        date: '12,Oct 2025',
+        time: 12,
+      })
+      .subscribe((data) => {
+        console.log('Ana seats' + JSON.stringify(data));
+      });
   }
   cinemas = [
     'VOX Cinemas ',

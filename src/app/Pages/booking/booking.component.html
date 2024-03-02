@@ -114,7 +114,7 @@
                 <mat-form-field>
                   <mat-label>Time :</mat-label>
                   <select matNativeControl [(ngModel)]="choosenTime"
-                   name="time" (ngModelChange)="onInputChange()" (>
+                   name="time" (ngModelChange)="onInputChange()" >
                     <option value="" selected></option>
                     @for (time of time; track time) {
                     <option [value]="time">{{ time }}</option>
