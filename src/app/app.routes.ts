@@ -7,6 +7,7 @@ import { ErrorComponent } from './Pages/error/error.component';
 import { BookingComponent } from './Pages/booking/booking.component';
 import { SingleMovieComponent } from './Components/single-movie/single-movie.component';
 import { CheckoutComponent } from './Components/checkout/checkout.component';
+import { DashboardComponent } from './Pages/dashboard/dashboard.component';
 
 export const routes: Routes = [
   // { path: '', component: HomeComponent , canActivate:[canActivate]},
@@ -17,5 +18,6 @@ export const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'booking', component: BookingComponent },
   { path: 'checkout', component: CheckoutComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: '**', component: ErrorComponent },
 ];
