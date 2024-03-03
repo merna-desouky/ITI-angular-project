@@ -23,7 +23,6 @@
             @for (movie of filterdMovies | paginate:{itemsPerPage:10 ,
             currentPage:p}; track movie.id ;) {
 
-
             <app-movies-cards [movie]="movie"></app-movies-cards>
 
             }
