@@ -25,10 +25,9 @@ export class MoviesCardsComponent implements OnInit {
   @Input() movie: any;
   value: any;
 
-  constructor() {}
+  constructor() { }
   ngOnInit(): void {
     this.value = Number(this.movie.Ratings[0].Value);
 
-    console.log(this.value);
   }
 }

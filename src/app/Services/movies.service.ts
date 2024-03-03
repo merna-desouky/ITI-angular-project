@@ -6,9 +6,9 @@ import { map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class MoviesService {
-  private readonly URL_DB = 'http://localhost:3000/movies';
+  private readonly URL_DB = 'http://localhost:2024/movies/all';
 
-  constructor(private readonly myClient: HttpClient) {}
+  constructor(private readonly myClient: HttpClient) { }
 
   getAllMovies() {
     return this.myClient.get(this.URL_DB);

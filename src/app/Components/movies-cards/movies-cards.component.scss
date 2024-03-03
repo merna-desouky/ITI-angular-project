@@ -26,13 +26,16 @@
   height: 100%;
   background-color: #1f1c1c;
   box-shadow: 1px 1px 4px 3px #1c1818;
-  .myimg {
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    width: 100%;
-    height: 250px;
-    @media (max-width: "430px") {
-      height: 340px;
+  .myPoster {
+    .myimg {
+      object-fit: cover;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+      width: 100%;
+      height: 250px;
+      @media (max-width: "430px") {
+        height: 340px;
+      }
     }
   }
   .desc {

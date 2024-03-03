@@ -2,12 +2,14 @@
 
 <div class="cards cards--one" routerLink="movie/{{ movie.id }}">
   <div>
-    <img
-      src="{{ movie.Poster }}"
-      class="img-responsive myimg"
-      alt="Cards Image"
-      loading="lazy"
-    />
+    <div class="myPoster">
+      <img
+        src="{{ movie.Poster }}"
+        class="img-responsive myimg"
+        alt="Cards Image"
+        loading="lazy"
+      />
+    </div>
     <div class="desc">
       <div class="name">{{ movie.Title }}</div>
       <div class="imdb">{{ movie.Genre }}</div>
