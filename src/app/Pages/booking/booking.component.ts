@@ -37,11 +37,17 @@ import { BookingServiceService } from '../../Services/booking-service.service';
   providers: [HttpClient],
 })
 export class BookingComponent implements OnInit {
+  cinemas = [];
+  screens = ['IMAX', '3D', '2D', 'Regular'];
+  time =[];
   ngOnInit() {
+    let c = "";
     this.bookingService
       .getCinemas({ movie: 'The Shawshank Redemption' })
-      .subscribe((data) => {});
-  }
+      .subscribe((data) => {
+        this.cinemas = data.cinemas;
+      });
+}
   ngOnChanges() {
     // changes.prop contains the old and the new value...
   }
@@ -219,24 +225,24 @@ export class BookingComponent implements OnInit {
         console.log('Ana seats' + JSON.stringify(data));
       });
   }
-  cinemas = [
-    'VOX Cinemas ',
-    'Zamalek Cinema',
-    'Galaxy Cinema',
-    'Imax',
-    'Point 90 Cinema',
-    'Americana Plaza Cinema',
-    'Culturama Historical Cinema',
-  ];
-  screens = ['IMAX', '3D', '2D', 'Regular'];
-  time = [
-    '12:00 pm',
-    '03:00 pm',
-    '06:00 pm',
-    '09:00 pm',
-    '12:00 am',
-    '10:00 am',
-  ];
+  // cinemas = [
+  //   'VOX Cinemas ',
+  //   'Zamalek Cinema',
+  //   'Galaxy Cinema',
+  //   'Imax',
+  //   'Point 90 Cinema',
+  //   'Americana Plaza Cinema',
+  //   'Culturama Historical Cinema',
+  // ];
+  // screens = ['IMAX', '3D', '2D', 'Regular'];
+  // time = [
+  //   '12:00 pm',
+  //   '03:00 pm',
+  //   '06:00 pm',
+  //   '09:00 pm',
+  //   '12:00 am',
+  //   '10:00 am',
+  // ];
   choosenCinema: any;
   choosenScreen: any;
   choosenDateForDisplay: string = '';
