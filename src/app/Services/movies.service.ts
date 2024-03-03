@@ -15,8 +15,8 @@ export class MoviesService {
   }
 
   // (pipe & map) are both operators provided by the RxJS library for processing observable sequences.
-  getMovieById(movieId: number) {
-    return this.getAllMovies().pipe(
+   getMovieById(movieId: number) {
+    return  this.getAllMovies().pipe(
       map((movies: any) => movies.find((movie: any) => movie.id === movieId))
     );
   }
