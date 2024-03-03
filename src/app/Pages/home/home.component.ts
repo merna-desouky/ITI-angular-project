@@ -51,9 +51,10 @@ export class HomeComponent implements OnInit {
       },
     });
   }
+
   getSelectedCatg(evt: any) {
     this.selectedCatg = evt;
-    console.log(this.selectedCatg, 'dataa');
+    // console.log(this.selectedCatg, 'dataa');
     this.filterdMovies = [];
 
     for (let i = 0; i < this.movies?.length; i++) {

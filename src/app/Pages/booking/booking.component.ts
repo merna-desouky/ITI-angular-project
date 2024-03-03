@@ -8,12 +8,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RouterModule } from '@angular/router';
+import { CinemaSeatComponent } from '../../Components/cinema-seat/cinema-seat.component';
+import { TableComponent } from '../../Components/table/table.component';
+import { SeatStateService } from '../../Services/seat-state.service';
 
 @Component({
   selector: 'app-book-your-ticket',
   standalone: true,
   templateUrl: './booking.component.html',
   styleUrl: './booking.component.scss',
+  encapsulation: ViewEncapsulation.None,
   imports: [
     FooterComponent,
     FormsModule,
@@ -24,15 +28,18 @@ import { RouterModule } from '@angular/router';
     MatDatepickerModule,
     MatNativeDateModule,
     RouterModule,
+    CinemaSeatComponent,
+    TableComponent,
   ],
-  encapsulation: ViewEncapsulation.None,
 })
 export class BookingComponent {
+  counter=0;
   value = 4;
   totalPrice = 0;
   takenSeats: {}[] = [];
   tickets: number = 0;
   rows: string = '';
+  constructor(private seatState: SeatStateService){}
   firstRow = [
     { num: 1, isTaken: false, row: 1 },
     { num: 2, isTaken: false, row: 1 },
@@ -76,32 +83,32 @@ export class BookingComponent {
   ];
   fourthRow = [
     { num: 1, isTaken: true, row: 4 },
-    { num: 2, isTaken: false, row: 4 },
-    { num: 3, isTaken: false, row: 4 },
-    { num: 4, isTaken: false, row: 4 },
-    { num: 5, isTaken: false, row: 4 },
-    { num: 6, isTaken: false, row: 4 },
-    { num: 7, isTaken: false, row: 4 },
-    { num: 8, isTaken: false, row: 4 },
-    { num: 9, isTaken: false, row: 4 },
-    { num: 10, isTaken: false, row: 4 },
-    { num: 11, isTaken: false, row: 4 },
-    { num: 12, isTaken: false, row: 4 },
+    { num: 2, isTaken: true, row: 4 },
+    { num: 3, isTaken: true, row: 4 },
+    { num: 4, isTaken: true, row: 4 },
+    { num: 5, isTaken: true, row: 4 },
+    { num: 6, isTaken: true, row: 4 },
+    { num: 7, isTaken: true, row: 4 },
+    { num: 8, isTaken: true, row: 4 },
+    { num: 9, isTaken: true, row: 4 },
+    { num: 10, isTaken: true, row: 4 },
+    { num: 11, isTaken: true, row: 4 },
+    { num: 12, isTaken: true, row: 4 },
     { num: 13, isTaken: true, row: 4 },
   ];
   fifthRow = [
     { num: 1, isTaken: true, row: 5 },
-    { num: 2, isTaken: false, row: 5 },
-    { num: 3, isTaken: false, row: 5 },
-    { num: 4, isTaken: false, row: 5 },
-    { num: 5, isTaken: false, row: 5 },
-    { num: 6, isTaken: false, row: 5 },
-    { num: 7, isTaken: false, row: 5 },
-    { num: 8, isTaken: false, row: 5 },
-    { num: 9, isTaken: false, row: 5 },
-    { num: 10, isTaken: false, row: 5 },
-    { num: 11, isTaken: false, row: 5 },
-    { num: 12, isTaken: false, row: 5 },
+    { num: 2, isTaken: true, row: 5 },
+    { num: 3, isTaken: true, row: 5 },
+    { num: 4, isTaken: true, row: 5 },
+    { num: 5, isTaken: true, row: 5 },
+    { num: 6, isTaken: true, row: 5 },
+    { num: 7, isTaken: true, row: 5 },
+    { num: 8, isTaken: true, row: 5 },
+    { num: 9, isTaken: true, row: 5 },
+    { num: 10, isTaken: true, row: 5 },
+    { num: 11, isTaken: true, row: 5 },
+    { num: 12, isTaken: true, row: 5 },
     { num: 13, isTaken: true, row: 5 },
     { num: 14, isTaken: true, row: 5 },
     { num: 15, isTaken: true, row: 5 },
@@ -110,17 +117,17 @@ export class BookingComponent {
   ];
   sixth = [
     { num: 1, isTaken: true, row: 6 },
-    { num: 2, isTaken: false, row: 6 },
-    { num: 3, isTaken: false, row: 6 },
-    { num: 4, isTaken: false, row: 6 },
-    { num: 5, isTaken: false, row: 6 },
-    { num: 6, isTaken: false, row: 6 },
-    { num: 7, isTaken: false, row: 6 },
-    { num: 8, isTaken: false, row: 6 },
-    { num: 9, isTaken: false, row: 6 },
-    { num: 10, isTaken: false, row: 6 },
-    { num: 11, isTaken: false, row: 6 },
-    { num: 12, isTaken: false, row: 6 },
+    { num: 2, isTaken: true, row: 6 },
+    { num: 3, isTaken: true, row: 6 },
+    { num: 4, isTaken: true, row: 6 },
+    { num: 5, isTaken: true, row: 6 },
+    { num: 6, isTaken: true, row: 6 },
+    { num: 7, isTaken: true, row: 6 },
+    { num: 8, isTaken: true, row: 6 },
+    { num: 9, isTaken: true, row: 6 },
+    { num: 10, isTaken: true, row: 6 },
+    { num: 11, isTaken: true, row: 6 },
+    { num: 12, isTaken: true, row: 6 },
     { num: 13, isTaken: true, row: 6 },
     { num: 14, isTaken: true, row: 6 },
     { num: 15, isTaken: true, row: 6 },
@@ -129,17 +136,17 @@ export class BookingComponent {
   ];
   siventh = [
     { num: 1, isTaken: true, row: 7 },
-    { num: 2, isTaken: false, row: 7 },
-    { num: 3, isTaken: false, row: 7 },
-    { num: 4, isTaken: false, row: 7 },
-    { num: 5, isTaken: false, row: 7 },
-    { num: 6, isTaken: false, row: 7 },
-    { num: 7, isTaken: false, row: 7 },
-    { num: 8, isTaken: false, row: 7 },
-    { num: 9, isTaken: false, row: 7 },
-    { num: 10, isTaken: false, row: 7 },
-    { num: 11, isTaken: false, row: 7 },
-    { num: 12, isTaken: false, row: 7 },
+    { num: 2, isTaken: true, row: 7 },
+    { num: 3, isTaken: true, row: 7 },
+    { num: 4, isTaken: true, row: 7 },
+    { num: 5, isTaken: true, row: 7 },
+    { num: 6, isTaken: true, row: 7 },
+    { num: 7, isTaken: true, row: 7 },
+    { num: 8, isTaken: true, row: 7 },
+    { num: 9, isTaken: true, row: 7 },
+    { num: 10, isTaken: true, row: 7 },
+    { num: 11, isTaken: true, row: 7 },
+    { num: 12, isTaken: true, row: 7 },
     { num: 13, isTaken: true, row: 7 },
     { num: 14, isTaken: true, row: 7 },
     { num: 15, isTaken: true, row: 7 },
@@ -148,17 +155,17 @@ export class BookingComponent {
   ];
   eight = [
     { num: 1, isTaken: true, row: 8 },
-    { num: 2, isTaken: false, row: 8 },
-    { num: 3, isTaken: false, row: 8 },
-    { num: 4, isTaken: false, row: 8 },
-    { num: 5, isTaken: false, row: 8 },
-    { num: 6, isTaken: false, row: 8 },
-    { num: 7, isTaken: false, row: 8 },
-    { num: 8, isTaken: false, row: 8 },
-    { num: 9, isTaken: false, row: 8 },
-    { num: 10, isTaken: false, row: 8 },
-    { num: 11, isTaken: false, row: 8 },
-    { num: 12, isTaken: false, row: 8 },
+    { num: 2, isTaken: true, row: 8 },
+    { num: 3, isTaken: true, row: 8 },
+    { num: 4, isTaken: true, row: 8 },
+    { num: 5, isTaken: true, row: 8 },
+    { num: 6, isTaken: true, row: 8 },
+    { num: 7, isTaken: true, row: 8 },
+    { num: 8, isTaken: true, row: 8 },
+    { num: 9, isTaken: true, row: 8 },
+    { num: 10, isTaken: true, row: 8 },
+    { num: 11, isTaken: true, row: 8 },
+    { num: 12, isTaken: true, row: 8 },
     { num: 13, isTaken: true, row: 8 },
   ];
   cinemas = [
@@ -184,6 +191,7 @@ export class BookingComponent {
   choosenDateForDisplay: string = '';
   choosenDate: string = '';
   choosenTime: any;
+  seatNum: any;
   formateDate(date: string) {
     let res = [];
     res.push(date.toString().split(' ')[0]);
@@ -192,17 +200,24 @@ export class BookingComponent {
     res.push(date.toString().split(' ')[3]);
     this.choosenDateForDisplay = res.join(' ');
   }
-  getSeat(seat: any, eve: any, i?: any) {
-    //check if the seat is taken
-    // console.log(eve.target);
 
-    // this.isTakenByUser=true;
-    if (!seat.isTaken) {
-      seat.isTaken = true;
+  reserveSeat(eve: any, seat: any) {
+   
+      this.seatState.updateSeatColor(seat.row,seat.num,'red');
       this.takenSeats.push(seat);
       this.totalPrice += 100;
-    }
-    this.tickets = this.tickets + 1;
-    this.rows += '' + seat.row + ',';
+      this.tickets = this.tickets + 1;
+      this.rows += '' + seat.row + ',';
+    
+  }
+  receivedSeatToDelete: any;
+  receiveSeatToDelete(eve: any) {
+     this.receivedSeatToDelete = eve.seat;
+    this.takenSeats = this.takenSeats.filter(
+      (seat) => seat != this.receivedSeatToDelete
+    );
+   console.log(this.receivedSeatToDelete);
+   this.seatState.updateSeatColor(this.receivedSeatToDelete.row,this.receivedSeatToDelete.num,'gray');
+   
   }
 }

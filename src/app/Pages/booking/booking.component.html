@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row">
+  <div class="row mb-5">
     <div class="col-1"></div>
     <div class="col-22">
       <!-- Booking Content Goes Here-->
@@ -120,86 +120,88 @@
                 <div class="screen"></div>
               </div>
               <div class="seats">
-                <div class="row-seats-1 d-flex">
-                  @for (seat of firstRow; track firstRow;let i =$index) {
-                  @if(!seat.isTaken){
-                  <div
-                    class="seat text-center"
-                    (click)="getSeat(seat, $event, i)"
-                  >
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="first-row d-flex">
+                  @for(seat of firstRow; track firstRow;let i =$index ; let
+                  l=$count) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-2 d-flex">
-                  @for (seat of secondRow; track secondRow) {
-                  @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="second-row d-flex">
+                  @for(seat of secondRow; track firstRow;let i =$count) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-3 d-flex">
-                  @for (seat of thirdRow; track thirdRow) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="third-row d-flex">
+                  @for(seat of thirdRow; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-4 d-flex">
-                  @for (seat of fourthRow; track fourthRow) {
-                  @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="fourth-row d-flex">
+                  @for(seat of fourthRow; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-5 d-flex">
-                  @for (seat of fifthRow; track fifthRow) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="fifth-row d-flex">
+                  @for(seat of fifthRow; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-6 d-flex">
-                  @for (seat of sixth; track sixth;let i = $index) {
-                  @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="sixth-row d-flex">
+                  @for(seat of sixth; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-7 d-flex">
-                  @for (seat of siventh; track siventh) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="seventh-row d-flex">
+                  @for(seat of siventh; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
-                <div class="row-seats-8 d-flex">
-                  @for (seat of eight; track eight) { @if(!seat.isTaken){
-                  <div class="seat text-center" (click)="getSeat(seat, $event)">
-                    {{ seat.num }}
-                  </div>
-                  } @if(seat.isTaken){
-                  <div class="takenSeat text-center">{{ seat.num }}</div>
-                  } }
+                <div class="eighth-row d-flex">
+                  @for(seat of eight; track firstRow;let i =$index) {
+                  <app-cinema-seat
+                    (click)="reserveSeat($event, seat)"
+                    [seatNum]="seat.num"
+                    [seat]="seat"
+                  ></app-cinema-seat>
+                  }
                 </div>
               </div>
+              @if(takenSeats.length>=1){
+              <div class="checkout-table my-4">
+                <app-table
+                  [takenSeats]="takenSeats"
+                  (dataEvent)="receiveSeatToDelete($event)"
+                ></app-table>
+              </div>
+              }
               <div
                 class="checkout-container d-flex flex-column flex-md-row d-md-flex mt-5 mt-md-0"
               >
