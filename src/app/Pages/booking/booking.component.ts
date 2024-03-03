@@ -39,25 +39,34 @@ import { BookingServiceService } from '../../Services/booking-service.service';
 export class BookingComponent implements OnInit {
   cinemas = [];
   screens = ['IMAX', '3D', '2D', 'Regular'];
-  time =[];
+  time: {}[] = [];
+  dates = [];
+  movie: any = {};
   ngOnInit() {
-    let c = "";
     this.bookingService
       .getCinemas({ movie: 'The Shawshank Redemption' })
       .subscribe((data) => {
         this.cinemas = data.cinemas;
       });
-}
-  ngOnChanges() {
-    // changes.prop contains the old and the new value...
+    //movieName from url "NOTEEEEE!!!!"
+    this.bookingService
+      .getMovieByName({ movieName: 'The Shawshank Redemption' })
+      .subscribe((data) => {
+        console.log(data);
+
+        this.movie = data;
+      });
   }
+  ngOnChanges() {}
   getDates() {
     this.bookingService
       .getDates({
         movie: 'The Shawshank Redemption',
         cinema: this.choosenCinema,
       })
-      .subscribe((data) => {});
+      .subscribe((data) => {
+        this.dates=data;
+      });
   }
   getTimes() {
     this.bookingService
@@ -67,7 +76,9 @@ export class BookingComponent implements OnInit {
         date: '12,Oct 2025',
       })
       .subscribe((data) => {
-        console.log('ana times ' + JSON.stringify(data));
+        for (let i = 0; i < data.length; i++) {
+          this.time.push(data[i].time);
+        }
       });
   }
 
@@ -225,38 +236,14 @@ export class BookingComponent implements OnInit {
         console.log('Ana seats' + JSON.stringify(data));
       });
   }
-  // cinemas = [
-  //   'VOX Cinemas ',
-  //   'Zamalek Cinema',
-  //   'Galaxy Cinema',
-  //   'Imax',
-  //   'Point 90 Cinema',
-  //   'Americana Plaza Cinema',
-  //   'Culturama Historical Cinema',
-  // ];
-  // screens = ['IMAX', '3D', '2D', 'Regular'];
-  // time = [
-  //   '12:00 pm',
-  //   '03:00 pm',
-  //   '06:00 pm',
-  //   '09:00 pm',
-  //   '12:00 am',
-  //   '10:00 am',
-  // ];
-  choosenCinema: any;
-  choosenScreen: any;
+
+  choosenCinema: any = '';
+  choosenScreen: any = '';
   choosenDateForDisplay: string = '';
   choosenDate: string = '';
-  choosenTime: any;
+  choosenTime: any = '';
   seatNum: any;
-  formateDate(date: string) {
-    let res = [];
-    res.push(date.toString().split(' ')[0]);
-    res.push(date.toString().split(' ')[1]);
-    res.push(date.toString().split(' ')[2]);
-    res.push(date.toString().split(' ')[3]);
-    this.choosenDateForDisplay = res.join(' ');
-  }
+  
 
   reserveSeat(eve: any, seat: any) {
     this.seatState.updateSeatColor(seat.row, seat.num, 'red');
@@ -277,5 +264,22 @@ export class BookingComponent implements OnInit {
       'gray'
     );
     this.totalPrice -= 100;
+  }
+  objToSend = {
+    cinema: this.choosenCinema,
+    date: this.choosenDate,
+    movie: this.movie.Title,
+    time: this.choosenTime,
+    reserve: [
+      { num: 5, row: 8 },
+      { num: 3, row: 6 },
+    ],
+  };
+
+  sendDataToBackend(obj: any) {
+    this.bookingService.addToCart(obj).subscribe((data) => {
+      console.log(data);
+      
+    });
   }
 }

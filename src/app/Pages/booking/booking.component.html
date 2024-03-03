@@ -54,13 +54,12 @@
         </div>
         <div class="col-24 col-md-24 col-lg-16">
           <div class="container w-100">
-           @if(showOverlay){
+            @if(showOverlay){
             <h3 class="mb-3">Choose Cinema and start your Journey :</h3>
-           }
+            }
             <div
               class="input-collection d-flex justify-content-around gap-lg-2 mt-5 mt-md-5 mt-lg-0"
             >
-            
               <div>
                 <mat-form-field>
                   <mat-label>Cinema :</mat-label>
@@ -69,9 +68,7 @@
                     [(ngModel)]="choosenCinema"
                     name="cinema"
                     (change)="getDates()"
-                    
                   >
-                    <option value="" selected></option>
                     @for (cinema of cinemas; track cinemas) {
                     <option [value]="cinema">{{ cinema }}</option>
                     }
@@ -86,7 +83,7 @@
                     [(ngModel)]="choosenScreen"
                     name="screen"
                   >
-                    <option value="" selected></option>
+                    
                     @for (screen of screens; track screen) {
                     <option [value]="screen">{{ screen }}</option>
                     }
@@ -95,27 +92,28 @@
               </div>
               <div>
                 <mat-form-field>
-                  <mat-label>Date :</mat-label>
-                  <input
-                    matInput
-                    [matDatepicker]="picker"
+                  <mat-label>Dates :</mat-label>
+                  <select
+                    matNativeControl
                     [(ngModel)]="choosenDate"
-                    (dateChange)="getTimes()"
-
-                  />
-                  <mat-datepicker-toggle
-                    matIconSuffix
-                    [for]="picker"
-                  ></mat-datepicker-toggle>
-                  <mat-datepicker #picker></mat-datepicker>
+                    name="dates"
+                    (change)="getTimes()"
+                  >
+                    @for (date of dates; track date) {
+                    <option [value]="date">{{ date }}</option>
+                    }
+                  </select>
                 </mat-form-field>
               </div>
               <div>
                 <mat-form-field>
                   <mat-label>Time :</mat-label>
-                  <select matNativeControl [(ngModel)]="choosenTime"
-                   name="time" (ngModelChange)="onInputChange()" >
-                    <option value="" selected></option>
+                  <select
+                    matNativeControl
+                    [(ngModel)]="choosenTime"
+                    name="time"
+                    (ngModelChange)="onInputChange()"
+                  >
                     @for (time of time; track time) {
                     <option [value]="time">{{ time }}</option>
                     }
@@ -123,18 +121,17 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="cinema-hall mt-3" style="position: relative;">
+            <div class="cinema-hall mt-3" style="position: relative">
               @if(showOverlay){
-                
-                <div class="overlay" ></div>
+
+              <div class="overlay"></div>
 
               }
               <div class="screen-container">
                 <div class="screen"></div>
               </div>
-              
-              <div class="seats " >
-              
+
+              <div class="seats">
                 <div class="first-row d-flex">
                   @for(seat of firstRow; track firstRow;let i =$index ; let
                   l=$count) {
@@ -209,7 +206,7 @@
                   }
                 </div>
               </div>
-            
+
               @if(takenSeats.length>=1){
               <div class="checkout-table my-4">
                 <app-table
@@ -230,6 +227,7 @@
                   <div
                     routerLink="/checkout"
                     class="checkout primary-btn mt-md-0 col-12 col-md-24"
+                    (click)="sendDataToBackend(objToSend)"
                   >
                     Checkout
                   </div>

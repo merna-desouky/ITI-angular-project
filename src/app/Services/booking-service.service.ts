@@ -52,8 +52,33 @@ export class BookingServiceService {
       }),
     };
     return this.http.post<any>(
-      "http://localhost:2024/reserve//reserved-seats",
+      'http://localhost:2024/reserve//reserved-seats',
       details,
+      headers
+    );
+  }
+  getMovieByName(name: {}) {
+    let headers = {
+      headers: new HttpHeaders({
+        accept: 'application/json',
+      }),
+    };
+    return this.http.post<any>(
+      "http://localhost:2024/movies/movie-name",
+      name,
+      headers
+    );
+  }
+
+  addToCart(data:any){
+    let headers = {
+      headers: new HttpHeaders({
+        accept: 'application/json',
+      }),
+    };
+    return this.http.post<any>(
+      "http://localhost:2024/reserve/add/seats",
+      data,
       headers
     );
   }
