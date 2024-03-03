@@ -1,0 +1,65 @@
+<div class="container p-5">
+  <table
+    class="table table-bordered rounded-4 table-dark text-center"
+    style="font-size: larger"
+  >
+    <thead>
+      <tr>
+        <th scope="col">
+          <img
+            class="mx-3"
+            src="assets/images/golden-ticket.png"
+            style="width: 18px; height: 18px"
+          />Ticket Num
+        </th>
+        <th scope="col">
+          <img
+            class="mx-3"
+            src="assets/images/chair.png"
+            style="width: 18px; height: 18px"
+          />
+          Seat Num
+        </th>
+        <th scope="col">
+          <img
+            class="mx-3"
+            src="assets/images/row.png"
+            style="width: 18px; height: 18px"
+          />
+          Row Num
+        </th>
+        <th scope="col ">
+          <img
+            class="mx-3"
+            src="assets/images/price-tag.png"
+            style="width: 18px; height: 18px"
+          />
+          Price
+        </th>
+        <th scope="col ">
+          <h5 class="m-2">DELETE</h5>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(seat of takenSeats; track takenSeats;let i =$index) {
+      <tr>
+        <th class="py-2" scope="row">{{ i + 1 }}</th>
+        <td class="py-2">{{ seat.num }}</td>
+        <td class="py-2">{{ seat.row }}</td>
+        <td class="py-2">100</td>
+        <td class="py-2" >
+          <div class="containerD">
+            <img
+              class="delete"
+              src="assets/images/bin.png"
+              style="width: 25px; height: 25px"
+              (click)="deleteSeat($event,seat)"
+            />
+          </div>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

@@ -1,4 +1,3 @@
-
 .container img {
   width: 100%;
   max-height: 500px;
@@ -27,8 +26,8 @@
   border-radius: 50%;
   box-shadow: 10px 10px 18px #4bb4f7 inset;
 }
-.seats{
-  width:100%;
+.seats {
+  width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
   display: flex;
@@ -36,112 +35,123 @@
   justify-content: center;
   align-items: center;
 }
-.seats div{
+.seats div {
   margin-top: 5px;
 }
 
-.checkout-container{
+.checkout-container {
   font-size: 20px;
   font-weight: 400;
-  padding:10px;
+  padding: 10px;
   background-color: #323232;
   border-radius: 10px;
 }
-.checkout{
-  background-color: #ca0913;
-  text-align: center;
-  color:white;
+
+.checkout {
+  align-items: center;
+  justify-content: center;
+  background-clip: padding-box;
   border-radius: 8px;
- 
-}
-.checkout:hover{
-  background-color: #b81d24;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0.5rem 10px;
+  min-height: 3rem;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+  padding: 16px;
 }
 
-.seat{
-  width:40px;
-  height:40px;
-  margin-right:5px;
+.seat {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
   background-color: #306c91;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
 }
-.seat:hover{
+.seat:hover {
   background-color: #4a4a4a;
   color: gray;
 }
-.takenSeat{
-  width:40px;
-  height:40px;
-  margin-right:5px;
+.takenSeat {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
   background-color: #4a4a4a;
   color: gray;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-
 }
-
-
+.p-icon {
+  color: #fdcc0d;
+}
 // Extra Small
 @media only screen and (max-width: 600px) {
-  .seat{
-    width:22px;
-    height:22px;
+  .seat {
+    width: 22px;
+    height: 22px;
   }
-  .takenSeat{
-    width:22px;
-    height:22px;
+  .takenSeat {
+    width: 22px;
+    height: 22px;
   }
-  
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  .seat{
-    width:22px;
-    height:22px;
+  .seat {
+    width: 22px;
+    height: 22px;
   }
-  .takenSeat{
-    width:22px;
-    height:22px;
+  .takenSeat {
+    width: 22px;
+    height: 22px;
   }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  .seat{
-    width:30px;
-    height:30px;
+  .seat {
+    width: 30px;
+    height: 30px;
   }
-  .takenSeat{
-    width:30px;
-    height:30px;
+  .takenSeat {
+    width: 30px;
+    height: 30px;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-  .seat{
-    width:40px;
-    height:40px;
+  .seat {
+    width: 40px;
+    height: 40px;
   }
-  .takenSeat{
-    width:40px;
-    height:40px;
+  .takenSeat {
+    width: 40px;
+    height: 40px;
   }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-  .seat{
-    width:40px;
-    height:40px;
+  .seat {
+    width: 40px;
+    height: 40px;
   }
-  .takenSeat{
-    width:40px;
-    height:40px;
+  .takenSeat {
+    width: 40px;
+    height: 40px;
   }
 }

@@ -62,3 +62,28 @@ input[type="checkbox"] {
     height: 100px;
   }
 }
+
+.p-toast-message-custom {
+  background-color: #2d313c;
+  border: solid 1px rgb(0, 170, 0);
+  border-width: 0 0 0 6px;
+  color: var(--color-var2);
+  padding: 20px;
+  margin-bottom: 10px;
+  display: flex;
+
+  svg {
+    fill: var(--color-var2) !important;
+    color: var(--color-var2) !important;
+  }
+}
+
+.disabled-button {
+  background-color: #727272;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+// .p-toast-icon-close-icon {
+//   margin-top: 12px;
+// }

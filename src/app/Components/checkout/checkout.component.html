@@ -2,7 +2,7 @@
   <div class="cart-section">
     <div class="cart-header">
       <img
-        src="/assets/cart.svg"
+        src="/assets/svg/cart.svg"
         alt="checkout"
         width="30"
         height="30"
@@ -10,6 +10,15 @@
       />
       <h2>Cart</h2>
     </div>
+
+    @if(movies.length === 0){
+    <div class="empty-cart">
+      <h3>No Movies in Cart</h3>
+      <button class="primary-btn">
+        <a href="#Movies">Reserve Now</a>
+      </button>
+    </div>
+    } @else {
     <div class="movie-header">
       <h5 class="header">Poster</h5>
       <h5 class="header">Movie</h5>
@@ -43,15 +52,20 @@
     }
 
     <div class="back-container" [routerLink]="'/booking'">
-      <img src="/assets/back.svg" alt="arrow" style="filter: invert(100%)" />
+      <img
+        src="/assets/svg/back.svg"
+        alt="arrow"
+        style="filter: invert(100%)"
+      />
       <h3>Need More Seats ?</h3>
     </div>
+    }
   </div>
 
   <div class="payment">
     <div class="cart-header" style="margin-bottom: 20px">
       <img
-        src="/assets/credit.svg"
+        src="/assets/svg/credit.svg"
         alt="checkout"
         width="30"
         height="30"
@@ -70,7 +84,12 @@
           [(ngModel)]="paymentOption"
         />
         <label for="paypal">
-          <img src="/assets/paypal.png" width="30" height="30" alt="Paypal" />
+          <img
+            src="/assets/images/paypal.png"
+            width="30"
+            height="30"
+            alt="Paypal"
+          />
           Paypal
         </label>
       </div>
@@ -85,7 +104,7 @@
         />
         <label for="credit">
           <img
-            src="/assets/master.png"
+            src="/assets/images/master.png"
             width="30"
             height="25"
             alt="Credit Card"
@@ -97,7 +116,7 @@
       @if(paymentOption === 'paypal'){
       <div class="paypal" style="display: flex; justify-content: center">
         <img
-          src="/assets/paypal-img.svg"
+          src="/assets/svg/paypal-img.svg"
           width="250"
           height="250"
           alt="Paypal"
@@ -108,7 +127,7 @@
       } @if(paymentOption === 'credit'){
       <div class="paypal" style="display: flex; justify-content: center">
         <img
-          src="/assets/credit-img.svg"
+          src="/assets/svg/credit-img.svg"
           width="250"
           height="250"
           alt="Paypal"
@@ -139,3 +158,5 @@
     </div>
   </div>
 </div>
+
+<hr style="color: #ccc; margin: 40px 60px" />

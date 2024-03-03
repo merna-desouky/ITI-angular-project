@@ -1,5 +1,5 @@
 .parent {
-  background-image: url("/assets/sign-up.jpg");
+  background-image: url("/assets/images/sign-up.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -118,14 +118,18 @@ h1 {
 .form-footer {
   font-size: 1.4rem;
   margin-top: 28px;
-}
 
-.form-footer a {
-  font-weight: 600;
-  font-size: 1.4rem;
-  color: #fff;
-  text-decoration: none;
-  margin-left: 8px;
+  p {
+    font-size: 1.4rem;
+  }
+
+  a {
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 8px;
+  }
 }
 
 .second-column {

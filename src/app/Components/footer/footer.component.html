@@ -9,16 +9,18 @@
 
         <img
           class="glasses"
-          src="/assets/3d.png"
+          src="/assets/images/3d.png"
           alt="3d"
+          loading="lazy"
         />
       </div>
     </div>
     <div class="col-24 col-md-11 mt-sm-4 d-flex justify-content-center">
       <img
-        src="assets/img-footer.png"
+        src="assets/images/img-footer.png"
         class="w-75 children"
         style="border-radius: 10px"
+        loading="lazy"
       />
     </div>
   </div>
@@ -76,9 +78,16 @@
         placeholder="Email..."
         required
         style="padding: 3px; outline: none"
+        [(ngModel)]="email"
       />
+
       <div style="display: flex; align-items: center">
-        <input type="checkbox" id="emailC" style="margin-top: 12px" />
+        <input
+          type="checkbox"
+          id="emailC"
+          style="margin-top: 12px"
+          [(ngModel)]="emailChecked"
+        />
         <label for="emailC" class="m-2" style="padding-top: 2.6rem"
           >I would like to receive emails from iWatch:</label
         >
@@ -86,22 +95,27 @@
 
       <button
         class="btn-test py-2 px-3 text-white"
+        type="button"
         pButton
         pRipple
         (click)="showBottomRight()"
+        [disabled]="isButtonDisabled()"
+        [ngClass]="{ 'disabled-button': isButtonDisabled() }"
       >
         Subscribe
       </button>
 
-      <!-- @if(showToast) {
-        <p-toast position="bottom-right" key="br"></p-toast>
-      } -->
+      <p-toast position="bottom-right" key="bc"></p-toast>
     </div>
   </div>
 
   <div class="row my-5">
     <div class="col-8 col-md-8 d-flex justify-content-start d-md-block">
-      <img src="/assets/logo.png" style="width: 130px; height: 130px" />
+      <img
+        src="/assets/images/logo.png"
+        style="width: 130px; height: 130px"
+        loading="lazy"
+      />
     </div>
     <div
       class="col-13 col-md-8 d-flex justify-content-center align-items-center"
@@ -126,29 +140,5 @@
       </div>
     </div>
     <div class="col-8"></div>
-  </div>
-
-  <!-- Bootstrap Toast -->
-  <div class="toast-container position-fixed bottom-0 end-0 p-3">
-    <div
-      id="liveToast"
-      class="toast"
-      role="alert"
-      aria-live="assertive"
-      aria-atomic="true"
-    >
-      <div class="toast-header">
-        <img src="..." class="rounded me-2" alt="..." />
-        <strong class="me-auto">Bootstrap</strong>
-        <small>11 mins ago</small>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="toast"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="toast-body">Hello, world! This is a toast message.</div>
-    </div>
   </div>
 </div>
