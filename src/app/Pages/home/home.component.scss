@@ -55,85 +55,74 @@
 }
 
 .pagination {
-  font-family: 'Lato', sans-serif;
   font-size: 15px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none !important;
+  margin-top: 28px;
 }
 
 .pagination .ngx-pagination .current {
-  background: rgb(104, 40, 40);
+  background: var(--color-var4);
   border-radius: 10px;
-  padding-left: 9px;
-  padding-right: 9px;
+  padding: 0 8px;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.pagination .ngx-pagination .current,
+.pagination .ngx-pagination a,
+.ngx-pagination::before,
+.ngx-pagination::after {
+  margin: 0 12px !important;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 .pagination .ngx-pagination a:hover,
 .ngx-pagination button:hover {
   background: #db9292;
   border-radius: 10px;
-  padding-left: 9px;
-  padding-right: 9px;
+  padding: 0 8px;
   text-decoration: none;
   color: white;
 }
 
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 .pagination ::ng-deep .ngx-pagination .current {
   background: red;
   border-radius: 15px;
+  color: white !important;
+  text-decoration: none !important;
 }
 
 ::ng-deep {
   .ngx-pagination {
-    margin-left: 0 !important;
-    margin-bottom: 1rem !important;
     line-height: 20px !important;
     padding: 7px 15px 7px !important;
     font-size: 12px !important;
+    color: white !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination::before,
   .ngx-pagination::after {
     content: " " !important;
-    //display: table !important;
+    color: white !important;
+    text-decoration: none !important;
   }
-
-  .ngx-pagination::after {
-    clear: both !important;
-  }
-
-  // .ngx-pagination li {
-  //   -moz-user-select: none !important;
-  //   -webkit-user-select: none !important;
-  //   -ms-user-select: none !important;
-  //   margin-right: 0.2rem !important;
-  //   border-radius: 0 !important;
-  // }
-
-  // .ngx-pagination li {
-  //   display: inline-block !important;
-  // }
 
   .ngx-pagination a,
   .ngx-pagination button {
-    color: #0a0a0a !important;
     display: block !important;
     background-color: rgb(238, 197, 203) !important;
-    color: black !important;
+    color: white !important;
     border: 2px solid #8b8b8b !important;
     padding: 0.5rem 1rem !important;
     border-radius: 25px !important;
-  }
-
-  .ngx-pagination a:hover,
-  .ngx-pagination button:hover {
-    background: #8d788088 !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination .current {
@@ -144,63 +133,57 @@
     border: 2px solid #8b8b8b !important;
     border-radius: 25px !important;
     padding: 0.5rem 1rem !important;
+    margin: 0 12px !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination .disabled {
     padding: 0.1875rem 0.625rem !important;
-    color: #cacaca00 !important;
+    color: white !important;
     cursor: default !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination .disabled:hover {
     background: transparent !important;
+    color: white !important;
+    text-decoration: none !important;
   }
-
-  .ngx-pagination a,
-  .ngx-pagination button {
-    cursor: pointer !important;
-  }
-
-  // .ngx-pagination .pagination-previous a::before,
-  // .ngx-pagination .pagination-previous.disabled::before {
-  //   font-family: FontAwesome;
-  //   content: "\f053" !important;
-  //   display: inline-block !important;
-  //   margin-right: 0rem !important;
-  // }
 
   .ngx-pagination .pagination-next a::after,
   .ngx-pagination .pagination-next.disabled::after {
-    font-family: FontAwesome !important;
     content: "\f054" !important;
     display: inline-block !important;
-    margin-left: 0rem !important;
+    margin: 0 12px !important;
+    color: white !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination .show-for-sr {
     position: absolute !important;
     width: 1px !important;
     height: 1px !important;
+    color: white !important;
     //overflow: hidden !important;
     //clip: rect(0, 0, 0, 0) !important;
+    text-decoration: none !important;
   }
 
   .ngx-pagination .small-screen {
     display: none !important;
+    color: white !important;
+    text-decoration: none !important;
   }
 
   @media screen and (max-width: 601px) {
     .ngx-pagination.responsive .small-screen {
       display: inline-block !important;
-      color: black !important;
+      color: white !important;
       background-color: rgb(109, 15, 15) !important;
       border: 2px solid #e29494 !important;
       padding: 0.5rem 1rem !important;
       border-radius: 9% !important;
+      text-decoration: none !important;
     }
-
-    // .ngx-pagination.responsive li:not(.small-screen):not(.pagination-previous):not(.pagination-next) {
-    //   display: none !important;
-    // }
   }
 }

@@ -68,15 +68,28 @@
         </div>
 
         @if(validateField('password')) {
-        <span>Password should be at least 8 characters long</span>
+        <span>Password is required</span>
         } @else {
-        <span style="visibility: hidden"
-          >Password should be at least 8 characters long</span
-        >
+        <span style="visibility: hidden">Password is required</span>
         }
 
+        <!------------------------------------------------------>
+
+        @if(notFoundMessage !== "") {
+        <span style="text-align: center; margin-top: 20px" class="not-found">{{
+          notFoundMessage
+        }}</span>
+        } @else{
+        <br />
+        }
         <!------------------------------------------------------------------------------------------------->
         <button class="btn" type="submit">Sign In</button>
+
+        <p style="font-size: 1.4rem">OR</p>
+
+        <div class="google-container">
+          <div id="google-btn"></div>
+        </div>
 
         <div class="form-footer">
           <p>Need an account? <a routerLink="/sign-up">Register</a></p>

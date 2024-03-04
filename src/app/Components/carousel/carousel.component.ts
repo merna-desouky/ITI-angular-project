@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 })
 export class CarouselComponent {
   @Input() movies: any;
+  @Input() sliderMovies: any;
   responsiveOptions: any[] | undefined;
 
   constructor(private MoviesService: MoviesService) {}

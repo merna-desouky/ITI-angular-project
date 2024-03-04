@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DropdownModule } from 'primeng/dropdown';
+
 @Component({
   selector: 'app-filter',
   standalone: true,
@@ -32,7 +33,7 @@ export class FilterComponent implements OnInit {
       { name: 'Biography' },
       { name: 'Animation' },
     ];
-    console.log(this.selectedCatg, 'selected');
+    // console.log(this.selectedCatg, 'selected');
   }
 
   onChange(evt: any) {
