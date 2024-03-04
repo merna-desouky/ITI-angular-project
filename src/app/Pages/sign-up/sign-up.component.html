@@ -2,6 +2,15 @@
   <div class="form-container">
     <div class="first-column">
       <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+        <div class="logo">
+          <img
+            src="/assets/images/logo.png"
+            alt="logo"
+            width="130"
+            height="130"
+          />
+        </div>
+
         <h1>Create New Account</h1>
 
         <!------------------------------------------------------------------------------------------------->
@@ -55,13 +64,13 @@
             <label>Password</label>
 
             <img
-              src="assets/eye-off.svg"
+              src="assets/svg/eye-off.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="togglePasswordVisibility(passwordInput)"
               [hidden]="showPassword"
             />
             <img
-              src="assets/eye.svg"
+              src="assets/svg/eye.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="togglePasswordVisibility(passwordInput)"
               [hidden]="!showPassword"
@@ -90,13 +99,13 @@
             <label>Confirm Password</label>
 
             <img
-              src="assets/eye-off.svg"
+              src="assets/svg/eye-off.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
               [hidden]="showConfirmPassword"
             />
             <img
-              src="assets/eye.svg"
+              src="assets/svg/eye.svg"
               style="filter: invert(100%); cursor: pointer"
               (click)="toggleConfirmPasswordVisibility(confirmPasswordInput)"
               [hidden]="!showConfirmPassword"
@@ -126,11 +135,7 @@
     </div>
 
     <div class="second-column">
-      <img src="assets/sign-up-img.svg" class="intro-img" alt="intro" />
-
-      <!-- <div class="intro-text">
-        <h1>I-WATCH</h1>
-      </div> -->
+      <img src="assets/svg/sign-up-img.svg" class="intro-img" alt="intro" />
     </div>
   </div>
 </div>

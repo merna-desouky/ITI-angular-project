@@ -1,9 +1,52 @@
+<app-hero></app-hero>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-1"></div>
     <div class="col-22">
       <!-- Home Content Goes Here-->
-    <app-footer></app-footer>
+      <!-- Start of movies card -->
+      <div class="moviesCards">
+        <div class="row">
+          <div class="col-24">
+            <div class="movies-title" id="Movies">
+              <h3>Movies</h3>
+              <div class="filter-container">
+                <app-filter (myEvent)="getSelectedCatg($event)"></app-filter>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="wrapper">
+            @for (movie of filterdMovies | paginate:{itemsPerPage:10 ,
+            currentPage:p}; track movie.id ;) {
+
+            <app-movies-cards [movie]="movie"></app-movies-cards>
+
+            }
+          </div>
+
+          @if (filterdMovies?.length > 10) {
+          <div class="pagination">
+            <pagination-controls
+              class="pagination"
+              (pageChange)="p = $event"
+            ></pagination-controls>
+          </div>
+
+          }
+        </div>
+      </div>
+
+      <div class="moviesCarousel">
+        <div class="row">
+          <div class="col-24">
+            <app-carousel [movies]="movies"></app-carousel>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-1"></div>
   </div>

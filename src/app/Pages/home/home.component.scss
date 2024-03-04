@@ -1,0 +1,189 @@
+.moviesCards {
+  margin-bottom: 90px;
+
+  .movies-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 30px 30px 0;
+    .filter-container {
+      padding-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 3rem;
+      font-weight: 800;
+      color: var(--color-var3);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+
+    @media (max-width: "600px") {
+      flex-direction: column;
+
+      h3 {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.moviesCarousel {
+  margin-bottom: 90px;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 4rem;
+  row-gap: 3.5rem;
+
+  @media (max-width: "1390px") {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: "1175px") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: "768px") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: "430px") {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.pagination {
+  font-size: 15px;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-decoration: none !important;
+  margin-top: 28px;
+}
+
+.pagination .ngx-pagination .current {
+  background: var(--color-var4);
+  border-radius: 10px;
+  padding: 0 8px;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.pagination .ngx-pagination .current,
+.pagination .ngx-pagination a,
+.ngx-pagination::before,
+.ngx-pagination::after {
+  margin: 0 12px !important;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.pagination .ngx-pagination a:hover,
+.ngx-pagination button:hover {
+  background: #db9292;
+  border-radius: 10px;
+  padding: 0 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.pagination ::ng-deep .ngx-pagination .current {
+  background: red;
+  border-radius: 15px;
+  color: white !important;
+  text-decoration: none !important;
+}
+
+::ng-deep {
+  .ngx-pagination {
+    line-height: 20px !important;
+    padding: 7px 15px 7px !important;
+    font-size: 12px !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination::before,
+  .ngx-pagination::after {
+    content: " " !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination a,
+  .ngx-pagination button {
+    display: block !important;
+    background-color: rgb(238, 197, 203) !important;
+    color: white !important;
+    border: 2px solid #8b8b8b !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .current {
+    padding: 0.1875rem 0.625rem !important;
+    background: red !important;
+    color: #fefefe !important;
+    cursor: default !important;
+    border: 2px solid #8b8b8b !important;
+    border-radius: 25px !important;
+    padding: 0.5rem 1rem !important;
+    margin: 0 12px !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .disabled {
+    padding: 0.1875rem 0.625rem !important;
+    color: white !important;
+    cursor: default !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .disabled:hover {
+    background: transparent !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .pagination-next a::after,
+  .ngx-pagination .pagination-next.disabled::after {
+    content: "\f054" !important;
+    display: inline-block !important;
+    margin: 0 12px !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .show-for-sr {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    color: white !important;
+    //overflow: hidden !important;
+    //clip: rect(0, 0, 0, 0) !important;
+    text-decoration: none !important;
+  }
+
+  .ngx-pagination .small-screen {
+    display: none !important;
+    color: white !important;
+    text-decoration: none !important;
+  }
+
+  @media screen and (max-width: 601px) {
+    .ngx-pagination.responsive .small-screen {
+      display: inline-block !important;
+      color: white !important;
+      background-color: rgb(109, 15, 15) !important;
+      border: 2px solid #e29494 !important;
+      padding: 0.5rem 1rem !important;
+      border-radius: 9% !important;
+      text-decoration: none !important;
+    }
+  }
+}

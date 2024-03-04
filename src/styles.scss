@@ -1,3 +1,5 @@
+@import "primeicons/primeicons.css";
+
 :root {
   --color-var1: #221f1f;
   --color-var2: #f5f5f1;
@@ -15,12 +17,47 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Martel Sans", Helvetica Neue, Segoe UI, Roboto, sans-serif;
   background-color: var(--color-var1);
   color: var(--color-var2);
+}
+
+.primary-btn {
+  background-color: var(--color-var3);
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.primary-btn:hover,
+.primary-btn:focus {
+  background-color: var(--color-var4);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+.secondary-btn {
+  background-color: var(--color-var2);
+  color: var(--color-var1);
+  border: 1px solid var(--color-var1);
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus {
+  background-color: var(--color-var1);
+  color: var(--color-var2);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  border: 1px solid var(--color-var2);
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
 }
 
 .col-1 {
@@ -472,5 +509,130 @@ body {
   }
   .col-xl-24 {
     width: 100%;
+  }
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #4a4a4a !important;
+}
+
+// done
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-floating-label--float-above {
+  color: white !important;
+  font-size: smaller;
+}
+.mdc-text-field__input {
+  color: white !important;
+  font-size: smaller;
+}
+.mdc-text-field__input option {
+  color: black !important;
+  font-size: smaller;
+}
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-floating-label,
+.mdc-text-field--filled:not(.mdc-text-field--disabled)
+  .mdc-floating-label--float-above {
+  color: white !important;
+  font-size: smaller;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 25% !important;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 25% !important;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 180px !important;
+    margin-right: 5px;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100px !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .mat-mdc-form-field,
+  .mat-mdc-form-field-type-mat-native-select,
+  .mat-form-field-appearance-fill,
+  .mat-form-field-hide-placeholder {
+    width: 100% !important;
+  }
+  .mat-mdc-text-field-wrapper {
+    width: 100% !important;
+  }
+  .mat-form-field {
+    width: 100% !important;
+  }
+}
+.favourites,
+.purchased {
+  .cards--one__rect,
+  .cards--one__tri,
+  .watch-btn {
+    display: none;
+  }
+  .cards--one .myPoster .myimg {
+    height: 210px;
+  }
+  .cards {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-8px);
+      transition: all 0.3s ease-in-out;
+    }
   }
 }

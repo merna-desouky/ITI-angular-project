@@ -1,0 +1,78 @@
+.seat {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    background-color: #306c91;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  .seat:hover {
+    background-color: #4a4a4a;
+    color: gray;
+  }
+  .takenSeat {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    background-color: green;
+    color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  .reservedSeat{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    background-color: #e50914;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+  }
+  // Extra Small
+@media only screen and (max-width: 600px) {
+  .seat,.takenSeat,.reservedSeat {
+      width: 22px;
+      height: 22px;
+    }
+  }
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .seat,.takenSeat,.reservedSeat {
+      width: 22px;
+      height: 22px;
+    }
+    
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .seat,.takenSeat,.reservedSeat {
+      width: 30px;
+      height: 30px;
+    }
+    
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .seat,.takenSeat,.reservedSeat {
+      width: 40px;
+      height: 40px;
+    }
+    
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .seat,.takenSeat,.reservedSeat {
+      width: 40px;
+      height: 40px;
+    }
+   
+  }
