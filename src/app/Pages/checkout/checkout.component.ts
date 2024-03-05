@@ -28,6 +28,14 @@ export class CheckoutComponent implements OnInit {
   movies: any[] = [];
   userCart: any = {};
 
+  movieCinema: string = '';
+  movieDate: string = '';
+  movieTime: string = '';
+  movieName: string = '';
+  movieImg: string = '';
+  movieSeats: number[] = [];
+  movieRows: number[] = [];
+
   constructor(
     private moviesService: MoviesService,
     private cartService: CartService,
@@ -66,22 +74,15 @@ export class CheckoutComponent implements OnInit {
 
   extractDataFromCart() {
     this.userCart.cart.forEach((item: any, index: number) => {
-      // Extract data from each object
-      const cinema = item.cinema;
-      const date = item.date;
-      const time = item.time;
-      const movieName = item['movie-name'];
-      const movieImg = item['movie-img'];
-      const seats = item.seats;
+      this.movieCinema = item.cinema;
+      this.movieDate = item.date;
+      this.movieTime = item.time;
+      this.movieName = item.movieName;
+      this.movieImg = item.movieImg;
+      this.movieSeats = item.seats.map((seat: any) => seat.num);
+      this.movieRows = item.seats.map((seat: any) => seat.row);
 
-      console.log(`Item ${index + 1}:`);
-      console.log(`Cinema: ${cinema}`);
-      console.log(`Date: ${date}`);
-      console.log(`Time: ${time}`);
-      console.log(`Movie Name: ${movieName}`);
-      console.log(`Movie Image: ${movieImg}`);
-      console.log(`Seats: ${seats}`);
-      console.log('\n');
+      console.log(this.movieSeats, this.movieRows);
     });
   }
 

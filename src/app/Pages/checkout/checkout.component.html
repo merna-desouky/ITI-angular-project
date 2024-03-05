@@ -18,23 +18,53 @@
         <a href="#Movies">Reserve Now</a>
       </button>
     </div>
-    } @else {
-    <div class="movie-header">
-      <h5 class="header">Poster</h5>
-      <h5 class="header">Movie</h5>
-      <h5 class="header">Seats</h5>
-      <h5 class="header">Price</h5>
+    } @else { @for(item of userCart.cart; track item.time) {
+    <div class="reserved">
+      <div><img [src]="item['movie-img']" height="180" width="150" /></div>
+
+      <div class="reserved-data">
+        <div>
+          <p><span>Movie : </span>{{ item["movie-name"] }}</p>
+          <p><span>Cinema : </span>{{ item.cinema }}</p>
+          <p><span>Date : </span>{{ item.date }}</p>
+          <p><span>Time : </span>{{ item.time }}</p>
+        </div>
+
+        <div style="justify-self: center">
+          <div class="reserved-row">
+            <p><span>Seats :</span></p>
+
+            <div class="d-flex">
+              <p
+                class="seats-details"
+                *ngFor="let seat of item.seats; let last = last"
+              >
+                {{ seat.num }}{{ last ? "" : ", " }}
+              </p>
+            </div>
+          </div>
+
+          <div class="reserved-row">
+            <p><span>Row :</span></p>
+
+            <div class="d-flex">
+              <p
+                class="seats-details"
+                *ngFor="let seat of item.seats; let last = last"
+              >
+                {{ seat.row }}{{ last ? "" : ", " }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reserved-btn">
+        <button class="primary-btn">Remove</button>
+      </div>
     </div>
 
-    @for(item of userCart.cart; track item.time) {
-    <div>
-      <p>{{ item.cinema }}</p>
-      <p>{{ item.date }}</p>
-      <p>{{ item.time }}</p>
-      <p>{{ item["movie-name"] }}</p>
-      <p>{{ item["movie-img"] }}</p>
-      <p>{{ item.seats }}</p>
-    </div>
+    <hr />
     }
 
     <div class="back-container" [routerLink]="'/booking'">
