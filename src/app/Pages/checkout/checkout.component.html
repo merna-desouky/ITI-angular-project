@@ -11,44 +11,60 @@
       <h2>Cart</h2>
     </div>
 
-    @if(movies.length === 0){
+    @if(userCart.cart.length === 0 || userCart === {}){
     <div class="empty-cart">
       <h3>No Movies in Cart</h3>
       <button class="primary-btn">
         <a href="#Movies">Reserve Now</a>
       </button>
     </div>
-    } @else {
-    <div class="movie-header">
-      <h5 class="header">Poster</h5>
-      <h5 class="header">Movie</h5>
-      <h5 class="header">Seats</h5>
-      <h5 class="header">Price</h5>
+    } @else { @for(item of userCart.cart; track item.time) {
+    <div class="reserved">
+      <div><img [src]="item['movie-img']" height="180" width="150" /></div>
+
+      <div class="reserved-data">
+        <div>
+          <p><span>Movie : </span>{{ item["movie-name"] }}</p>
+          <p><span>Cinema : </span>{{ item.cinema }}</p>
+          <p><span>Date : </span>{{ item.date }}</p>
+          <p><span>Time : </span>{{ item.time }}</p>
+        </div>
+
+        <div style="justify-self: center">
+          <div class="reserved-row">
+            <p><span>Seats :</span></p>
+
+            <div class="d-flex">
+              <p
+                class="seats-details"
+                *ngFor="let seat of item.seats; let last = last"
+              >
+                {{ seat.num }}{{ last ? "" : ", " }}
+              </p>
+            </div>
+          </div>
+
+          <div class="reserved-row">
+            <p><span>Row :</span></p>
+
+            <div class="d-flex">
+              <p
+                class="seats-details"
+                *ngFor="let seat of item.seats; let last = last"
+              >
+                {{ seat.row }}{{ last ? "" : ", " }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reserved-btn" (click)="removeMovie(item)">
+        <button class="primary-btn">Remove</button>
+      </div>
     </div>
 
-    @for(movie of movies; track movie.id) {
-    <div class="movie">
-      <div class="first-col">
-        <img [src]="movie.imgSrc" alt="poster" width="150" height="200" />
-      </div>
-      <div class="second-col">
-        <p>{{ movie.movieName }}</p>
-      </div>
-      <div
-        class="third-col"
-        style="display: flex; justify-content: center; gap: 10px"
-      >
-        <p>{{ movie.totalSeats }}</p>
-        @if(movie.totalSeats > 1){
-        <p>Seats</p>
-        } @if(movie.totalSeats === 1){
-        <p>Seat</p>
-        }
-      </div>
-      <div class="fourth-col">
-        <p><span style="color: #ffd789">$</span> {{ movie.totalPrice }}</p>
-      </div>
-    </div>
+    <hr />
     }
 
     <div class="back-container" [routerLink]="'/booking'">
@@ -75,87 +91,15 @@
     </div>
 
     <div class="payment-options">
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="paypal"
-          name="payment"
-          value="paypal"
-          [(ngModel)]="paymentOption"
-        />
-        <label for="paypal">
-          <img
-            src="/assets/images/paypal.png"
-            width="30"
-            height="30"
-            alt="Paypal"
-          />
-          Paypal
-        </label>
-      </div>
-
-      <div class="payment-option">
-        <input
-          type="radio"
-          id="credit"
-          name="payment"
-          value="credit"
-          [(ngModel)]="paymentOption"
-        />
-        <label for="credit">
-          <img
-            src="/assets/images/master.png"
-            width="30"
-            height="25"
-            alt="Credit Card"
-          />
-          Credit Card
-        </label>
-      </div>
-
-      @if(paymentOption === 'paypal'){
-      <div class="paypal" style="display: flex; justify-content: center">
-        <img
-          src="/assets/svg/paypal-img.svg"
-          width="250"
-          height="250"
-          alt="Paypal"
-          style="margin-top: -60px"
-        />
-      </div>
-
-      } @if(paymentOption === 'credit'){
-      <div class="paypal" style="display: flex; justify-content: center">
-        <img
-          src="/assets/svg/credit-img.svg"
-          width="250"
-          height="250"
-          alt="Paypal"
-          style="margin-top: -60px"
-        />
-      </div>
-
-      <div class="inputs" style="margin-top: -40px">
-        <input
-          type="tel"
-          inputmode="numeric"
-          maxlength="19"
-          placeholder="xxxx xxxx xxxx xxxx"
-        />
-        <input type="text" placeholder="Name on Card" class="input" />
-
-        <div style="display: flex; gap: 30px; justify-content: space-between">
-          <input type="text" placeholder="CVV" class="input" maxlength="3" />
-
-          <input type="text" placeholder="Expiry Date" class="input" />
-        </div>
-      </div>
-      }
+      <div id="myPaypalButtons"></div>
     </div>
+
+    <hr />
+    <br />
 
     <div class="checkout">
       <button class="checkout-btn" (click)="checkoutUserCart(userCart)">
-        Make a Payment
+        Make a Database Payment
       </button>
     </div>
   </div>

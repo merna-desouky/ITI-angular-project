@@ -36,12 +36,12 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
   styleUrl: './single-movie.component.scss',
 })
 export class SingleMovieComponent implements OnInit {
-  singlemovie(){
-    console.log("object");
+  singlemovie() {
+    console.log('object');
     // this.router.navigate([""])
   }
-  bookPage(){
-    this.router.navigate(["book-ticket"])
+  bookPage() {
+    this.router.navigate(['booking']);
   }
   userComment: any = '';
   userRate: any = '';
@@ -50,11 +50,10 @@ export class SingleMovieComponent implements OnInit {
     this.userComment = _comment;
     this.userRate = _rate;
     this.reviews.push({ comment: this.userComment, rate: this.userRate });
-
   }
   heartIconClass: string = 'pi pi-heart';
   iconSize: number = 55;
-  iconSize2:number = 35;
+  iconSize2: number = 35;
   heartIconColor: string = 'red';
   movie: any;
 
@@ -74,7 +73,7 @@ export class SingleMovieComponent implements OnInit {
   constructor(
     private myRoute: ActivatedRoute,
     private movieService: MoviesService,
-    private router :Router,
+    private router: Router
   ) {
     this.id = myRoute.snapshot.params['id'];
   }

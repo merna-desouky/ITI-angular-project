@@ -4,6 +4,8 @@
   grid-gap: 20px;
   margin: 20px 40px;
   padding: 20px;
+  background-color: #14141a;
+  border-radius: 10px;
 }
 
 .cart-section {
@@ -79,19 +81,11 @@
 }
 
 .payment {
-  background-color: #14141a;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   height: fit-content;
-}
-
-.movie-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.5fr 1fr;
-  grid-gap: 20px;
-  align-items: center;
-  padding: 20px;
+  border: 2px solid #ccc;
 }
 
 .header {
@@ -200,10 +194,10 @@ input[type="tel"] {
 .checkout-btn {
   display: block;
   margin: 20px auto 32px auto;
-  width: 75%;
+  width: 100%;
   background: #ffd789;
   color: #000;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
   border: none;
   padding: 12px 20px;
@@ -218,6 +212,60 @@ input[type="tel"] {
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.15);
   transform: translateY(-2px);
+}
+
+.reserved {
+  display: grid;
+  grid-template-columns: 0.25fr 1fr 0.25fr;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  span {
+    color: #aca6a5;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+
+    p {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 425px) {
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .reserved-data {
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    margin: auto;
+
+    gap: 10px;
+
+    .reserved-row {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+
+      .seats-details {
+        margin-right: auto;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .reserved-btn {
+    align-self: self-end;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -264,6 +312,6 @@ input[type="tel"] {
   }
 
   .checkout-btn {
-    width: 80%;
+    font-size: 1.2rem;
   }
 }
