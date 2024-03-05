@@ -14,8 +14,9 @@ export class CartService {
     return this.myClient.get(this.URL_DB + 'user/cart');
   }
 
-  // To Do
-  // removeMovieFromCart(movieId: string) { }
+  removeMovieFromCart(movie: string) {
+    return this.myClient.post(this.URL_DB + 'user/delete-movie', movie);
+  }
 
   checkoutUserCart(cart: any) {
     return this.myClient.post(this.URL_DB + 'reserve/check-out/seats', cart, {

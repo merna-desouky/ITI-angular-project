@@ -86,6 +86,18 @@ export class CheckoutComponent implements OnInit {
     });
   }
 
+  removeMovie(movie: any) {
+    this.cartService.removeMovieFromCart(movie).subscribe({
+      next: (data: any) => {
+        console.log('Movie removed from cart');
+        // this.userCart = data;
+      },
+      error: (err: any) => {
+        console.log(err);
+      },
+    });
+  }
+
   checkoutUserCart(cart: any) {
     this.cartService.checkoutUserCart(cart).subscribe({
       next: (data: any) => {
