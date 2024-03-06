@@ -66,7 +66,7 @@ export class CheckoutComponent implements OnInit {
       id: '#myPaypalButtons',
       currency: 'USD',
       value: '100.00',
-      onApprove: (details) => {
+      onApprove: (details:any) => {
         alert('Transaction Done Successfully');
       },
     });
