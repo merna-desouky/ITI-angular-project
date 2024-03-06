@@ -89,8 +89,9 @@ export class CheckoutComponent implements OnInit {
   removeMovie(movie: any) {
     this.cartService.removeMovieFromCart(movie).subscribe({
       next: (data: any) => {
-        console.log('Movie removed from cart');
-        // this.userCart = data;
+        console.log(`Movie removed from cart + ${movie['cinema']}`);
+        // Update movies array to reflect the changes
+        this.movies = this.movies.filter((m) => m.id !== movie.id);
       },
       error: (err: any) => {
         console.log(err);
