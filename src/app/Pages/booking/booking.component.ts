@@ -43,6 +43,8 @@ export class BookingComponent implements OnInit {
   dates = [];
   movie: any = {};
   ngOnInit() {
+    window.scrollTo(0, 0);
+
     this.bookingService
       .getCinemas({ movie: 'The Shawshank Redemption' })
       .subscribe((data) => {
@@ -65,7 +67,7 @@ export class BookingComponent implements OnInit {
         cinema: this.choosenCinema,
       })
       .subscribe((data) => {
-        this.dates=data;
+        this.dates = data;
       });
   }
   getTimes() {
@@ -243,7 +245,6 @@ export class BookingComponent implements OnInit {
   choosenDate: string = '';
   choosenTime: any = '';
   seatNum: any;
-  
 
   reserveSeat(eve: any, seat: any) {
     this.seatState.updateSeatColor(seat.row, seat.num, 'red');
@@ -279,7 +280,6 @@ export class BookingComponent implements OnInit {
   sendDataToBackend(obj: any) {
     this.bookingService.addToCart(obj).subscribe((data) => {
       console.log(data);
-      
     });
   }
 }

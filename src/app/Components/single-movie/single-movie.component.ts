@@ -98,6 +98,8 @@ export class SingleMovieComponent implements OnInit {
     this.movieName.movie = myRoute.snapshot.params['movie-name'];
   }
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
@@ -128,24 +130,6 @@ export class SingleMovieComponent implements OnInit {
         // console.log(data)
       },
     });
-
-    // this.movieService.getAllMovies().subscribe({
-    //   next: (data) => {
-    //     this.allMovies = data;
-    //     //console.log( this.value2);
-    //     for (let i = 0; i < this.allMovies.length; i++) {
-    //       //console.log(this.allMovies[0]);
-    //       if (
-    //         this.allMovies[i].Genre == this.movieDetails.Genre &&
-    //         this.movieDetails['id'] != this.allMovies[i]['id']
-    //       ) {
-    //         this.sliderMovies.push(this.allMovies[i]);
-    //         this.value2 = this.allMovies[i].Ratings[0].Value;
-    //       }
-    //     }
-    //     // console.log(this.sliderMovies);
-    //   },
-    // });
   }
   toggleFavorite() {
     if (this.favorite) {
