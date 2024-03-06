@@ -115,6 +115,8 @@ export class SingleMovieComponent implements OnInit {
     this.movieName.movie = myRoute.snapshot.params['movie-name'];
   }
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
@@ -150,5 +152,4 @@ export class SingleMovieComponent implements OnInit {
         this.reviews = data;
       },
     });
-  }
 }

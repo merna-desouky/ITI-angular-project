@@ -14,7 +14,7 @@ export class CartService {
     return this.myClient.get(this.URL_DB + 'user/cart');
   }
 
-  removeMovieFromCart(movie: string) {
+  removeMovieFromCart(movie: object) {
     return this.myClient.post(this.URL_DB + 'user/delete-movie', movie);
   }
 
