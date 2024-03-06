@@ -13,7 +13,7 @@ import { ProfileComponent } from './Pages/profile/profile.component';
 export const routes: Routes = [
   // { path: '', component: HomeComponent , canActivate:[canActivate]},
   { path: '', component: HomeComponent },
-  { path: 'movie/:id', component: SingleMovieComponent },
+  { path: 'movie/:movie-name', component: SingleMovieComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'profile', component: ProfileComponent },
