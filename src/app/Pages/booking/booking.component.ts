@@ -248,7 +248,7 @@ export class BookingComponent implements OnInit {
         time: this.choosenTime,
       })
       .subscribe((data) => {
-        console.log('Ana seats' + JSON.stringify(data));
+         JSON.stringify(data);
       });
   }
 
