@@ -13,7 +13,7 @@
       [responsiveOptions]="responsiveOptions"
     >
       <ng-template let-movie pTemplate="item">
-        <div class="myCardCarousel" [routerLink]="'movie/' + movie.id">
+        <div class="myCardCarousel" [routerLink]="'movie/' + movie.Title">
           <div class="myimg">
             <img [src]="movie.Poster" class="w-6 shadow-2" />
           </div>
