@@ -1,0 +1,86 @@
+@if (user) {
+<div class="profile">
+  <div class="cover">
+    <div class="myimg"></div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-22">
+        <div class="row g-lg-5 gy-5">
+          <div class="col-lg-8 col-md-8 col-sm-24">
+            <div class="profile-pic">
+              <div class="img"><img src="/assets/images/profile2.jpg" /></div>
+              <!-- <div class="txt">
+      <div class="myName">
+        Name:<span> {{ user.name }}</span>
+      </div>
+      <div class="email">
+        Email:<span> {{ user.email }}</span>
+      </div>
+    </div> -->
+            </div>
+          </div>
+          <div class="col-lg-16 col-md-16 col-sm-24">
+            <div class="row">
+              <div class="col-24">
+                <div class="info">
+                  <div class="name">
+                    {{ user.name }}
+                    <div class="verfied">
+                      <img src="/assets/images/verified.gif" />
+                    </div>
+                  </div>
+                  <div class="email">
+                    {{ user.email }}
+                  </div>
+                </div>
+              </div>
+              <div class="col-24">
+                <div class="fav-title">
+                  <div class="myheart">
+                    <img src="/assets/images/heart.png" />
+                  </div>
+                  Favourites
+                </div>
+              </div>
+            </div>
+            <div class="favourites">
+              <div class="row gy-5">
+                @for (movie of user.favourite; track user.id ;) {
+                <div class="col-lg-6 col-sm-12">
+                  <app-movies-cards [movie]="movie"></app-movies-cards>
+                </div>
+                }
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-24">
+                <div class="purchased-title">
+                  <div class="myPurchased">
+                    <img src="/assets/images/Purchased.png" />
+                  </div>
+                  Purchased
+                </div>
+              </div>
+            </div>
+            <div class="purchased">
+              <div class="row gy-5">
+                @for (movie of user.purchased; track user.id ;) {
+                <div class="col-lg-6 col-sm-12">
+                  <app-movies-cards [movie]="movie"></app-movies-cards>
+                </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+</div>
+
+} @else{
+<div>Loading</div>
+}

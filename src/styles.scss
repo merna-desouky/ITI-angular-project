@@ -617,3 +617,22 @@ body {
     width: 100% !important;
   }
 }
+.favourites,
+.purchased {
+  .cards--one__rect,
+  .cards--one__tri,
+  .watch-btn {
+    display: none;
+  }
+  .cards--one .myPoster .myimg {
+    height: 210px;
+  }
+  .cards {
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      transform: translateY(-8px);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
