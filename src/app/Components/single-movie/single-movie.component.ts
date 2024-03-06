@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
@@ -42,7 +43,7 @@ export class SingleMovieComponent implements OnInit {
   userComment: any = '';
   userRate: any = '';
   checkedReview: boolean = true;
-  reviews: { rate: any; comment: string }[] = [];
+  reviews: any;
   heartIconClass: string = 'pi pi-heart';
   iconSize: number = 55;
   iconSize2: number = 35;
@@ -54,6 +55,7 @@ export class SingleMovieComponent implements OnInit {
   value: any;
   value2: any;
   allMovies: any;
+  viewComment: boolean = true;
 
   singlemovie() {
     this.router.navigate(['']);
@@ -68,8 +70,8 @@ export class SingleMovieComponent implements OnInit {
   reviewData(_comment: any, _rate: any) {
     this.userComment = _comment;
     this.userRate = _rate;
-
-    this.reviews.push({ comment: this.userComment, rate: this.userRate });
+    this.viewComment = false;
+    this.reviews.push({ comment: this.userComment, stars: this.userRate });
 
     this.singleMovieService
       .SendReview({
@@ -164,8 +166,10 @@ export class SingleMovieComponent implements OnInit {
     //get all comments on the film
     this.singleMovieService.GetReviews(this.movieName).subscribe({
       next: (data: any) => {
+        console.log(data, 'server');
         this.reviews = data;
-        console.log(this.reviews);
+        console.log(this.reviews, 'hiiiiiiii');
+        data.map((item: any) => console.log(+item.stars));
       },
     });
   }

@@ -110,7 +110,7 @@
       </div>
       <div>
         <div class="mt-5">
-          @if (!checkedReview) {
+          @if (!checkedReview && viewComment) {
           <div class="border-top mb-4">
             <h1 class="mt-5 mb-4 text-center favMovies">User Review</h1>
           </div>
@@ -155,7 +155,7 @@
                 <br />
                 <h2 class="d-inline-block me-2">Rate</h2>
                 <p-rating
-                  [(ngModel)]="review.rate"
+                  [(ngModel)]="review.stars"
                   [cancel]="false"
                   [readonly]="true"
                   class="custom-stars d-inline-block"
