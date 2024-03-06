@@ -75,9 +75,21 @@
       }
     </div>
     <div class="mob-links">
-      <a routerActiveLink="active" routerLink="/">Home</a>
-      <a href="#Trending">Trending</a>
-      <a routerActiveLink="active" routerLink="/checkout">Cart</a>
+      <a
+        routerActiveLink="active"
+        routerLink="/"
+        (click)="sidebarVisible = false"
+        >Home</a
+      >
+      <a (click)="sidebarVisible = false" routerLink="/" fragment="Trending"
+        >Trending</a
+      >
+      <a
+        routerActiveLink="active"
+        routerLink="/checkout"
+        (click)="sidebarVisible = false"
+        >Cart</a
+      >
     </div>
 
     <div class="mob-btns">

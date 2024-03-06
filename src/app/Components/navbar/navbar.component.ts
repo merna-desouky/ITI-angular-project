@@ -57,7 +57,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private moviesService: MoviesService,
     private usersService: UsersServicesService
-  ) {}
+  ) { }
 
   private decodeToken(token: string) {
     return JSON.parse(atob(token.split('.')[1]));
