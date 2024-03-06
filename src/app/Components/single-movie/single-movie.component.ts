@@ -152,23 +152,4 @@ export class SingleMovieComponent implements OnInit {
         this.reviews = data;
       },
     });
-  }
-  toggleFavorite() {
-    if (this.favorite) {
-      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.favorite = false;
-        },
-      });
-    } else {
-      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.favorite = false;
-        },
-      });
-    }
-    return this.favorite;
-  }
 }
