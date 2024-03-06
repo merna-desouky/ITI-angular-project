@@ -70,8 +70,15 @@ export class SignInComponent implements OnInit {
           this.route.navigate(['/']);
         },
         (err) => {
-          console.log(err.error.message);
-          this.notFoundMessage = String(err.error.message);
+          if(!err.error.message){
+            this.router.navigate(['/sign-up']);
+
+          }else{
+            this.notFoundMessage = String(err.error.message);
+
+          }
+          
+    
         }
       );
     }
