@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FooterComponent } from '../../Components/footer/footer.component';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
@@ -11,6 +11,8 @@ import { RouterModule } from '@angular/router';
 import { CinemaSeatComponent } from '../../Components/cinema-seat/cinema-seat.component';
 import { TableComponent } from '../../Components/table/table.component';
 import { SeatStateService } from '../../Services/seat-state.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BookingServiceService } from '../../Services/booking-service.service';
 
 @Component({
   selector: 'app-book-your-ticket',
@@ -30,16 +32,69 @@ import { SeatStateService } from '../../Services/seat-state.service';
     RouterModule,
     CinemaSeatComponent,
     TableComponent,
+    HttpClientModule,
   ],
+  providers: [HttpClient],
 })
-export class BookingComponent {
-  counter=0;
+export class BookingComponent implements OnInit {
+  cinemas = [];
+  screens = ['IMAX', '3D', '2D', 'Regular'];
+  time: {}[] = [];
+  dates = [];
+  movie: any = {};
+  ngOnInit() {
+    this.bookingService
+      .getCinemas({ movie: 'The Shawshank Redemption' })
+      .subscribe((data) => {
+        this.cinemas = data.cinemas;
+      });
+    //movieName from url "NOTEEEEE!!!!"
+    this.bookingService
+      .getMovieByName({ movieName: 'The Shawshank Redemption' })
+      .subscribe((data) => {
+        console.log(data);
+
+        this.movie = data;
+      });
+  }
+  ngOnChanges() {}
+  getDates() {
+    this.bookingService
+      .getDates({
+        movie: 'The Shawshank Redemption',
+        cinema: this.choosenCinema,
+      })
+      .subscribe((data) => {
+        this.dates=data;
+      });
+  }
+  getTimes() {
+    this.bookingService
+      .getTimes({
+        movie: 'The Shawshank Redemption',
+        cinema: 'Imax',
+        date: '12,Oct 2025',
+      })
+      .subscribe((data) => {
+        for (let i = 0; i < data.length; i++) {
+          this.time.push(data[i].time);
+        }
+      });
+  }
+
+  showOverlay: boolean = true;
+  counter = 0;
   value = 4;
   totalPrice = 0;
   takenSeats: {}[] = [];
   tickets: number = 0;
   rows: string = '';
-  constructor(private seatState: SeatStateService){}
+  constructor(
+    private seatState: SeatStateService,
+    public http: HttpClient,
+    public bookingService: BookingServiceService
+  ) {}
+
   firstRow = [
     { num: 1, isTaken: false, row: 1 },
     { num: 2, isTaken: false, row: 1 },
@@ -168,56 +223,63 @@ export class BookingComponent {
     { num: 12, isTaken: true, row: 8 },
     { num: 13, isTaken: true, row: 8 },
   ];
-  cinemas = [
-    'VOX Cinemas ',
-    'Zamalek Cinema',
-    'Galaxy Cinema',
-    'IMAX at Premiere',
-    'Point 90 Cinema',
-    'Americana Plaza Cinema',
-    'Culturama Historical Cinema',
-  ];
-  screens = ['IMAX', '3D', '2D', 'Regular'];
-  time = [
-    '12:00 pm',
-    '03:00 pm',
-    '06:00 pm',
-    '09:00 pm',
-    '12:00 am',
-    '10:00 am',
-  ];
-  choosenCinema: any;
-  choosenScreen: any;
-  choosenDateForDisplay: string = '';
-  choosenDate: string = '';
-  choosenTime: any;
-  seatNum: any;
-  formateDate(date: string) {
-    let res = [];
-    res.push(date.toString().split(' ')[0]);
-    res.push(date.toString().split(' ')[1]);
-    res.push(date.toString().split(' ')[2]);
-    res.push(date.toString().split(' ')[3]);
-    this.choosenDateForDisplay = res.join(' ');
+  onInputChange() {
+    this.showOverlay = false;
+    this.bookingService
+      .getReservedSeats({
+        movie: 'The Shawshank Redemption',
+        cinema: 'Imax',
+        date: '12,Oct 2025',
+        time: 12,
+      })
+      .subscribe((data) => {
+        console.log('Ana seats' + JSON.stringify(data));
+      });
   }
 
+  choosenCinema: any = '';
+  choosenScreen: any = '';
+  choosenDateForDisplay: string = '';
+  choosenDate: string = '';
+  choosenTime: any = '';
+  seatNum: any;
+  
+
   reserveSeat(eve: any, seat: any) {
-   
-      this.seatState.updateSeatColor(seat.row,seat.num,'red');
-      this.takenSeats.push(seat);
-      this.totalPrice += 100;
-      this.tickets = this.tickets + 1;
-      this.rows += '' + seat.row + ',';
-    
+    this.seatState.updateSeatColor(seat.row, seat.num, 'red');
+    this.takenSeats.push(seat);
+    this.totalPrice += 100;
+    this.tickets = this.tickets + 1;
+    this.rows += '' + seat.row + ',';
   }
   receivedSeatToDelete: any;
   receiveSeatToDelete(eve: any) {
-     this.receivedSeatToDelete = eve.seat;
+    this.receivedSeatToDelete = eve.seat;
     this.takenSeats = this.takenSeats.filter(
       (seat) => seat != this.receivedSeatToDelete
     );
-   console.log(this.receivedSeatToDelete);
-   this.seatState.updateSeatColor(this.receivedSeatToDelete.row,this.receivedSeatToDelete.num,'gray');
-   
+    this.seatState.updateSeatColor(
+      this.receivedSeatToDelete.row,
+      this.receivedSeatToDelete.num,
+      'gray'
+    );
+    this.totalPrice -= 100;
+  }
+  objToSend = {
+    cinema: this.choosenCinema,
+    date: this.choosenDate,
+    movie: this.movie.Title,
+    time: this.choosenTime,
+    reserve: [
+      { num: 5, row: 8 },
+      { num: 3, row: 6 },
+    ],
+  };
+
+  sendDataToBackend(obj: any) {
+    this.bookingService.addToCart(obj).subscribe((data) => {
+      console.log(data);
+      
+    });
   }
 }

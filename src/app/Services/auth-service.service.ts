@@ -6,9 +6,9 @@ import * as jwt_decode from 'jwt-decode';
 export class AuthServiceService {
   token: any;
   constructor() {}
+
   isLoggedIn(): string | null {
     this.token = localStorage.getItem('token');
-
     return this.token;
   }
 

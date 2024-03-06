@@ -18,6 +18,14 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-highlight-color: #e50914;
+  scrollbar-color: #e50914 #221f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #e50914;
+  border-radius: 10px;
 }
 
 body {
