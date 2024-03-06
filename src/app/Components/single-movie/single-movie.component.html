@@ -5,7 +5,7 @@
         <div class="smart-image-container col-lg-8 col-md-16 mx-md-auto">
           <img
             class="smart-image p-2 w-100 d-md-block mx-auto"
-            [src]="movieDetails.Poster"
+            [src]="movieDetails?.Poster"
             alt=""
           />
         </div>
@@ -35,15 +35,15 @@
             class="ms-5 genre-year-container d-lg-none d-md-none d-block mb-lg-1 mb-md-2 mb-3"
           >
             <h3 class="fs-4 d-inline-block me-4">Title</h3>
-            <p class="d-inline-block">{{ movieDetails.Title }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Title }}</p>
           </div>
           <div class="ms-5 genre-year-container mb-lg-1 mb-md-2 mb-3">
             <h3 class="fs-4 d-inline-block me-4">Genre</h3>
-            <p class="d-inline-block">{{ movieDetails.Genre }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Genre }}</p>
           </div>
           <div class="ms-5 genre-year-container mb-lg-1 mb-md-2 mb-3">
             <h3 class="d-inline-block me-4">Year</h3>
-            <p class="d-inline-block">{{ movieDetails.Year }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Year }}</p>
           </div>
           <div
             class="ms-5 genre-year-container w-auto mb-4 mb-lg-1 mb-md-2 mb-3"
