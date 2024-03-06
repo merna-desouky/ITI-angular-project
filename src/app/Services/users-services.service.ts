@@ -3,7 +3,7 @@ declare var google: any;
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +30,7 @@ export class UsersServicesService {
 
   Logout(): void {
     localStorage.clear();
+    this.router.navigate(['/']);
   }
 
   GoogleLogOut(): void {

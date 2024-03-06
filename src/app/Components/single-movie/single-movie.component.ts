@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
@@ -13,6 +14,8 @@ import { MoviesCardsComponent } from '../../Components/movies-cards/movies-cards
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
+import { SingleMovieService } from '../../Services/single-movie.service';
+import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-single-movie',
@@ -36,27 +39,50 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
   styleUrl: './single-movie.component.scss',
 })
 export class SingleMovieComponent implements OnInit {
-  singlemovie(){
-    console.log("object");
-    // this.router.navigate([""])
-  }
-  bookPage(){
-    this.router.navigate(["book-ticket"])
-  }
+  favorite: any;
   userComment: any = '';
   userRate: any = '';
-  reviews: { rate: any; comment: string }[] = [];
+  checkedReview: boolean = true;
+  reviews: any;
+  heartIconClass: string = 'pi pi-heart';
+  iconSize: number = 55;
+  iconSize2: number = 35;
+  heartIconColor: string = 'red';
+  movie: any;
+  movieName: { movie: string } = { movie: '' };
+  movieDetails: any;
+  sliderMovies: {}[] = [];
+  value: any;
+  value2: any;
+  allMovies: any;
+  viewComment: boolean = true;
+
+  singlemovie() {
+    this.router.navigate(['']);
+  }
+
+  //book page
+
+  bookPage() {
+    this.router.navigate(['booking/', `${this.movieName.movie}`]);
+  }
+
   reviewData(_comment: any, _rate: any) {
     this.userComment = _comment;
     this.userRate = _rate;
-    this.reviews.push({ comment: this.userComment, rate: this.userRate });
+    this.viewComment = false;
+    this.reviews.push({ comment: this.userComment, stars: this.userRate });
 
+    this.singleMovieService
+      .SendReview({
+        movie: `${this.movieName.movie}`,
+        review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
+      })
+      .subscribe({
+        next: (data: any) => {},
+        error: (err: any) => {},
+      });
   }
-  heartIconClass: string = 'pi pi-heart';
-  iconSize: number = 55;
-  iconSize2:number = 35;
-  heartIconColor: string = 'red';
-  movie: any;
 
   toggleHeartClassAndColor() {
     this.heartIconClass =
@@ -64,47 +90,90 @@ export class SingleMovieComponent implements OnInit {
         ? 'pi pi-heart-fill'
         : 'pi pi-heart';
     this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
+    if (this.favorite) {
+      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          this.favorite = false;
+        },
+      });
+    } else {
+      this.singleMovieService.AddToFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          this.favorite = true;
+        },
+      });
+    }
+    return this.favorite;
   }
-  id: number = 0;
-  movieDetails: any;
-  sliderMovies: {}[] = [];
-  value: any;
-  value2: any;
-  allMovies: any;
+
   constructor(
     private myRoute: ActivatedRoute,
     private movieService: MoviesService,
-    private router :Router,
+    private router: Router,
+    private singleMovieService: SingleMovieService
   ) {
-    this.id = myRoute.snapshot.params['id'];
+    this.movieName.movie = myRoute.snapshot.params['movie-name'];
   }
   ngOnInit(): void {
-    this.movieService.getMovieById(this.id).subscribe({
-      next: (data) => {
+    window.scrollTo(0, 0);
+
+    this.singleMovieService.GetMovieByName(this.movieName).subscribe({
+      next: (data: any) => {
         this.movieDetails = data;
         this.value = Number(this.movieDetails.Ratings[0].Value);
-        //console.log(this.movieDetails);
       },
-      error: (err) => {
-        console.log(err);
+      error: (err: any) => {
+        console.log(err.message);
       },
     });
+    //get All Movies
     this.movieService.getAllMovies().subscribe({
       next: (data) => {
         this.allMovies = data;
-        //console.log( this.value2);
-        for (let i = 0; i < this.allMovies.length; i++) {
-          //console.log(this.allMovies[0]);
-          if (
-            this.allMovies[i].Genre == this.movieDetails.Genre &&
-            this.movieDetails['id'] != this.allMovies[i]['id']
-          ) {
-            this.sliderMovies.push(this.allMovies[i]);
-            this.value2 = this.allMovies[i].Ratings[0].Value;
-          }
-        }
-        console.log(this.sliderMovies);
       },
     });
+    //comments
+    this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
+      next: (data: any) => {
+        this.checkedReview = data.reviewed;
+      },
+    });
+    //favorites
+    this.singleMovieService.CheckFavourites(this.movieName).subscribe({
+      next: (data: any) => {
+        this.favorite = data.favourited;
+        if (this.favorite) {
+          this.heartIconClass =
+            this.heartIconClass === 'pi pi-heart'
+              ? 'pi pi-heart-fill'
+              : 'pi pi-heart';
+          this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
+        }
+      },
+    });
+    //get all comments on the film
+    this.singleMovieService.GetReviews(this.movieName).subscribe({
+      next: (data: any) => {
+        this.reviews = data;
+      },
+    });
+  }
+  toggleFavorite() {
+    if (this.favorite) {
+      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.favorite = false;
+        },
+      });
+    } else {
+      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.favorite = false;
+        },
+      });
+    }
+    return this.favorite;
   }
 }

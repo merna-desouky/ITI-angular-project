@@ -62,22 +62,24 @@
   text-align: center;
 }
 
-.genre-year-container p {
-  font-size: 1.5rem;
-  display: inline-block;
-  margin: 0;
-  color: #f5f5f5;
-}
-.box {
-  border-radius: 12px;
-  background-image: url("/assets/images/hero.jpg");
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-top: 20px;
-}
-:host ::ng-deep .p-rating-icon:not(.p-rating-cancel),
-:host ::ng-deep .p-rating-icon:not(.p-rating-cancel):hover {
-  color: yellow !important;
+  .genre-year-container p {
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0;
+    color: #f5f5f5;
+  }
+  .box {
+    border-radius: 12px;
+    background-image: url(/assets/hero.jpg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+  }
+  :host ::ng-deep 
+	.p-rating-icon:not(.p-rating-cancel), 
+  :host ::ng-deep 
+	.p-rating-icon:not(.p-rating-cancel):hover { 
+	color: yellow !important; 
   width: 15px;
 }
 .customBtn {

@@ -6,13 +6,15 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { Router, RouterLink, RouterModule } from '@angular/router';
+import { RouterLink, RouterModule, RouterLinkActive } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { SidebarModule } from 'primeng/sidebar';
 import { UsersServicesService } from '../../Services/users-services.service';
+import { AvatarModule } from 'primeng/avatar';
+import { AvatarGroupModule } from 'primeng/avatargroup';
 
 @Component({
   selector: 'app-navbar',
@@ -22,8 +24,11 @@ import { UsersServicesService } from '../../Services/users-services.service';
     FormsModule,
     HttpClientModule,
     RouterLink,
+    RouterLinkActive,
     CommonModule,
     SidebarModule,
+    AvatarModule,
+    AvatarGroupModule,
   ],
   providers: [MoviesService, UsersServicesService],
   templateUrl: './navbar.component.html',
@@ -37,6 +42,7 @@ export class NavbarComponent implements OnInit {
 
   mongoUser: boolean = false;
   mongoEmail: any = null;
+  userFirstLetter: any = null;
 
   noUser: any = true;
 
@@ -84,6 +90,7 @@ export class NavbarComponent implements OnInit {
       // console.log(userData);
       this.mongoUser = true;
       this.mongoEmail = userData.email;
+      this.userFirstLetter = this.mongoEmail[0].toUpperCase();
 
       this.noUser = false;
     }
@@ -96,6 +103,8 @@ export class NavbarComponent implements OnInit {
     sessionStorage.clear();
     localStorage.clear();
     this.usersService.GoogleLogOut();
+
+    this.usersService.Logout()
 
     this.googleUser = false;
     this.mongoUser = false;

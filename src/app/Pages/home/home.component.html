@@ -23,14 +23,13 @@
             @for (movie of filterdMovies | paginate:{itemsPerPage:10 ,
             currentPage:p}; track movie.id ;) {
 
-
             <app-movies-cards [movie]="movie"></app-movies-cards>
 
             }
           </div>
 
           @if (filterdMovies?.length > 10) {
-          <div class="mt-5 pagination">
+          <div class="pagination">
             <pagination-controls
               class="pagination"
               (pageChange)="p = $event"

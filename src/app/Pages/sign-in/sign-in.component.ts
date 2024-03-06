@@ -58,13 +58,34 @@ export class SignInComponent implements OnInit {
 
   handleLogin(response: any) {
     if (response) {
+      // console.log(response);
+      // console.log(JSON.stringify(response.credential));
       const payload = this.decodeToken(response.credential);
-      sessionStorage.setItem('loggedInUser', JSON.stringify(payload));
-      this.router.navigate(['/']);
+
+      console.log(payload);
+      this.usersService.Login({ email: payload.email, gmail: true }).subscribe(
+        (data) => {
+          localStorage.setItem('token', data.token);
+          // sessionStorage.removeItem('loggedInUser');
+          this.route.navigate(['/']);
+        },
+        (err) => {
+          if(!err.error.message){
+            this.router.navigate(['/sign-up']);
+
+          }else{
+            this.notFoundMessage = String(err.error.message);
+
+          }
+          
+    
+        }
+      );
     }
   }
 
   /////////////////////////////////////////////////////////////////////////
+
   signInForm: any = new FormGroup({
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, Validators.required),

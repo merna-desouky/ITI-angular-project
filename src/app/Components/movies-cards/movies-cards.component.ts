@@ -25,11 +25,9 @@ export class MoviesCardsComponent implements OnInit {
   @Input() movie: any;
   value: any;
 
-
   constructor(private router: Router) {}
   ngOnInit(): void {
     this.value = Number(this.movie.Ratings[0].Value);
-
   }
   // routeMovie() {
   //   this.router.navigate(['movie/' + this.movie.id]);

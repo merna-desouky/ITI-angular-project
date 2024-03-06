@@ -1,6 +1,6 @@
 <nav>
   <div class="logo-container">
-    <p class="logo"><span>I</span>Watch</p>
+    <p class="logo" routerLink="/"><span>I</span>Watch</p>
 
     <div class="search-box">
       <input
@@ -33,10 +33,14 @@
     </div>
   </div>
 
+  <!--------------------------------------------------------------------------------------->
+  <!-------------------------------- Mobile Side Menu ------------------------------------->
+  <!--------------------------------------------------------------------------------------->
+
   <p-sidebar [(visible)]="sidebarVisible" position="right" class="sidemenu">
     <ng-template pTemplate="header"
       ><div class="mob-logo">
-        <p class="logo"><span>I</span>Watch</p>
+        <p class="logo" routerLink="/"><span>I</span>Watch</p>
       </div></ng-template
     >
     <div class="search-container">
@@ -99,7 +103,12 @@
       </div>
       } @else if(mongoUser) {
       <div class="google-info">
-        <p style="cursor: pointer" routerLink="/profile">{{ mongoEmail }}</p>
+        <p-avatar
+          [label]="userFirstLetter"
+          styleClass="mr-2 text-black cursor-pointer"
+          size="xlarge"
+          shape="circle"
+        ></p-avatar>
 
         <button class="secondary-btn" (click)="handleSignOut()">
           Sign Out
@@ -123,9 +132,17 @@
     (click)="sidebarVisible = true"
     icon="pi pi-arrow-left"
   ></button>
+  <!--------------------------------------------------------------------------------------->
+  <!--------------------------------------------------------------------------------------->
+  <!--------------------------------------------------------------------------------------->
 
   <div class="links">
-    <a routerActiveLink="active" routerLink="/">Home</a>
+    <a
+      [routerLink]="['/']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
     <a href="#Trending">Trending</a>
     <a routerActiveLink="active" routerLink="/checkout">Cart</a>
   </div>
@@ -139,7 +156,15 @@
     </div>
     } @else if(mongoUser) {
     <div class="google-info">
-      <p style="cursor: pointer" routerLink="/profile">{{ mongoEmail }}</p>
+      <div style="cursor: pointer">
+        <p-avatar
+          [label]="userFirstLetter"
+          styleClass="mr-2 text-black mb-3"
+          size="xlarge"
+          shape="circle"
+          routerLink="/profile"
+        ></p-avatar>
+      </div>
 
       <button class="secondary-btn" (click)="handleSignOut()">Sign Out</button>
     </div>
