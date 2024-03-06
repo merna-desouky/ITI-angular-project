@@ -118,6 +118,7 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
+        // console.log(data);
         this.value = Number(this.movieDetails.Ratings[0].Value);
       },
       error: (err: any) => {
@@ -140,13 +141,7 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {
         this.favorite = data.favourited;
-        if (this.favorite) {
-          this.heartIconClass =
-            this.heartIconClass === 'pi pi-heart'
-              ? 'pi pi-heart-fill'
-              : 'pi pi-heart';
-          this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
-        }
+        console.log(this.favorite);
       },
     });
     //get all comments on the film
