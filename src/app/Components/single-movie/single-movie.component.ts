@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
@@ -39,22 +40,38 @@ import { CloseScrollStrategy } from '@angular/cdk/overlay';
 })
 export class SingleMovieComponent implements OnInit {
   favorite: any;
-  singlemovie() {
-    console.log('object');
-    // this.router.navigate([""])
-  }
-  bookPage() {
-    this.router.navigate(['booking', `${this.movieName.movie}`]);
-  }
   userComment: any = '';
   userRate: any = '';
   checkedReview: boolean = true;
-  reviews: { rate: any; comment: string }[] = [];
+  reviews: any;
+  heartIconClass: string = 'pi pi-heart';
+  iconSize: number = 55;
+  iconSize2: number = 35;
+  heartIconColor: string = 'red';
+  movie: any;
+  movieName: { movie: string } = { movie: '' };
+  movieDetails: any;
+  sliderMovies: {}[] = [];
+  value: any;
+  value2: any;
+  allMovies: any;
+  viewComment: boolean = true;
+
+  singlemovie() {
+    this.router.navigate(['']);
+  }
+
+  //book page
+
+  bookPage() {
+    this.router.navigate(['booking/', `${this.movieName.movie}`]);
+  }
+
   reviewData(_comment: any, _rate: any) {
     this.userComment = _comment;
     this.userRate = _rate;
-
-    this.reviews.push({ comment: this.userComment, rate: this.userRate });
+    this.viewComment = false;
+    this.reviews.push({ comment: this.userComment, stars: this.userRate });
 
     this.singleMovieService
       .SendReview({
@@ -62,19 +79,10 @@ export class SingleMovieComponent implements OnInit {
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => {
-          console.log(data);
-        },
-        error: (err: any) => {
-          console.log(err.message);
-        },
+        next: (data: any) => {},
+        error: (err: any) => {},
       });
   }
-  heartIconClass: string = 'pi pi-heart';
-  iconSize: number = 55;
-  iconSize2: number = 35;
-  heartIconColor: string = 'red';
-  movie: any;
 
   toggleHeartClassAndColor() {
     this.heartIconClass =
@@ -82,13 +90,22 @@ export class SingleMovieComponent implements OnInit {
         ? 'pi pi-heart-fill'
         : 'pi pi-heart';
     this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
+    if (this.favorite) {
+      this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          this.favorite = false;
+        },
+      });
+    } else {
+      this.singleMovieService.AddToFavourites(this.movieName).subscribe({
+        next: (data: any) => {
+          this.favorite = true;
+        },
+      });
+    }
+    return this.favorite;
   }
-  movieName: { movie: string } = { movie: '' };
-  movieDetails: any;
-  sliderMovies: {}[] = [];
-  value: any;
-  value2: any;
-  allMovies: any;
+
   constructor(
     private myRoute: ActivatedRoute,
     private movieService: MoviesService,
@@ -103,31 +120,41 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
-        console.log(data);
         this.value = Number(this.movieDetails.Ratings[0].Value);
-        //console.log(this.movieDetails);
       },
       error: (err: any) => {
         console.log(err.message);
       },
     });
-
-    this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
-      next: (data: any) => {
-        this.checkedReview = data;
-        // console.log(this.checkedReview)
+    //get All Movies
+    this.movieService.getAllMovies().subscribe({
+      next: (data) => {
+        this.allMovies = data;
       },
     });
+    //comments
+    this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
+      next: (data: any) => {
+        this.checkedReview = data.reviewed;
+      },
+    });
+    //favorites
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {
         this.favorite = data.favourited;
-        console.log(this.favorite);
+        if (this.favorite) {
+          this.heartIconClass =
+            this.heartIconClass === 'pi pi-heart'
+              ? 'pi pi-heart-fill'
+              : 'pi pi-heart';
+          this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
+        }
       },
     });
-
+    //get all comments on the film
     this.singleMovieService.GetReviews(this.movieName).subscribe({
       next: (data: any) => {
-        // console.log(data)
+        this.reviews = data;
       },
     });
   }
