@@ -79,12 +79,8 @@ export class SingleMovieComponent implements OnInit {
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => {
-          //  console.log(data);
-        },
-        error: (err: any) => {
-          // console.log(err.message);
-        },
+        next: (data: any) => {},
+        error: (err: any) => {},
       });
   }
 
@@ -97,18 +93,13 @@ export class SingleMovieComponent implements OnInit {
     if (this.favorite) {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
         next: (data: any) => {
-          //console.log(data,"removed")
           this.favorite = false;
-          // console.log(this.favorite);
         },
       });
     } else {
       this.singleMovieService.AddToFavourites(this.movieName).subscribe({
         next: (data: any) => {
-          console.log(data, 'added');
-
           this.favorite = true;
-          //console.log(this.favorite);
         },
       });
     }
@@ -127,9 +118,7 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
-        // console.log(data);
         this.value = Number(this.movieDetails.Ratings[0].Value);
-        //console.log(this.movieDetails);
       },
       error: (err: any) => {
         console.log(err.message);
@@ -145,16 +134,13 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
       next: (data: any) => {
         this.checkedReview = data.reviewed;
-        //console.log(data)
       },
     });
     //favorites
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {
         this.favorite = data.favourited;
-        console.log(this.favorite);
         if (this.favorite) {
-          console.log(this.favorite);
           this.heartIconClass =
             this.heartIconClass === 'pi pi-heart'
               ? 'pi pi-heart-fill'
@@ -166,10 +152,7 @@ export class SingleMovieComponent implements OnInit {
     //get all comments on the film
     this.singleMovieService.GetReviews(this.movieName).subscribe({
       next: (data: any) => {
-        console.log(data, 'server');
         this.reviews = data;
-        console.log(this.reviews, 'hiiiiiiii');
-        data.map((item: any) => console.log(+item.stars));
       },
     });
   }
