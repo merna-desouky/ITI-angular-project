@@ -14,7 +14,12 @@ export class CinemaSeatComponent implements OnInit, OnChanges {
   @Input()seat:any;
   constructor(public seatState: SeatStateService){}
   ngOnChanges(): void {
-    
+    if(this.seat.isTaken){
+      this.seatState.updateSeatColor(this.seat.row,this.seat.num,'rgb(67, 67, 67)')
+      this.seat.isTakenByCurrentUser=false;
+     }else{
+      this.seat.isTakenByCurrentUser=false;
+     }
   }
   ngOnInit(): void {
    if(this.seat.isTaken){
@@ -24,7 +29,5 @@ export class CinemaSeatComponent implements OnInit, OnChanges {
     this.seat.isTakenByCurrentUser=false;
    }
   }
-
-  
 
 }
