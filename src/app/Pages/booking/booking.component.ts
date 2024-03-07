@@ -47,43 +47,21 @@ export class BookingComponent implements OnInit {
   movie: any = {};
   ngOnInit() {
     window.scrollTo(0, 0);
+    this.route.params.subscribe((params) => {
+      this.receivedMovieName = params['movie-name'];
+      console.log(this.receivedMovieName);
+    });
 
     this.bookingService
-      .getCinemas({ movie: 'The Shawshank Redemption' })
+      .getCinemas({ movie: this.receivedMovieName })
       .subscribe((data) => {
-        this.cinemas = data.cinemas;
+        this.cinemas = data;
       });
-    //movieName from url "NOTEEEEE!!!!"
-    this.bookingService
-      .getMovieByName({ movieName: 'The Shawshank Redemption' })
-      .subscribe((data) => {
-        console.log(data);
 
+    this.bookingService
+      .getMovieByName({ movie: this.receivedMovieName })
+      .subscribe((data) => {
         this.movie = data;
-      });
-  }
-  ngOnChanges() {}
-  getDates() {
-    this.bookingService
-      .getDates({
-        movie: 'The Shawshank Redemption',
-        cinema: this.choosenCinema,
-      })
-      .subscribe((data) => {
-        this.dates = data;
-      });
-  }
-  getTimes() {
-    this.bookingService
-      .getTimes({
-        movie: 'The Shawshank Redemption',
-        cinema: 'Imax',
-        date: '12,Oct 2025',
-      })
-      .subscribe((data) => {
-        for (let i = 0; i < data.length; i++) {
-          this.time.push(data[i].time);
-        }
       });
   }
 
@@ -94,7 +72,6 @@ export class BookingComponent implements OnInit {
   takenSeats: any[] = [];
   tickets: number = 0;
   rows: string = '';
-  movie: any = {};
   choosenCinema: any = '';
   choosenScreen: any = '';
   choosenDateForDisplay: string = '';
@@ -231,25 +208,6 @@ export class BookingComponent implements OnInit {
     { num: 13, isTaken: false, row: 8 },
   ];
 
-  ngOnInit() {
-    this.route.params.subscribe((params) => {
-      this.receivedMovieName = params['movie-name'];
-      console.log(this.receivedMovieName);
-    });
-
-    this.bookingService
-      .getCinemas({ movie: this.receivedMovieName })
-      .subscribe((data) => {
-        this.cinemas = data.cinemas;
-      });
-
-    this.bookingService
-      .getMovieByName({ movie: this.receivedMovieName })
-      .subscribe((data) => {
-        this.movie = data;
-      });
-  }
-
   ngOnChanges() {}
   getDates() {
     this.bookingService
@@ -292,18 +250,9 @@ export class BookingComponent implements OnInit {
         time: this.choosenTime,
       })
       .subscribe((data) => {
-         JSON.stringify(data);
+        JSON.stringify(data);
       });
   }
-
-
-  choosenCinema: any = '';
-  choosenScreen: any = '';
-  choosenDateForDisplay: string = '';
-  choosenDate: string = '';
-  choosenTime: any = '';
-  seatNum: any;
-
 
   reserveSeat(eve: any, seat: any) {
     if (!seat.isTaken) {
@@ -338,39 +287,21 @@ export class BookingComponent implements OnInit {
     );
     this.totalPrice -= 100;
   }
-  objToSend :any;
+  objToSend: any;
 
   sendDataToBackend() {
-    this.objToSend= {
+    this.objToSend = {
       cinema: this.choosenCinema,
       date: this.choosenDate,
       movie: this.movie.Title,
       time: this.choosenTime,
       reserve: this.takenSeats,
     };
+    
     this.bookingService.addToCart(this.objToSend).subscribe((data) => {
       console.log(data);
       console.log(this.objToSend);
     });
     console.log(this.objToSend);
-    
   }
 }
-
-// http://localhost:2024/reserve/add/seats url to send
-// {
-//   "cinema": "Imax",
-//   "date": "12,Oct 2025",
-//   "time": 12,
-//   "movie": "The Shawshank Redemption",
-//   "reserve": [
-//       {
-//           "num:": 1,
-//           "row": 5
-//       },
-//       {
-//           "num:": 3,
-//           "row": 2
-//       }
-//   ]
-// }

@@ -17,7 +17,7 @@ export const routes: Routes = [
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
   { path: 'profile', component: ProfileComponent, canActivate:[canActivate]},
-  { path: 'booking', component: BookingComponent ,canActivate:[canActivate]},
+  { path: 'booking/:movie-name', component: BookingComponent ,canActivate:[canActivate]},
   { path: 'checkout', component: CheckoutComponent,canActivate:[canActivate] },
   { path: 'dashboard', component: DashboardComponent,canActivate:[canActivate] },
   { path: '**', component: ErrorComponent },
