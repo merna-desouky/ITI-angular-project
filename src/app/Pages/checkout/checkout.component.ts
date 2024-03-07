@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { MoviesService } from '../../Services/movies.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
@@ -22,7 +22,7 @@ import { AuthServiceService } from '../../Services/auth-service.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
 })
-export class CheckoutComponent implements OnInit {
+export class CheckoutComponent implements OnInit, OnChanges {
   // Data will be fetched from the query string + service
   paymentOption: string = '';
   movies: any[] = [];
@@ -44,6 +44,8 @@ export class CheckoutComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
+
     if (!this.authService.isLoggedIn()) {
       window.location.href = '/sign-in';
     }
@@ -66,10 +68,14 @@ export class CheckoutComponent implements OnInit {
       id: '#myPaypalButtons',
       currency: 'USD',
       value: '100.00',
-      onApprove: (details) => {
+      onApprove: (details:any) => {
         alert('Transaction Done Successfully');
       },
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.extractDataFromCart();
   }
 
   extractDataFromCart() {
@@ -87,11 +93,15 @@ export class CheckoutComponent implements OnInit {
   }
 
   removeMovie(movie: any) {
-    this.cartService.removeMovieFromCart(movie).subscribe({
+    this.cartService.removeMovieFromCart({ deletedMovie: movie }).subscribe({
       next: (data: any) => {
+        console.log(data);
         console.log(`Movie removed from cart + ${movie['cinema']}`);
-        // Update movies array to reflect the changes
-        this.movies = this.movies.filter((m) => m.id !== movie.id);
+
+        this.userCart.cart = this.userCart.cart.filter(
+          (item: any) => item !== movie
+        );
+        this.extractDataFromCart();
       },
       error: (err: any) => {
         console.log(err);
@@ -103,12 +113,21 @@ export class CheckoutComponent implements OnInit {
     this.cartService.checkoutUserCart(cart).subscribe({
       next: (data: any) => {
         console.log(data);
+
+        this.userCart.cart = [];
       },
       error: (err) => {
         console.log(err);
       },
     });
+
+    this.extractDataFromCart();
+  }
+
+  disableCheckoutButton() {
+    if (this.userCart.cart.length === 0) {
+      return true;
+    }
+    return false;
   }
 }
-
-// Disable checkout if the user cart is empty

@@ -5,7 +5,7 @@
         <div class="smart-image-container col-lg-8 col-md-16 mx-md-auto">
           <img
             class="smart-image p-2 w-100 d-md-block mx-auto"
-            [src]="movieDetails.Poster"
+            [src]="movieDetails?.Poster"
             alt=""
           />
         </div>
@@ -19,7 +19,7 @@
               </h1>
             </div>
             <div
-              class="col-lg-4  col-md-2 mt-sm-5 offset-0 col-1 d-lg-block d-md-block d-none ms-md-0 "
+              class="col-lg-4 col-md-2 mt-sm-5 offset-0 col-1 d-lg-block d-md-block d-none ms-md-0"
             >
               <i
                 [style.font-size.px]="iconSize"
@@ -35,15 +35,15 @@
             class="ms-5 genre-year-container d-lg-none d-md-none d-block mb-lg-1 mb-md-2 mb-3"
           >
             <h3 class="fs-4 d-inline-block me-4">Title</h3>
-            <p class="d-inline-block">{{ movieDetails.Title }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Title }}</p>
           </div>
           <div class="ms-5 genre-year-container mb-lg-1 mb-md-2 mb-3">
             <h3 class="fs-4 d-inline-block me-4">Genre</h3>
-            <p class="d-inline-block">{{ movieDetails.Genre }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Genre }}</p>
           </div>
           <div class="ms-5 genre-year-container mb-lg-1 mb-md-2 mb-3">
             <h3 class="d-inline-block me-4">Year</h3>
-            <p class="d-inline-block">{{ movieDetails.Year }}</p>
+            <p class="d-inline-block">{{ movieDetails?.Year }}</p>
           </div>
           <div
             class="ms-5 genre-year-container w-auto mb-4 mb-lg-1 mb-md-2 mb-3"
@@ -80,8 +80,13 @@
                 (click)="toggleHeartClassAndColor()"
               ></i>
             </div>
-            <div class="d-flex justify-content-end col-lg-24 col-md-24 col-14 h-auto py-lg-4 px-lg-2 py-md-4 px-md-2 py-4 px-2">
-              <button class="customBtn mx-2 btn btn-block btn-sm text-sm-center h-auto" (click)="bookPage()">
+            <div
+              class="d-flex justify-content-end col-lg-24 col-md-24 col-14 h-auto py-lg-4 px-lg-2 py-md-4 px-md-2 py-4 px-2"
+            >
+              <button
+                class="customBtn mx-2 btn btn-block btn-sm text-sm-center h-auto"
+                (click)="bookPage()"
+              >
                 Book Now
               </button>
             </div>
@@ -95,7 +100,7 @@
       </div>
       <div class="container mt-5">
         <div class="row justify-content-center align-items-center">
-          <div class="wrapper" (click)="singlemovie()">
+          <div class="wrapper">
             @for (movie of allMovies; track $index) { @if (movie.Genre ==
             movieDetails.Genre && movie.id!= movieDetails.id) {
             <app-movies-cards [movie]="movie"></app-movies-cards>
@@ -105,6 +110,7 @@
       </div>
       <div>
         <div class="mt-5">
+          @if (!checkedReview && viewComment) {
           <div class="border-top mb-4">
             <h1 class="mt-5 mb-4 text-center favMovies">User Review</h1>
           </div>
@@ -128,6 +134,8 @@
               Comment
             </button>
           </div>
+          }
+
           <div class="container">
             <div class="row">
               @for (review of reviews; track $index) {
@@ -147,8 +155,9 @@
                 <br />
                 <h2 class="d-inline-block me-2">Rate</h2>
                 <p-rating
-                  [(ngModel)]="review.rate"
+                  [(ngModel)]="review.stars"
                   [cancel]="false"
+                  [readonly]="true"
                   class="custom-stars d-inline-block"
                 ></p-rating>
               </div>

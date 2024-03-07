@@ -43,6 +43,50 @@ export class BookingComponent implements OnInit {
   screens = ['IMAX', '3D', '2D', 'Regular'];
   time: {}[] = [];
   dates = [];
+
+  movie: any = {};
+  ngOnInit() {
+    window.scrollTo(0, 0);
+
+    this.bookingService
+      .getCinemas({ movie: 'The Shawshank Redemption' })
+      .subscribe((data) => {
+        this.cinemas = data.cinemas;
+      });
+    //movieName from url "NOTEEEEE!!!!"
+    this.bookingService
+      .getMovieByName({ movieName: 'The Shawshank Redemption' })
+      .subscribe((data) => {
+        console.log(data);
+
+        this.movie = data;
+      });
+  }
+  ngOnChanges() {}
+  getDates() {
+    this.bookingService
+      .getDates({
+        movie: 'The Shawshank Redemption',
+        cinema: this.choosenCinema,
+      })
+      .subscribe((data) => {
+        this.dates = data;
+      });
+  }
+  getTimes() {
+    this.bookingService
+      .getTimes({
+        movie: 'The Shawshank Redemption',
+        cinema: 'Imax',
+        date: '12,Oct 2025',
+      })
+      .subscribe((data) => {
+        for (let i = 0; i < data.length; i++) {
+          this.time.push(data[i].time);
+        }
+      });
+  }
+
   showOverlay: boolean = true;
   counter = 0;
   value = 4;
@@ -252,6 +296,15 @@ export class BookingComponent implements OnInit {
       });
   }
 
+
+  choosenCinema: any = '';
+  choosenScreen: any = '';
+  choosenDateForDisplay: string = '';
+  choosenDate: string = '';
+  choosenTime: any = '';
+  seatNum: any;
+
+
   reserveSeat(eve: any, seat: any) {
     if (!seat.isTaken) {
       seat.isTaken = true;
@@ -298,7 +351,6 @@ export class BookingComponent implements OnInit {
     this.bookingService.addToCart(this.objToSend).subscribe((data) => {
       console.log(data);
       console.log(this.objToSend);
-      
     });
     console.log(this.objToSend);
     

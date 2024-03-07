@@ -60,21 +60,23 @@
       </div>
 
       <div class="reserved-btn" (click)="removeMovie(item)">
-        <button class="primary-btn">Remove</button>
+        <button class="primary-btn" [disabled]="disableCheckoutButton()">
+          Remove
+        </button>
       </div>
     </div>
 
     <hr />
     }
 
-    <div class="back-container" [routerLink]="'/booking'">
+    <!-- <div class="back-container" [routerLink]="'/booking'">
       <img
         src="/assets/svg/back.svg"
         alt="arrow"
         style="filter: invert(100%)"
       />
       <h3>Need More Seats ?</h3>
-    </div>
+    </div> -->
     }
   </div>
 
@@ -98,7 +100,15 @@
     <br />
 
     <div class="checkout">
-      <button class="checkout-btn" (click)="checkoutUserCart(userCart)">
+      <button
+        class="checkout-btn"
+        (click)="checkoutUserCart(userCart)"
+        [disabled]="disableCheckoutButton()"
+        [ngClass]="{
+          'checkout-btn': !disableCheckoutButton(),
+          'disabled-btn': disableCheckoutButton()
+        }"
+      >
         Make a Database Payment
       </button>
     </div>

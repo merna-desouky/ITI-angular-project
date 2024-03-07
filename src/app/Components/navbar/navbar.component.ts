@@ -104,6 +104,8 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.usersService.GoogleLogOut();
 
+    this.usersService.Logout()
+
     this.googleUser = false;
     this.mongoUser = false;
     this.noUser = true;

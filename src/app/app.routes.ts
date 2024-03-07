@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './Pages/home/home.component';
 import { SignUpComponent } from './Pages/sign-up/sign-up.component';
 import { SignInComponent } from './Pages/sign-in/sign-in.component';
-// import { canActivate } from './Guards/auth-guard.guard';
+import { canActivate } from './Guards/auth-guard.guard';
 import { ErrorComponent } from './Pages/error/error.component';
 import { BookingComponent } from './Pages/booking/booking.component';
 import { SingleMovieComponent } from './Components/single-movie/single-movie.component';
@@ -16,9 +16,9 @@ export const routes: Routes = [
   { path: 'movie/:movie-name', component: SingleMovieComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'sign-in', component: SignInComponent },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'booking/:movie-name', component: BookingComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'profile', component: ProfileComponent, canActivate:[canActivate]},
+  { path: 'booking', component: BookingComponent ,canActivate:[canActivate]},
+  { path: 'checkout', component: CheckoutComponent,canActivate:[canActivate] },
+  { path: 'dashboard', component: DashboardComponent,canActivate:[canActivate] },
   { path: '**', component: ErrorComponent },
 ];
