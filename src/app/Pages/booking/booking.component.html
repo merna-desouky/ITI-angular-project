@@ -237,24 +237,18 @@
                 ></app-table>
               </div>
               }
-              <div
-                class="checkout-container d-flex flex-column flex-md-row d-md-flex mt-5 mt-md-0"
-              >
-                <div class="totla-price mt-5 mt-md-0 w-100 w-md-25 p-4">
-                  Total Price : {{ totalPrice }} L.E
-                </div>
-                <div
-                  class="d-flex justify-content-center align-items-center w-md-25"
-                >
+              
+                
+                 <div class="btn-container w-100 d-flex justify-content-end mt-5">
                   <div
-                    routerLink="/checkout"
-                    class="checkout primary-btn mt-md-0 col-12 col-md-24"
-                    (click)="sendDataToBackend()"
-                  >
-                    Checkout
-                  </div>
+                  class="checkout primary-btn "
+                  (click)="sendDataToBackend()"
+                >
+                  Checkout
                 </div>
-              </div>
+              
+                 </div>
+             
             </div>
           </div>
         </div>

@@ -13,13 +13,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { CinemaSeatComponent } from '../../Components/cinema-seat/cinema-seat.component';
 import { TableComponent } from '../../Components/table/table.component';
 import { SeatStateService } from '../../Services/seat-state.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BookingServiceService } from '../../Services/booking-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-book-your-ticket',
@@ -51,7 +52,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   dates = [];
   showSeats: boolean = false;
   movie: any = {};
- 
   objToSend: any;
   showOverlay: boolean = true;
   counter = 0;
@@ -68,7 +68,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   seatNum: any;
   receivedSeatToDelete: any;
   reserviedSeats: any;
-
   firstRow: any;
   secondRow: any;
   thirdRow: any;
@@ -77,6 +76,8 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   sixth: any;
   siventh: any;
   eight: any;
+  flag = true;
+
   ngOnInit() {
     window.scrollTo(0, 0);
     this.route.params.subscribe((params) => {
@@ -97,6 +98,17 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       });
   }
   ngOnChanges() {}
+  ngOnDestroy() {
+    this.firstRow = [];
+    this.secondRow = [];
+    this.thirdRow = [];
+    this.fourthRow = [];
+    this.fifthRow = [];
+    this.sixth = [];
+    this.siventh = [];
+    this.eight = [];
+    window.location.reload();
+  }
   getDates() {
     this.bookingService
       .getDates({
@@ -125,18 +137,10 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     private seatState: SeatStateService,
     public http: HttpClient,
     public bookingService: BookingServiceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router:Router,
+    public location: Location
   ) {}
-  ngOnDestroy() {
-    this.firstRow = [];
-    this.secondRow = [];
-    this.thirdRow = [];
-    this.fourthRow = [];
-    this.fifthRow = [];
-    this.sixth = [];
-    this.siventh = [];
-    this.eight = [];
-  }
 
   onInputChange() {
     this.showOverlay = false;
@@ -151,9 +155,9 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         this.reserviedSeats = data;
         console.log(this.reserviedSeats);
         this.firstRow = [
-          { num: 1, isTaken: true, row: 1 },
-          { num: 2, isTaken: true, row: 1 },
-          { num: 3, isTaken: true, row: 1 },
+          { num: 1, isTaken: false, row: 1 },
+          { num: 2, isTaken: false, row: 1 },
+          { num: 3, isTaken: false, row: 1 },
           { num: 4, isTaken: false, row: 1 },
           { num: 5, isTaken: false, row: 1 },
           { num: 6, isTaken: false, row: 1 },
@@ -342,19 +346,31 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     );
     this.totalPrice -= 100;
   }
- 
 
   sendDataToBackend() {
-    this.objToSend = {
-      cinema: this.choosenCinema,
-      date: this.choosenDate,
-      movie: this.movie.Title,
-      time: this.choosenTime,
-      reserve: this.takenSeats,
-    };
+    if (this.takenSeats.length == 0) {
+      alert('choose seats first !');
+    } else {
+      this.objToSend = {
+        cinema: this.choosenCinema,
+        date: this.choosenDate,
+        movie: this.movie.Title,
+        time: this.choosenTime,
+        reserve: this.takenSeats,
+      };
+      this.firstRow = [];
+      this.secondRow = [];
+      this.thirdRow = [];
+      this.fourthRow = [];
+      this.fifthRow = [];
+      this.sixth = [];
+      this.siventh = [];
+      this.eight = [];
 
-    this.bookingService.addToCart(this.objToSend).subscribe((data) => {
-      console.log('object is sent to backend');
-    });
+      this.bookingService.addToCart(this.objToSend).subscribe((data) => {
+        console.log('object is sent to backend');
+      });
+      this.router.navigate(['/checkout'])
+    }
   }
 }
