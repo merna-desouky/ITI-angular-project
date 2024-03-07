@@ -13,6 +13,7 @@ import { TableComponent } from '../../Components/table/table.component';
 import { SeatStateService } from '../../Services/seat-state.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BookingServiceService } from '../../Services/booking-service.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-book-your-ticket',
@@ -38,9 +39,11 @@ import { BookingServiceService } from '../../Services/booking-service.service';
 })
 export class BookingComponent implements OnInit {
   cinemas = [];
+  receivedMovieName: any = '';
   screens = ['IMAX', '3D', '2D', 'Regular'];
   time: {}[] = [];
   dates = [];
+
   movie: any = {};
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -88,20 +91,22 @@ export class BookingComponent implements OnInit {
   counter = 0;
   value = 4;
   totalPrice = 0;
-  takenSeats: {}[] = [];
+  takenSeats: any[] = [];
   tickets: number = 0;
   rows: string = '';
-  constructor(
-    private seatState: SeatStateService,
-    public http: HttpClient,
-    public bookingService: BookingServiceService
-  ) {}
-
+  movie: any = {};
+  choosenCinema: any = '';
+  choosenScreen: any = '';
+  choosenDateForDisplay: string = '';
+  choosenDate: string = '';
+  choosenTime: any = '';
+  seatNum: any;
+  receivedSeatToDelete: any;
   firstRow = [
     { num: 1, isTaken: false, row: 1 },
     { num: 2, isTaken: false, row: 1 },
     { num: 3, isTaken: false, row: 1 },
-    { num: 4, isTaken: true, row: 1 },
+    { num: 4, isTaken: false, row: 1 },
     { num: 5, isTaken: false, row: 1 },
     { num: 6, isTaken: false, row: 1 },
     { num: 7, isTaken: false, row: 1 },
@@ -117,14 +122,14 @@ export class BookingComponent implements OnInit {
     { num: 4, isTaken: false, row: 2 },
     { num: 5, isTaken: false, row: 2 },
     { num: 6, isTaken: false, row: 2 },
-    { num: 7, isTaken: true, row: 2 },
+    { num: 7, isTaken: false, row: 2 },
     { num: 8, isTaken: false, row: 2 },
     { num: 9, isTaken: false, row: 2 },
-    { num: 10, isTaken: true, row: 2 },
+    { num: 10, isTaken: false, row: 2 },
     { num: 11, isTaken: false, row: 2 },
   ];
   thirdRow = [
-    { num: 1, isTaken: true, row: 3 },
+    { num: 1, isTaken: false, row: 3 },
     { num: 2, isTaken: false, row: 3 },
     { num: 3, isTaken: false, row: 3 },
     { num: 4, isTaken: false, row: 3 },
@@ -136,108 +141,161 @@ export class BookingComponent implements OnInit {
     { num: 10, isTaken: false, row: 3 },
     { num: 11, isTaken: false, row: 3 },
     { num: 12, isTaken: false, row: 3 },
-    { num: 13, isTaken: true, row: 3 },
+    { num: 13, isTaken: false, row: 3 },
   ];
   fourthRow = [
-    { num: 1, isTaken: true, row: 4 },
-    { num: 2, isTaken: true, row: 4 },
-    { num: 3, isTaken: true, row: 4 },
-    { num: 4, isTaken: true, row: 4 },
-    { num: 5, isTaken: true, row: 4 },
-    { num: 6, isTaken: true, row: 4 },
-    { num: 7, isTaken: true, row: 4 },
-    { num: 8, isTaken: true, row: 4 },
-    { num: 9, isTaken: true, row: 4 },
-    { num: 10, isTaken: true, row: 4 },
-    { num: 11, isTaken: true, row: 4 },
-    { num: 12, isTaken: true, row: 4 },
-    { num: 13, isTaken: true, row: 4 },
+    { num: 1, isTaken: false, row: 4 },
+    { num: 2, isTaken: false, row: 4 },
+    { num: 3, isTaken: false, row: 4 },
+    { num: 4, isTaken: false, row: 4 },
+    { num: 5, isTaken: false, row: 4 },
+    { num: 6, isTaken: false, row: 4 },
+    { num: 7, isTaken: false, row: 4 },
+    { num: 8, isTaken: false, row: 4 },
+    { num: 9, isTaken: false, row: 4 },
+    { num: 10, isTaken: false, row: 4 },
+    { num: 11, isTaken: false, row: 4 },
+    { num: 12, isTaken: false, row: 4 },
+    { num: 13, isTaken: false, row: 4 },
   ];
   fifthRow = [
-    { num: 1, isTaken: true, row: 5 },
-    { num: 2, isTaken: true, row: 5 },
-    { num: 3, isTaken: true, row: 5 },
-    { num: 4, isTaken: true, row: 5 },
-    { num: 5, isTaken: true, row: 5 },
-    { num: 6, isTaken: true, row: 5 },
-    { num: 7, isTaken: true, row: 5 },
-    { num: 8, isTaken: true, row: 5 },
-    { num: 9, isTaken: true, row: 5 },
-    { num: 10, isTaken: true, row: 5 },
-    { num: 11, isTaken: true, row: 5 },
-    { num: 12, isTaken: true, row: 5 },
-    { num: 13, isTaken: true, row: 5 },
-    { num: 14, isTaken: true, row: 5 },
-    { num: 15, isTaken: true, row: 5 },
-    { num: 16, isTaken: true, row: 5 },
-    { num: 17, isTaken: true, row: 5 },
+    { num: 1, isTaken: false, row: 5 },
+    { num: 2, isTaken: false, row: 5 },
+    { num: 3, isTaken: false, row: 5 },
+    { num: 4, isTaken: false, row: 5 },
+    { num: 5, isTaken: false, row: 5 },
+    { num: 6, isTaken: false, row: 5 },
+    { num: 7, isTaken: false, row: 5 },
+    { num: 8, isTaken: false, row: 5 },
+    { num: 9, isTaken: false, row: 5 },
+    { num: 10, isTaken: false, row: 5 },
+    { num: 11, isTaken: false, row: 5 },
+    { num: 12, isTaken: false, row: 5 },
+    { num: 13, isTaken: false, row: 5 },
+    { num: 14, isTaken: false, row: 5 },
+    { num: 15, isTaken: false, row: 5 },
+    { num: 16, isTaken: false, row: 5 },
+    { num: 17, isTaken: false, row: 5 },
   ];
   sixth = [
-    { num: 1, isTaken: true, row: 6 },
-    { num: 2, isTaken: true, row: 6 },
-    { num: 3, isTaken: true, row: 6 },
-    { num: 4, isTaken: true, row: 6 },
-    { num: 5, isTaken: true, row: 6 },
-    { num: 6, isTaken: true, row: 6 },
-    { num: 7, isTaken: true, row: 6 },
-    { num: 8, isTaken: true, row: 6 },
-    { num: 9, isTaken: true, row: 6 },
-    { num: 10, isTaken: true, row: 6 },
-    { num: 11, isTaken: true, row: 6 },
-    { num: 12, isTaken: true, row: 6 },
-    { num: 13, isTaken: true, row: 6 },
-    { num: 14, isTaken: true, row: 6 },
-    { num: 15, isTaken: true, row: 6 },
-    { num: 16, isTaken: true, row: 6 },
-    { num: 17, isTaken: true, row: 6 },
+    { num: 1, isTaken: false, row: 6 },
+    { num: 2, isTaken: false, row: 6 },
+    { num: 3, isTaken: false, row: 6 },
+    { num: 4, isTaken: false, row: 6 },
+    { num: 5, isTaken: false, row: 6 },
+    { num: 6, isTaken: false, row: 6 },
+    { num: 7, isTaken: false, row: 6 },
+    { num: 8, isTaken: false, row: 6 },
+    { num: 9, isTaken: false, row: 6 },
+    { num: 10, isTaken: false, row: 6 },
+    { num: 11, isTaken: false, row: 6 },
+    { num: 12, isTaken: false, row: 6 },
+    { num: 13, isTaken: false, row: 6 },
+    { num: 14, isTaken: false, row: 6 },
+    { num: 15, isTaken: false, row: 6 },
+    { num: 16, isTaken: false, row: 6 },
+    { num: 17, isTaken: false, row: 6 },
   ];
   siventh = [
-    { num: 1, isTaken: true, row: 7 },
-    { num: 2, isTaken: true, row: 7 },
-    { num: 3, isTaken: true, row: 7 },
-    { num: 4, isTaken: true, row: 7 },
-    { num: 5, isTaken: true, row: 7 },
-    { num: 6, isTaken: true, row: 7 },
-    { num: 7, isTaken: true, row: 7 },
-    { num: 8, isTaken: true, row: 7 },
-    { num: 9, isTaken: true, row: 7 },
-    { num: 10, isTaken: true, row: 7 },
-    { num: 11, isTaken: true, row: 7 },
-    { num: 12, isTaken: true, row: 7 },
-    { num: 13, isTaken: true, row: 7 },
-    { num: 14, isTaken: true, row: 7 },
-    { num: 15, isTaken: true, row: 7 },
-    { num: 16, isTaken: true, row: 7 },
-    { num: 17, isTaken: true, row: 7 },
+    { num: 1, isTaken: false, row: 7 },
+    { num: 2, isTaken: false, row: 7 },
+    { num: 3, isTaken: false, row: 7 },
+    { num: 4, isTaken: false, row: 7 },
+    { num: 5, isTaken: false, row: 7 },
+    { num: 6, isTaken: false, row: 7 },
+    { num: 7, isTaken: false, row: 7 },
+    { num: 8, isTaken: false, row: 7 },
+    { num: 9, isTaken: false, row: 7 },
+    { num: 10, isTaken: false, row: 7 },
+    { num: 11, isTaken: false, row: 7 },
+    { num: 12, isTaken: false, row: 7 },
+    { num: 13, isTaken: false, row: 7 },
+    { num: 14, isTaken: false, row: 7 },
+    { num: 15, isTaken: false, row: 7 },
+    { num: 16, isTaken: false, row: 7 },
+    { num: 17, isTaken: false, row: 7 },
   ];
   eight = [
-    { num: 1, isTaken: true, row: 8 },
-    { num: 2, isTaken: true, row: 8 },
-    { num: 3, isTaken: true, row: 8 },
-    { num: 4, isTaken: true, row: 8 },
-    { num: 5, isTaken: true, row: 8 },
-    { num: 6, isTaken: true, row: 8 },
-    { num: 7, isTaken: true, row: 8 },
-    { num: 8, isTaken: true, row: 8 },
-    { num: 9, isTaken: true, row: 8 },
-    { num: 10, isTaken: true, row: 8 },
-    { num: 11, isTaken: true, row: 8 },
-    { num: 12, isTaken: true, row: 8 },
-    { num: 13, isTaken: true, row: 8 },
+    { num: 1, isTaken: false, row: 8 },
+    { num: 2, isTaken: false, row: 8 },
+    { num: 3, isTaken: false, row: 8 },
+    { num: 4, isTaken: false, row: 8 },
+    { num: 5, isTaken: false, row: 8 },
+    { num: 6, isTaken: false, row: 8 },
+    { num: 7, isTaken: false, row: 8 },
+    { num: 8, isTaken: false, row: 8 },
+    { num: 9, isTaken: false, row: 8 },
+    { num: 10, isTaken: false, row: 8 },
+    { num: 11, isTaken: false, row: 8 },
+    { num: 12, isTaken: false, row: 8 },
+    { num: 13, isTaken: false, row: 8 },
   ];
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      this.receivedMovieName = params['movie-name'];
+      console.log(this.receivedMovieName);
+    });
+
+    this.bookingService
+      .getCinemas({ movie: this.receivedMovieName })
+      .subscribe((data) => {
+        this.cinemas = data.cinemas;
+      });
+
+    this.bookingService
+      .getMovieByName({ movie: this.receivedMovieName })
+      .subscribe((data) => {
+        this.movie = data;
+      });
+  }
+
+  ngOnChanges() {}
+  getDates() {
+    this.bookingService
+      .getDates({
+        movie: this.receivedMovieName,
+        cinema: this.choosenCinema,
+      })
+      .subscribe((data) => {
+        this.dates = data;
+      });
+  }
+  getTimes() {
+    this.bookingService
+      .getTimes({
+        movie: this.receivedMovieName,
+        cinema: this.choosenCinema,
+        date: this.choosenDate,
+      })
+      .subscribe((data) => {
+        for (let i = 0; i < data.length; i++) {
+          this.time.push(data[i].time);
+        }
+      });
+  }
+
+  constructor(
+    private seatState: SeatStateService,
+    public http: HttpClient,
+    public bookingService: BookingServiceService,
+    private route: ActivatedRoute
+  ) {}
+
   onInputChange() {
     this.showOverlay = false;
     this.bookingService
       .getReservedSeats({
-        movie: 'The Shawshank Redemption',
-        cinema: 'Imax',
-        date: '12,Oct 2025',
-        time: 12,
+        movie: this.receivedMovieName,
+        cinema: this.choosenCinema,
+        date: this.choosenDate,
+        time: this.choosenTime,
       })
       .subscribe((data) => {
-        console.log('Ana seats' + JSON.stringify(data));
+         JSON.stringify(data);
       });
   }
+
 
   choosenCinema: any = '';
   choosenScreen: any = '';
@@ -246,14 +304,28 @@ export class BookingComponent implements OnInit {
   choosenTime: any = '';
   seatNum: any;
 
+
   reserveSeat(eve: any, seat: any) {
-    this.seatState.updateSeatColor(seat.row, seat.num, 'red');
-    this.takenSeats.push(seat);
-    this.totalPrice += 100;
-    this.tickets = this.tickets + 1;
-    this.rows += '' + seat.row + ',';
+    if (!seat.isTaken) {
+      seat.isTaken = true;
+      this.seatState.updateSeatColor(seat.row, seat.num, 'red');
+      this.takenSeats.push(seat);
+      this.totalPrice += 100;
+      this.tickets = this.tickets + 1;
+    } else {
+      seat.isTaken = false;
+      this.seatState.updateSeatColor(seat.row, seat.num, 'gray');
+      this.takenSeats = this.takenSeats.filter((s) => {
+        if (s.num == seat.num && s.row == seat.row) {
+        } else {
+          return s;
+        }
+      });
+      this.totalPrice -= 100;
+      this.tickets = this.tickets - 1;
+    }
   }
-  receivedSeatToDelete: any;
+
   receiveSeatToDelete(eve: any) {
     this.receivedSeatToDelete = eve.seat;
     this.takenSeats = this.takenSeats.filter(
@@ -266,20 +338,39 @@ export class BookingComponent implements OnInit {
     );
     this.totalPrice -= 100;
   }
-  objToSend = {
-    cinema: this.choosenCinema,
-    date: this.choosenDate,
-    movie: this.movie.Title,
-    time: this.choosenTime,
-    reserve: [
-      { num: 5, row: 8 },
-      { num: 3, row: 6 },
-    ],
-  };
+  objToSend :any;
 
-  sendDataToBackend(obj: any) {
-    this.bookingService.addToCart(obj).subscribe((data) => {
+  sendDataToBackend() {
+    this.objToSend= {
+      cinema: this.choosenCinema,
+      date: this.choosenDate,
+      movie: this.movie.Title,
+      time: this.choosenTime,
+      reserve: this.takenSeats,
+    };
+    this.bookingService.addToCart(this.objToSend).subscribe((data) => {
       console.log(data);
+      console.log(this.objToSend);
     });
+    console.log(this.objToSend);
+    
   }
 }
+
+// http://localhost:2024/reserve/add/seats url to send
+// {
+//   "cinema": "Imax",
+//   "date": "12,Oct 2025",
+//   "time": 12,
+//   "movie": "The Shawshank Redemption",
+//   "reserve": [
+//       {
+//           "num:": 1,
+//           "row": 5
+//       },
+//       {
+//           "num:": 3,
+//           "row": 2
+//       }
+//   ]
+// }

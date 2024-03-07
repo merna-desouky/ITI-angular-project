@@ -7,7 +7,7 @@
         <div class="col-24 col-md-24 col-lg-8">
           <div class="container">
             <img
-              src="assets/images/movie.jpg"
+              [src]="movie.Poster"
               width="400"
               height="450"
               style="
@@ -18,7 +18,7 @@
             <div class="mt-5">
               <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
             </div>
-            <p class="movie-name mt-3">The Revenant</p>
+            <p class="movie-name mt-3">{{movie.Title}}</p>
             <div class="container d-flex justify-content-between mt-5">
               <div class="d-flex">
                 <div class="me-3">
@@ -33,7 +33,7 @@
                   <i class="fa-solid fa-bars me-3"></i>
                 </div>
                 <div>
-                  <small>action / adventure / drama</small>
+                  <small>{{movie.Genre}}</small>
                 </div>
               </div>
               <div class="d-flex">
@@ -41,7 +41,7 @@
                   <i class="fa-solid fa-calendar-days me-3"></i>
                 </div>
                 <div>
-                  <small>2015</small>
+                  <small>{{movie.Year}}</small>
                 </div>
               </div>
             </div>
@@ -227,7 +227,7 @@
                   <div
                     routerLink="/checkout"
                     class="checkout primary-btn mt-md-0 col-12 col-md-24"
-                    (click)="sendDataToBackend(objToSend)"
+                    (click)="sendDataToBackend()"
                   >
                     Checkout
                   </div>
