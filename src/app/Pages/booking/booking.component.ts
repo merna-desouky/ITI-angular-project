@@ -1,4 +1,10 @@
-import { Component, OnChanges, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  ViewEncapsulation,
+} from '@angular/core';
 import { FooterComponent } from '../../Components/footer/footer.component';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule } from '@angular/forms';
@@ -37,14 +43,40 @@ import { ActivatedRoute } from '@angular/router';
   ],
   providers: [HttpClient],
 })
-export class BookingComponent implements OnInit, OnChanges {
+export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   cinemas = [];
   receivedMovieName: any = '';
-  screens = ['IMAX', '3D', '2D', 'Regular'];
+  screens = ['3D', '2D', 'Regular'];
   time: {}[] = [];
   dates = [];
   showSeats: boolean = false;
   movie: any = {};
+ 
+  objToSend: any;
+  showOverlay: boolean = true;
+  counter = 0;
+  value = 4;
+  totalPrice = 0;
+  takenSeats: any[] = [];
+  tickets: number = 0;
+  rows: string = '';
+  choosenCinema: any = '';
+  choosenScreen: any = '';
+  choosenDateForDisplay: string = '';
+  choosenDate: string = '';
+  choosenTime: any = '';
+  seatNum: any;
+  receivedSeatToDelete: any;
+  reserviedSeats: any;
+
+  firstRow: any;
+  secondRow: any;
+  thirdRow: any;
+  fourthRow: any;
+  fifthRow: any;
+  sixth: any;
+  siventh: any;
+  eight: any;
   ngOnInit() {
     window.scrollTo(0, 0);
     this.route.params.subscribe((params) => {
@@ -64,33 +96,6 @@ export class BookingComponent implements OnInit, OnChanges {
         this.movie = data;
       });
   }
-
-  showOverlay: boolean = true;
-  counter = 0;
-  value = 4;
-  totalPrice = 0;
-  takenSeats: any[] = [];
-  tickets: number = 0;
-  rows: string = '';
-  choosenCinema: any = '';
-  choosenScreen: any = '';
-  choosenDateForDisplay: string = '';
-  choosenDate: string = '';
-  choosenTime: any = '';
-  seatNum: any;
-  receivedSeatToDelete: any;
-  reserviedSeats: any;
-
- 
-  firstRow: any;
-  secondRow: any;
-  thirdRow: any;
-  fourthRow: any;
-  fifthRow: any;
-  sixth: any;
-  siventh: any;
-  eight: any;
-
   ngOnChanges() {}
   getDates() {
     this.bookingService
@@ -122,10 +127,19 @@ export class BookingComponent implements OnInit, OnChanges {
     public bookingService: BookingServiceService,
     private route: ActivatedRoute
   ) {}
+  ngOnDestroy() {
+    this.firstRow = [];
+    this.secondRow = [];
+    this.thirdRow = [];
+    this.fourthRow = [];
+    this.fifthRow = [];
+    this.sixth = [];
+    this.siventh = [];
+    this.eight = [];
+  }
 
   onInputChange() {
     this.showOverlay = false;
-
     this.bookingService
       .getReservedSeats({
         movie: this.receivedMovieName,
@@ -328,7 +342,7 @@ export class BookingComponent implements OnInit, OnChanges {
     );
     this.totalPrice -= 100;
   }
-  objToSend: any;
+ 
 
   sendDataToBackend() {
     this.objToSend = {
