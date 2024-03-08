@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="mx-lg-auto mx-md-auto mx-sm-auto col-22 mt-3 box">
       <div class="mt-3 row mb-5">
@@ -30,7 +30,6 @@
             </div>
           </div>
 
-          <!-- </div> -->
           <div
             class="ms-5 genre-year-container d-lg-none d-md-none d-block mb-lg-1 mb-md-2 mb-3"
           >
@@ -66,7 +65,7 @@
               class="custom-stars"
             ></p-rating>
           </div>
-          <!-- booking and Add to favorite -->
+
           <div
             class="ms-5 genre-year-container w-auto row justify-content-between mt-3"
           >
@@ -93,7 +92,6 @@
           </div>
         </div>
       </div>
-      <!-- Comments -->
 
       <div class="border-top mb-4">
         <h1 class="mt-5 mb-4 text-center favMovies">Movies You may like</h1>
@@ -108,6 +106,7 @@
           </div>
         </div>
       </div>
+      
       <div>
         <div class="mt-5">
           @if (!checkedReview && viewComment) {
@@ -166,6 +165,162 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div> -->
+
+<!---------------------------------------------------------------------------------------------------------------------->
+
+<div class="single">
+  <div class="parent">
+    <div class="image-details">
+      <img class="image" [src]="movieDetails?.Poster" alt="" />
+      <button (click)="bookPage()" class="primary-btn reserve-large">
+        Reserve Now
+      </button>
+    </div>
+
+    <div class="movie-details">
+      <div class="movie-header">
+        <img src="/assets/svg/movie.svg" />
+        <h1 class="movie-title">{{ movieDetails?.Title }}</h1>
+
+        <i
+          [class]="heartIconClass"
+          [style.color]="heartIconColor"
+          (click)="toggleHeartClassAndColor()"
+        ></i>
+      </div>
+
+      <div class="info">
+        <div>
+          <div class="detail">
+            <p class="cover">Genre</p>
+            <p>{{ movieDetails?.Genre }}</p>
+          </div>
+
+          <div class="detail">
+            <p class="cover">Year</p>
+            <p>{{ movieDetails?.Year }}</p>
+          </div>
+        </div>
+
+        <div>
+          <div class="detail">
+            <p class="cover">Rated</p>
+            <p-rating
+              [(ngModel)]="value"
+              [cancel]="false"
+              [readonly]="true"
+              class="custom-stars d-inline-block"
+            ></p-rating>
+          </div>
+
+          <div class="detail">
+            <p class="cover">Language</p>
+            <p>{{ movieDetails?.Language }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="description">
+        <p class="cover">Description</p>
+
+        <p>
+          In the heart-pounding thriller 'Shadows of Deception,' audiences are
+          thrust into a world of mystery and suspense where nothing is as it
+          seems. Follow the gripping tale of an unsuspecting protagonist who
+          uncovers a web of lies, deceit, and betrayal as they race against time
+          to unravel the truth. With heart-stopping twists at every turn,
+          'Shadows of Deception' will keep viewers on the edge of their seats
+          until the very last frame.
+        </p>
+      </div>
+    </div>
+
+    <button (click)="bookPage()" class="primary-btn reserve-small">
+      Reserve Now
+    </button>
+  </div>
+
+  <!--------------------------------------------------------------------------------->
+
+  <hr />
+
+  <div class="related">
+    <h1>You Also May Like</h1>
+
+    <div class="wrapper">
+      @for (movie of allMovies; track movie.Title) { @if (movie.Genre ==
+      movieDetails?.Genre && movie.id!= movieDetails.id) {
+      <app-movies-cards [movie]="movie"></app-movies-cards>
+      }}
+    </div>
+  </div>
+
+  <!------------------------------------------------------------------------------------------------------------>
+
+  <hr />
+
+  <div class="reviews">
+    @if (!checkedReview && viewComment) {
+    <div class="review-header">
+      <img
+        src="/assets/svg/comment.svg"
+        width="32"
+        height="32"
+        style="filter: invert(1)"
+      />
+      <h1 class="movie-title">Reviews</h1>
+    </div>
+
+    <div class="review-container">
+      <h2>Add your review :</h2>
+      <textarea #comment></textarea>
+
+      <div class="rate-container">
+        <h2>Rate :</h2>
+        <p-rating #rate [cancel]="false" class="custom-stars"></p-rating>
+      </div>
+
+      <button
+        class="secondary-btn"
+        (click)="reviewData(comment.value, rate.value)"
+        [disabled]="comment.value === ''"
+      >
+        Submit
+      </button>
+    </div>
+    }
+
+    <div class="reviews-grid">
+      @for (review of reviews; track $index) {
+      <div>
+        <p-avatar
+          icon="pi pi-user"
+          styleClass="mr-2 mt-3"
+          size="large"
+          [style]="{
+            'background-color': 'var(--color-var4)',
+            color: '#ffffff'
+          }"
+          shape="circle"
+          class=""
+        ></p-avatar>
+        <h1 class="d-inline-block ms-3">User Name</h1>
+        <br />
+        <h2 class="d-inline-block me-2">Comment :</h2>
+        <p class="d-inline-block">{{ review.comment }}</p>
+        <br />
+        <h2 class="d-inline-block me-2">Rate</h2>
+        <p-rating
+          [(ngModel)]="review.stars"
+          [cancel]="false"
+          [readonly]="true"
+          class="custom-stars d-inline-block"
+        ></p-rating>
+      </div>
+      }
     </div>
   </div>
 </div>

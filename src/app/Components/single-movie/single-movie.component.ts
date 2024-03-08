@@ -53,7 +53,6 @@ export class SingleMovieComponent implements OnInit {
   movieDetails: any;
   sliderMovies: {}[] = [];
   value: any;
-  value2: any;
   allMovies: any;
   viewComment: boolean = true;
 
@@ -79,8 +78,8 @@ export class SingleMovieComponent implements OnInit {
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => { },
-        error: (err: any) => { },
+        next: (data: any) => {},
+        error: (err: any) => {},
       });
   }
 
@@ -120,25 +119,28 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.GetMovieByName(this.movieName).subscribe({
       next: (data: any) => {
         this.movieDetails = data;
-        // console.log(data);
+        console.log(data);
         this.value = Number(this.movieDetails.Ratings[0].Value);
       },
       error: (err: any) => {
         console.log(err.message);
       },
     });
+
     //get All Movies
     this.movieService.getAllMovies().subscribe({
       next: (data) => {
         this.allMovies = data;
       },
     });
+
     //comments
     this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
       next: (data: any) => {
         this.checkedReview = data.reviewed;
       },
     });
+
     //favorites
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {

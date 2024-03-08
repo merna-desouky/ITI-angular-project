@@ -52,6 +52,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   dates = [];
   showSeats: boolean = false;
   movie: any = {};
+
   objToSend: any;
   showOverlay: boolean = true;
   counter = 0;
@@ -77,6 +78,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   siventh: any;
   eight: any;
   flag = true;
+
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -133,6 +135,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       });
   }
 
+
   constructor(
     private seatState: SeatStateService,
     public http: HttpClient,
@@ -141,6 +144,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     private router:Router,
     public location: Location
   ) {}
+
 
   onInputChange() {
     this.showOverlay = false;

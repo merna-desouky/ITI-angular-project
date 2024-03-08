@@ -49,6 +49,7 @@ export class CheckoutComponent implements OnInit, OnChanges {
     if (!this.authService.isLoggedIn()) {
       window.location.href = '/sign-in';
     }
+
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
         console.log(data);
@@ -63,12 +64,28 @@ export class CheckoutComponent implements OnInit, OnChanges {
       },
     });
 
+    setTimeout(() => {
+      this.cartService.getUserCart().subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.userCart = data;
+
+          if (this.userCart.cart.length !== 0) {
+            this.extractDataFromCart();
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }, 500);
+
     // PayPal API Integration
     render({
       id: '#myPaypalButtons',
       currency: 'USD',
       value: '100.00',
-      onApprove: (details:any) => {
+      onApprove: (details: any) => {
         alert('Transaction Done Successfully');
       },
     });
