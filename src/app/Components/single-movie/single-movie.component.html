@@ -262,7 +262,6 @@
   <hr />
 
   <div class="reviews">
-    @if (!checkedReview && viewComment) {
     <div class="review-header">
       <img
         src="/assets/svg/comment.svg"
@@ -272,6 +271,8 @@
       />
       <h1 class="movie-title">Reviews</h1>
     </div>
+
+    @if (viewComment) {
 
     <div class="review-container">
       <h2>Add your review :</h2>
@@ -285,7 +286,7 @@
       <button
         class="secondary-btn"
         (click)="reviewData(comment.value, rate.value)"
-        [disabled]="comment.value === ''"
+        [disabled]="!comment.value || !rate.value"
       >
         Submit
       </button>
@@ -293,33 +294,34 @@
     }
 
     <div class="reviews-grid">
-      @for (review of reviews; track $index) {
-      <div>
-        <p-avatar
-          icon="pi pi-user"
-          styleClass="mr-2 mt-3"
-          size="large"
-          [style]="{
-            'background-color': 'var(--color-var4)',
-            color: '#ffffff'
-          }"
-          shape="circle"
-          class=""
-        ></p-avatar>
-        <h1 class="d-inline-block ms-3">User Name</h1>
-        <br />
-        <h2 class="d-inline-block me-2">Comment :</h2>
-        <p class="d-inline-block">{{ review.comment }}</p>
-        <br />
-        <h2 class="d-inline-block me-2">Rate</h2>
-        <p-rating
-          [(ngModel)]="review.stars"
-          [cancel]="false"
-          [readonly]="true"
-          class="custom-stars d-inline-block"
-        ></p-rating>
+      @if(reviews) { @for (review of reviews.reverse(); track $index) {
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <div>
+          <p-avatar
+            [label]="review?.name[0]"
+            icon="pi pi-user"
+            size="large"
+            shape="circle"
+            class="text-black"
+          ></p-avatar>
+
+          <p class="d-inline-block ms-3">{{ review.name }}</p>
+        </div>
+
+        <div>
+          <p class="d-inline-block">{{ review.comment }}</p>
+        </div>
+
+        <div>
+          <p-rating
+            [(ngModel)]="review.stars"
+            [cancel]="false"
+            [readonly]="true"
+            class="custom-stars d-inline-block"
+          ></p-rating>
+        </div>
       </div>
-      }
+      } }
     </div>
   </div>
 </div>
