@@ -34,7 +34,9 @@ export class AppComponent implements OnInit {
           currentRoute === '/sign-up' || currentRoute === '/sign-in';
 
         this.hideFooter =
-          currentRoute === '/sign-up' || currentRoute === '/sign-in';
+          currentRoute === '/sign-up' ||
+          currentRoute === '/sign-in' ||
+          currentRoute === '/dashboard';
       }
     });
   }

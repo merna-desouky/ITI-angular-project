@@ -10,6 +10,7 @@ import {
 } from '@angular/forms';
 import { UsersServicesService } from '../../Services/users-services.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,7 +24,8 @@ export class SignInComponent implements OnInit {
   constructor(
     private usersService: UsersServicesService,
     private http: HttpClient,
-    private route: Router
+    private route: Router,
+    private AuthService: AuthServiceService
   ) {}
   /////////////////////////////////////////////////////////////////////////
 
@@ -70,15 +72,11 @@ export class SignInComponent implements OnInit {
           this.route.navigate(['/']);
         },
         (err) => {
-          if(!err.error.message){
+          if (!err.error.message) {
             this.router.navigate(['/sign-up']);
-
-          }else{
+          } else {
             this.notFoundMessage = String(err.error.message);
-
           }
-          
-    
         }
       );
     }
@@ -109,9 +107,15 @@ export class SignInComponent implements OnInit {
     if (this.signInForm.valid) {
       this.usersService.Login(this.signInForm.value).subscribe(
         (data) => {
-          localStorage.setItem('token', data.token);
-          sessionStorage.removeItem('loggedInUser');
-          this.route.navigate(['/']);
+          let decodedToken = this.AuthService.DecodedToken(data.token);
+          if (decodedToken.isAdmin) {
+            localStorage.setItem('token', data.token);
+            this.route.navigate(['/dashboard']);
+          } else {
+            localStorage.setItem('token', data.token);
+            sessionStorage.removeItem('loggedInUser');
+            this.route.navigate(['/']);
+          }
         },
         (err) => {
           console.log(err.error.message);

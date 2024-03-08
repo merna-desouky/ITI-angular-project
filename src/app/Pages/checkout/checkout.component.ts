@@ -6,12 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../Services/cart.service';
 import { render } from 'creditcardpayments/creditCardPayments';
 
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
@@ -22,7 +17,7 @@ import { AuthServiceService } from '../../Services/auth-service.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
 })
-export class CheckoutComponent implements OnInit, OnChanges {
+export class CheckoutComponent implements OnInit {
   // Data will be fetched from the query string + service
   paymentOption: string = '';
   movies: any[] = [];
@@ -41,18 +36,10 @@ export class CheckoutComponent implements OnInit, OnChanges {
     private cartService: CartService,
     private httpClient: HttpClient,
     private authService: AuthServiceService
-  ) {}
-
-  ngOnInit(): void {
-    window.scrollTo(0, 0);
-
-    if (!this.authService.isLoggedIn()) {
-      window.location.href = '/sign-in';
-    }
-
+  ) {
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
-        console.log(data);
+
         this.userCart = data;
 
         if (this.userCart.cart.length !== 0) {
@@ -63,22 +50,10 @@ export class CheckoutComponent implements OnInit, OnChanges {
         console.log(err);
       },
     });
+  }
 
-    setTimeout(() => {
-      this.cartService.getUserCart().subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.userCart = data;
-
-          if (this.userCart.cart.length !== 0) {
-            this.extractDataFromCart();
-          }
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
-    }, 500);
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
 
     // PayPal API Integration
     render({
@@ -91,10 +66,6 @@ export class CheckoutComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.extractDataFromCart();
-  }
-
   extractDataFromCart() {
     this.userCart.cart.forEach((item: any, index: number) => {
       this.movieCinema = item.cinema;
@@ -105,20 +76,29 @@ export class CheckoutComponent implements OnInit, OnChanges {
       this.movieSeats = item.seats.map((seat: any) => seat.num);
       this.movieRows = item.seats.map((seat: any) => seat.row);
 
-      console.log(this.movieSeats, this.movieRows);
     });
   }
 
   removeMovie(movie: any) {
     this.cartService.removeMovieFromCart({ deletedMovie: movie }).subscribe({
       next: (data: any) => {
-        console.log(data);
-        console.log(`Movie removed from cart + ${movie['cinema']}`);
+ 
+       
 
-        this.userCart.cart = this.userCart.cart.filter(
-          (item: any) => item !== movie
-        );
-        this.extractDataFromCart();
+        this.cartService.getUserCart().subscribe({
+          next: (data: any) => {
+           
+            this.userCart = data;
+
+            if (this.userCart.cart.length !== 0) {
+              this.extractDataFromCart();
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+       
       },
       error: (err: any) => {
         console.log(err);
@@ -129,9 +109,10 @@ export class CheckoutComponent implements OnInit, OnChanges {
   checkoutUserCart(cart: any) {
     this.cartService.checkoutUserCart(cart).subscribe({
       next: (data: any) => {
-        console.log(data);
+
 
         this.userCart.cart = [];
+        this.userCart.totalPrice = 0;
       },
       error: (err) => {
         console.log(err);

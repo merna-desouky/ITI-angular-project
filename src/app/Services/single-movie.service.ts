@@ -22,6 +22,7 @@ export class SingleMovieService {
       }
     );
   }
+
   checkIfReviewed(movieName: {}): Observable<any> {
     return this.http.post(
       'http://localhost:2024/movies/review-check',
@@ -33,6 +34,7 @@ export class SingleMovieService {
       }
     );
   }
+
   SendReview(review: {}): Observable<any> {
     return this.http.post('http://localhost:2024/movies/add-review', review, {
       headers: new HttpHeaders({
@@ -40,6 +42,7 @@ export class SingleMovieService {
       }),
     });
   }
+
   GetReviews(movieName: {}): Observable<any> {
     return this.http.post('http://localhost:2024/movies/reviews', movieName, {
       headers: new HttpHeaders({

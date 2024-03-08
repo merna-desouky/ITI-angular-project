@@ -50,15 +50,27 @@ button {
   vertical-align: baseline;
   width: auto;
   text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #e52d27 0%,
+    #b31217 51%,
+    #e52d27 100%
+  );
+  text-transform: uppercase;
+  background-size: 200% auto;
 }
 
 button:hover {
   transform: translateY(-2px);
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
 }
 
 a {
   text-decoration: none;
   color: var(--color-var2);
+  width: 100%;
 }
 
 h1 {

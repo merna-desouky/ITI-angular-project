@@ -24,7 +24,7 @@
   backface-visibility: hidden;
   border-radius: 15px;
   height: 100%;
-  background-color: rgb(47, 48, 53);
+  background-color: var(--color-var5);
   box-shadow: 1px 1px 4px 3px #1c1818;
   .myPoster {
     .myimg {
@@ -54,6 +54,14 @@
       color: var(--color-var3);
       font-weight: 700;
       font-size: 1.3rem;
+      span {
+        color: #aca6a5;
+      }
+    }
+    .time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
   button {

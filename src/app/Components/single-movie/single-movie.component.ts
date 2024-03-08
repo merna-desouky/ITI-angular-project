@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +15,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { SingleMovieService } from '../../Services/single-movie.service';
+import { CommonModule } from '@angular/common';
+import { UsersServicesService } from '../../Services/users-services.service';
+import { ProfileService } from '../../Services/profile.service';
 
 @Component({
   selector: 'app-single-movie',
@@ -31,15 +35,19 @@ import { SingleMovieService } from '../../Services/single-movie.service';
     AvatarModule,
     AvatarGroupModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   providers: [MoviesService],
   templateUrl: './single-movie.component.html',
   styleUrl: './single-movie.component.scss',
 })
 export class SingleMovieComponent implements OnInit {
- favorite: any;
+  favorite: any;
   userComment: any = '';
   userRate: any = '';
+  userName: any = '';
+  reviewUsers = [];
+
   checkedReview: boolean = true;
   reviews: any;
   heartIconClass: string = 'pi pi-heart';
@@ -58,9 +66,9 @@ export class SingleMovieComponent implements OnInit {
     private myRoute: ActivatedRoute,
     private movieService: MoviesService,
     private router: Router,
-    private singleMovieService: SingleMovieService
+    private singleMovieService: SingleMovieService,
+    private userService: ProfileService
   ) {}
- 
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -91,6 +99,8 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
       next: (data: any) => {
         this.checkedReview = data.reviewed;
+        console.log(this.checkedReview);
+        this.viewComment = !this.checkedReview;
       },
     });
 
@@ -99,6 +109,7 @@ export class SingleMovieComponent implements OnInit {
       next: (data: any) => {
         this.favorite = data.favourited;
         console.log(this.favorite);
+
         if (this.favorite) {
           this.heartIconClass = 'pi pi-heart-fill';
           this.heartIconColor = 'red';
@@ -113,12 +124,11 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.GetReviews(this.movieName).subscribe({
       next: (data: any) => {
         this.reviews = data;
+        this.reviewUsers = this.reviews.map((review: any) => review.name);
+
+        console.log(this.reviewUsers);
       },
     });
-  }
-
-  singlemovie() {
-    this.router.navigate(['']);
   }
 
   // Booking page
@@ -126,23 +136,46 @@ export class SingleMovieComponent implements OnInit {
     this.router.navigate(['booking/', `${this.movieName.movie}`]);
   }
 
-  reviewData(_comment: any, _rate: any) {
-    this.userComment = _comment;
-    this.userRate = _rate;
-    this.viewComment = false;
-    this.reviews.push({ comment: this.userComment, stars: this.userRate });
+  // Add review to the movie
+  reviewData(comment: any, rate: any) {
+    this.userComment = comment;
+    this.userRate = rate;
 
+    const newReview = {
+      comment: this.userComment,
+      stars: this.userRate,
+    };
+
+    // Send the new review to the backend
     this.singleMovieService
       .SendReview({
         movie: `${this.movieName.movie}`,
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => {},
-        error: (err: any) => {},
+        next: (data: any) => {
+          this.singleMovieService.GetReviews(this.movieName).subscribe({
+            next: (data: any) => {
+              this.reviews = data;
+              this.reviewUsers = this.reviews.map((review: any) => review.name);
+      
+             
+              
+            },
+          });
+          // Update UI or do any necessary actions after successful review submission
+        },
+        error: (err: any) => {
+          // Handle error if necessary
+        },
       });
+
+    // Push the new review to the local array
+    this.reviews.push(newReview);
+    this.viewComment = false;
   }
 
+  // Toggle the favorite icon
   toggleHeartClassAndColor() {
     if (this.favorite) {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({

@@ -1,10 +1,59 @@
-<div class="dash-flex">
-  <div>Ahmed</div>
-
-  <div
-    class="card flex justify-content-center"
-    style="width: 500px; height: 500px; background-color: transparent"
-  >
-    <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+@if (dashData) {
+<div class="dash-cover">
+  <div class="container">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-22">
+        <div class="title">
+          Today's Insights <img src="/assets/images/sales2.gif" />
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
   </div>
 </div>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+    <div class="col-22">
+      <div class="dashboard">
+        <div class="allCards">
+          <div class="row gy-5 justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-12">
+              <div class="dash-card">
+                <div class="img"><img src="/assets/images/rating.png" /></div>
+                <div class="number">{{ dashData.dashb.totalReview }}</div>
+                <div class="desc">Total Reviews</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-12">
+              <div class="dash-card">
+                <div class="img"><img src="/assets/images/sales.png" /></div>
+                <div class="number">{{ dashData.dashb.totalSales }}</div>
+                <div class="desc">Total Sales</div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-12">
+              <div class="dash-card">
+                <div class="img"><img src="/assets/images/users.png" /></div>
+                <div class="number">{{ dashData.dashb.usersCount }}</div>
+                <div class="desc">Total Users</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts">
+          <div class="card">
+            <p-chart type="bar" [data]="data1" [options]="options1"></p-chart>
+          </div>
+          <div class="card">
+            <p-chart type="bar" [data]="data2" [options]="options2"></p-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-1"></div>
+  </div>
+</div>
+}

@@ -1,12 +1,20 @@
 @import "primeicons/primeicons.css";
 
 :root {
-  --color-var1: #1b1e25;
+  // Palette
+  --color-var1: #221f1f;
   --color-var2: #f5f5f1;
-  // style
   --color-var3: #e50914;
-  // hover
   --color-var4: #b81d24;
+
+  // Utility
+  --color-var5: rgb(53 47 47);
+
+  // Charts
+  --color-chart1: #b81d24;
+  --color-chart2: #f7575f;
+  --color-chart3: rgb(211, 208, 208);
+  --color-chart4: grey;
 }
 
 * {
@@ -632,9 +640,7 @@ body {
   .watch-btn {
     display: none;
   }
-  .cards--one .myPoster .myimg {
-    height: 210px;
-  }
+
   .cards {
     transition: all 0.3s ease-in-out;
 

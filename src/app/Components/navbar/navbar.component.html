@@ -17,7 +17,7 @@
       @if (resultMovies.length!=0 &&showResults) {
       <div class="mySearch">
         @for (movie of resultMovies; track movie.id) {
-        <div class="singleRes" routerLink="movie/{{ movie.id }}">
+        <div class="singleRes" (click)="routeToSingleMovie(movie)">
           <div class="poster">
             <img src="{{ movie.Poster }}" />
           </div>
@@ -74,21 +74,30 @@
       </div>
       }
     </div>
+    @if (!hideLinks) {
     <div class="mob-links">
-      <a routerActiveLink="active" routerLink="/">Home</a>
-      <a href="#Trending">Trending</a>
-      <a routerActiveLink="active" routerLink="/checkout">Cart</a>
+      <a
+        routerActiveLink="active"
+        routerLink="/"
+        (click)="sidebarVisible = false"
+        >Home</a
+      >
+      <a href="#Trending" (click)="sidebarVisible = false">Trending</a>
+      <a
+        routerActiveLink="active"
+        routerLink="/checkout"
+        (click)="sidebarVisible = false"
+        >Cart</a
+      >
     </div>
+    }
 
     <div class="mob-btns">
       @if(googleUser) {
       <div class="google-info">
         <img [src]="googlePicture" routerLink="/profile" />
 
-        <button
-          class="secondary-btn"
-          (click)="handleSignOut()"
-        >
+        <button class="secondary-btn" (click)="handleSignOut()">
           Sign Out
         </button>
       </div>
@@ -127,6 +136,7 @@
   <!--------------------------------------------------------------------------------------->
   <!--------------------------------------------------------------------------------------->
 
+  @if (!hideLinks) {
   <div class="links">
     <a
       [routerLink]="['/']"
@@ -137,6 +147,7 @@
     <a href="#Trending">Trending</a>
     <a routerActiveLink="active" routerLink="/checkout">Cart</a>
   </div>
+  }
 
   <div class="btns">
     @if(googleUser) {
