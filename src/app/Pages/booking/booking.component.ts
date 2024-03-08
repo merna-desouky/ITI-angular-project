@@ -14,6 +14,7 @@ import { SeatStateService } from '../../Services/seat-state.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BookingServiceService } from '../../Services/booking-service.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-book-your-ticket',
@@ -45,6 +46,15 @@ export class BookingComponent implements OnInit {
   dates = [];
 
   movie: any = {};
+
+  constructor(
+    private seatState: SeatStateService,
+    public http: HttpClient,
+    public bookingService: BookingServiceService,
+    private route: ActivatedRoute,
+    private location: Location
+  ) {}
+
   ngOnInit() {
     window.scrollTo(0, 0);
     this.route.params.subscribe((params) => {
@@ -233,13 +243,6 @@ export class BookingComponent implements OnInit {
       });
   }
 
-  constructor(
-    private seatState: SeatStateService,
-    public http: HttpClient,
-    public bookingService: BookingServiceService,
-    private route: ActivatedRoute
-  ) {}
-
   onInputChange() {
     this.showOverlay = false;
     this.bookingService
@@ -297,11 +300,12 @@ export class BookingComponent implements OnInit {
       time: this.choosenTime,
       reserve: this.takenSeats,
     };
-    
+
     this.bookingService.addToCart(this.objToSend).subscribe((data) => {
       console.log(data);
       console.log(this.objToSend);
     });
     console.log(this.objToSend);
+    window.location.reload();
   }
 }
