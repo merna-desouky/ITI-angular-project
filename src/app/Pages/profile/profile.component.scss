@@ -10,18 +10,26 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-position: center;
-      background-size: 100% 45pc;
+      background-size: cover;
       box-shadow: inset 0 0 0 2000px #221f1f82;
       @media (max-width: "850px") {
-        background-size: 100% 20pc;
+        height: 250px;
+      }
+      @media (max-width: "500px") {
+        height: 180px;
       }
     }
+  }
+  .myContent {
+    display: flex;
+    padding-inline-start: 205px;
     .profile-pic {
-      position: absolute;
-      background-color: #1f1c1c;
-      left: 205px;
+      background-color: var(--color-var1);
+      position: relative;
       border-radius: 50%;
-      bottom: -83px;
+
+      margin-inline-end: 30px;
+      margin-top: -50px;
       img {
         border-radius: 50%;
         width: 140px;
@@ -29,69 +37,75 @@
         filter: invert(85%) sepia(0%) saturate(0%) hue-rotate(79deg)
           brightness(96%) contrast(99%);
       }
-      // .txt {
-      //   display: flex;
-      //   flex-direction: column;
-      //   padding: 20px;
-      //   .myName,
-      //   .email {
-      //     color: var(--color-var4);
-      //     font-size: 1.5rem;
-      //     margin-bottom: 15px;
-      //     span {
-      //       color: #cfcfcf;
-      //     }
-      //   }
-      // }
     }
-  }
-  .info {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 0;
-    padding-inline-start: 400px;
-    margin-bottom: 20px;
-    .name {
+    .info {
       display: flex;
-      align-items: center;
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: #cfcfcf;
-      .verfied {
-        padding: 0 10px;
-        img {
-          width: 20px;
-          height: 20px;
+      flex-direction: column;
+      padding: 15px 0;
+      .name {
+        display: flex;
+        align-items: center;
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #cfcfcf;
+        .verfied {
+          padding: 0 10px;
+          img {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
+      .email {
+        font-size: 1.5rem;
+        color: #d0cccb;
+      }
     }
-    .email {
-      font-size: 1.5rem;
-      color: #d0cccb;
-    }
-    @media (max-width: "767px") {
-      margin-top: 0;
+    @media (max-width: "768px") {
+      padding-inline-start: 0px;
       align-items: center;
       justify-content: center;
     }
+    @media (max-width: "500px") {
+      .profile-pic {
+        margin-inline-end: 20px;
+        margin-top: -35px;
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .info {
+        .name {
+          font-size: 2rem;
+        }
+        .email {
+          font-size: 1rem;
+        }
+      }
+    }
   }
+
   .fav-title,
   .purchased-title {
     font-size: 2.5rem;
     margin-top: 60px;
     margin-bottom: 15px;
-    color: var(--color-var4);
+    color: var(--color-var3);
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     font-weight: 700;
     display: flex;
     align-items: center;
     .myheart,
     .myPurchased {
       margin-inline-end: 10px;
+
       img {
         width: 30px;
         height: 32px;
         filter: invert(21%) sepia(89%) saturate(2507%) hue-rotate(342deg)
-          brightness(73%) contrast(101%);
+          brightness(87%) contrast(101%);
       }
     }
   }

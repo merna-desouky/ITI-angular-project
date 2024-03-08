@@ -1,7 +1,7 @@
 .p-dropdown {
   width: 230px;
   height: 40px;
-  background-color: rgb(53 47 47);
+  background-color: rgb(47, 48, 53);
   box-shadow: 1px 1px 4px 3px #1c1818;
   border: none;
 
@@ -13,7 +13,8 @@
     color: white;
   }
   .p-dropdown-items-wrapper {
-    background-color: rgb(53 47 47);
+    background-color: rgb(47, 48, 53);
+    scrollbar-width: thin;
     color: white;
     ul {
       padding-left: 0;

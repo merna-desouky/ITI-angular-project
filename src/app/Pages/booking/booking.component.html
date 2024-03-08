@@ -7,7 +7,7 @@
         <div class="col-24 col-md-24 col-lg-8">
           <div class="container">
             <img
-              src="assets/images/movie.jpg"
+              [src]="movie.Poster"
               width="400"
               height="450"
               style="
@@ -18,7 +18,7 @@
             <div class="mt-5">
               <p-rating [(ngModel)]="value" [cancel]="false"></p-rating>
             </div>
-            <p class="movie-name mt-3">The Revenant</p>
+            <p class="movie-name mt-3">{{ movie.Title }}</p>
             <div class="container d-flex justify-content-between mt-5">
               <div class="d-flex">
                 <div class="me-3">
@@ -33,7 +33,7 @@
                   <i class="fa-solid fa-bars me-3"></i>
                 </div>
                 <div>
-                  <small>action / adventure / drama</small>
+                  <small>{{ movie.Genre }}</small>
                 </div>
               </div>
               <div class="d-flex">
@@ -41,7 +41,7 @@
                   <i class="fa-solid fa-calendar-days me-3"></i>
                 </div>
                 <div>
-                  <small>2015</small>
+                  <small>{{ movie.Year }}</small>
                 </div>
               </div>
             </div>
@@ -83,7 +83,6 @@
                     [(ngModel)]="choosenScreen"
                     name="screen"
                   >
-                    
                     @for (screen of screens; track screen) {
                     <option [value]="screen">{{ screen }}</option>
                     }
@@ -130,7 +129,7 @@
               <div class="screen-container">
                 <div class="screen"></div>
               </div>
-
+              @if(showSeats){
               <div class="seats">
                 <div class="first-row d-flex">
                   @for(seat of firstRow; track firstRow;let i =$index ; let
@@ -187,6 +186,7 @@
                   ></app-cinema-seat>
                   }
                 </div>
+
                 <div class="seventh-row d-flex">
                   @for(seat of siventh; track siventh;let i =$index) {
                   <app-cinema-seat
@@ -206,8 +206,37 @@
                   }
                 </div>
               </div>
-
-              @if(takenSeats.length>=1){
+              <div class="d-flex justify-content-evenly">
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: red"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">taken by you</p>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: #3b3b3b"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">taken seat</p>
+                </div>
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: gray"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">untaken seat</p>
+                </div>
+              </div>
+              } @if(!showSeats){
+              <div
+                class="container d-flex justify-content-center align-items-center"
+                style="height: 50vh"
+              >
+                <h1>Fill Data and Choose your seats !!!</h1>
+              </div>
+              } @if(takenSeats.length>=1){
               <div class="checkout-table my-4">
                 <app-table
                   [takenSeats]="takenSeats"
@@ -215,22 +244,10 @@
                 ></app-table>
               </div>
               }
-              <div
-                class="checkout-container d-flex flex-column flex-md-row d-md-flex mt-5 mt-md-0"
-              >
-                <div class="totla-price mt-5 mt-md-0 w-100 w-md-25 p-4">
-                  Total Price : {{ totalPrice }} L.E
-                </div>
-                <div
-                  class="d-flex justify-content-center align-items-center w-md-25"
-                >
-                  <div
-                    routerLink="/checkout"
-                    class="checkout primary-btn mt-md-0 col-12 col-md-24"
-                    (click)="sendDataToBackend(objToSend)"
-                  >
-                    Checkout
-                  </div>
+
+              <div class="btn-container w-100 d-flex justify-content-end mt-5">
+                <div class="checkout primary-btn" (click)="sendDataToBackend()">
+                  Checkout
                 </div>
               </div>
             </div>

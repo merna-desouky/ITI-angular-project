@@ -36,4 +36,11 @@ export class UsersServicesService {
   GoogleLogOut(): void {
     google.accounts.id.disableAutoSelect();
   }
+
+  checkIfFavorite(movieName: {}): Observable<any> {
+    return this.http.post(
+      `http://localhost:2024/user/check-favourite`,
+      movieName
+    );
+  }
 }
