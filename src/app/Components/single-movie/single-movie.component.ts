@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,7 +37,7 @@ import { SingleMovieService } from '../../Services/single-movie.service';
   styleUrl: './single-movie.component.scss',
 })
 export class SingleMovieComponent implements OnInit {
-  favorite: any;
+ favorite: any;
   userComment: any = '';
   userRate: any = '';
   checkedReview: boolean = true;
@@ -60,6 +60,7 @@ export class SingleMovieComponent implements OnInit {
     private router: Router,
     private singleMovieService: SingleMovieService
   ) {}
+ 
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -147,6 +148,8 @@ export class SingleMovieComponent implements OnInit {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
         next: (data: any) => {
           this.favorite = false;
+          this.heartIconClass = 'pi pi-heart';
+          this.heartIconColor = 'red';
         },
         error: (err) => {
           console.log(err.message);
@@ -156,6 +159,8 @@ export class SingleMovieComponent implements OnInit {
       this.singleMovieService.AddToFavourites(this.movieName).subscribe({
         next: (data: any) => {
           this.favorite = true;
+          this.heartIconClass = 'pi pi-heart-fill';
+          this.heartIconColor = 'red';
         },
       });
     }
