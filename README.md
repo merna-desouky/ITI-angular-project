@@ -44,7 +44,8 @@
 
 ## About The Project
 
-I-WATCH is a site for reserving cinema seats and includes modern and old films and the site is characterized by its ease of use and the ability to book tickets and pay for them through the site.
+I-WATCH is a site for reserving cinema seats and includes modern and old films .
+the site is characterized by its ease of use, the ability to book tickets and pay for them through the site.
 
 ![Preview](./src/assets/readme/review1.png)
 ![Preview](./src/assets/readme/review2.png)
