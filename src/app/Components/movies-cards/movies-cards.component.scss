@@ -51,7 +51,9 @@
     }
     .imdb {
       margin-bottom: 5px;
-      color: #6e6867;
+      color: var(--color-var3);
+      font-weight: 700;
+      font-size: 1.3rem;
     }
   }
   button {

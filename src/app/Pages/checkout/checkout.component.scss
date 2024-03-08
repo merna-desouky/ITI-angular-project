@@ -195,9 +195,9 @@ input[type="tel"] {
   display: block;
   margin: 20px auto 32px auto;
   width: 100%;
-  background: #ffd789;
+  background: #ffc439;
   color: #000;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 18px;
   border: none;
   padding: 12px 20px;
@@ -262,10 +262,10 @@ input[type="tel"] {
 
   .reserved-data {
     display: grid;
-    grid-template-columns: 1fr 0.5fr;
+    grid-template-columns: 1fr 1fr;
     margin: auto;
 
-    gap: 10px;
+    gap: 20px;
 
     .reserved-row {
       display: flex;
