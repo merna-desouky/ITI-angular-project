@@ -15,9 +15,8 @@
 </br>
 <div align="center">
       <a href="https://react-ui-colors.vercel.app/">
-       <img src="assets/readme/logo.png" alt="Logo" width="80" height="80">
+       <img src="./src/assets/readme/logo.png" alt="Logo" width="150" height="150">
       </a>
-    <h1 align="center">I-Watch</h1>
 </div>
 
 <!-- TABLE OF CONTENTS -->
@@ -45,11 +44,11 @@
 
 ## About The Project
 
-IWATCH is a site for reserving cinema seats and includes modern and old films and the site is characterized by its ease of use and the ability to book tickets and pay for them through the site.
+I-WATCH is a site for reserving cinema seats and includes modern and old films and the site is characterized by its ease of use and the ability to book tickets and pay for them through the site.
 
-![Preview](assets/readme/review1.png)
-![Preview](assets/readme/review2.png)
-![Preview](assets/readme/review3.png)
+![Preview](./src/assets/readme/review1.png)
+![Preview](./src/assets/readme/review2.png)
+![Preview](./src/assets/readme/review3.png)
 
 ### Built With
 
