@@ -12,7 +12,9 @@ import { CommonModule } from '@angular/common';
 export class CinemaSeatComponent implements OnInit, OnChanges {
   @Input()seatNum:any;
   @Input()seat:any;
-  constructor(public seatState: SeatStateService){}
+  constructor(public seatState: SeatStateService){
+    console.log('seat constructor is called ');
+  }
   ngOnChanges(): void {
     if(this.seat.isTaken){
       this.seatState.updateSeatColor(this.seat.row,this.seat.num,'rgb(67, 67, 67)')
@@ -21,7 +23,10 @@ export class CinemaSeatComponent implements OnInit, OnChanges {
       this.seat.isTakenByCurrentUser=false;
      }
   }
+  
   ngOnInit(): void {
+    console.log('seat oninit is called ');
+    
    if(this.seat.isTaken){
     this.seatState.updateSeatColor(this.seat.row,this.seat.num,'rgb(67, 67, 67)')
     this.seat.isTakenByCurrentUser=false;
