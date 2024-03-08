@@ -1,6 +1,5 @@
-import { map } from 'rxjs/operators';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, TitleStrategy } from '@angular/router';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RatingModule } from 'primeng/rating';
@@ -15,7 +14,6 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { SingleMovieService } from '../../Services/single-movie.service';
-import { CloseScrollStrategy } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-single-movie',
@@ -39,7 +37,7 @@ import { CloseScrollStrategy } from '@angular/cdk/overlay';
   styleUrl: './single-movie.component.scss',
 })
 export class SingleMovieComponent implements OnInit {
-  favorite: any;
+ favorite: any;
   userComment: any = '';
   userRate: any = '';
   checkedReview: boolean = true;
@@ -53,16 +51,77 @@ export class SingleMovieComponent implements OnInit {
   movieDetails: any;
   sliderMovies: {}[] = [];
   value: any;
-  value2: any;
   allMovies: any;
   viewComment: boolean = true;
+
+  constructor(
+    private myRoute: ActivatedRoute,
+    private movieService: MoviesService,
+    private router: Router,
+    private singleMovieService: SingleMovieService
+  ) {}
+ 
+
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+
+    this.myRoute.params.subscribe((param) => {
+      this.movieName.movie = param['movie-name'];
+
+      this.singleMovieService.GetMovieByName(this.movieName).subscribe({
+        next: (data: any) => {
+          this.movieDetails = data;
+          // console.log(data);
+          this.value = Number(this.movieDetails.Ratings[0].Value);
+        },
+        error: (err: any) => {
+          console.log(err.message);
+        },
+      });
+    });
+
+    // Get All Movies
+    this.movieService.getAllMovies().subscribe({
+      next: (data) => {
+        this.allMovies = data;
+      },
+    });
+
+    // Comments
+    this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
+      next: (data: any) => {
+        this.checkedReview = data.reviewed;
+      },
+    });
+
+    // Favorites
+    this.singleMovieService.CheckFavourites(this.movieName).subscribe({
+      next: (data: any) => {
+        this.favorite = data.favourited;
+        console.log(this.favorite);
+        if (this.favorite) {
+          this.heartIconClass = 'pi pi-heart-fill';
+          this.heartIconColor = 'red';
+        } else {
+          this.heartIconClass = 'pi pi-heart';
+          this.heartIconColor = 'red';
+        }
+      },
+    });
+
+    // Get all comments on the film
+    this.singleMovieService.GetReviews(this.movieName).subscribe({
+      next: (data: any) => {
+        this.reviews = data;
+      },
+    });
+  }
 
   singlemovie() {
     this.router.navigate(['']);
   }
 
-  //book page
-
+  // Booking page
   bookPage() {
     this.router.navigate(['booking/', `${this.movieName.movie}`]);
   }
@@ -85,72 +144,27 @@ export class SingleMovieComponent implements OnInit {
   }
 
   toggleHeartClassAndColor() {
-    this.heartIconClass =
-      this.heartIconClass === 'pi pi-heart'
-        ? 'pi pi-heart-fill'
-        : 'pi pi-heart';
-    this.heartIconColor = this.heartIconColor === 'red' ? 'red' : 'red';
     if (this.favorite) {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
         next: (data: any) => {
           this.favorite = false;
+          this.heartIconClass = 'pi pi-heart';
+          this.heartIconColor = 'red';
+        },
+        error: (err) => {
+          console.log(err.message);
         },
       });
     } else {
       this.singleMovieService.AddToFavourites(this.movieName).subscribe({
         next: (data: any) => {
           this.favorite = true;
+          this.heartIconClass = 'pi pi-heart-fill';
+          this.heartIconColor = 'red';
         },
       });
     }
+
     return this.favorite;
-  }
-
-  constructor(
-    private myRoute: ActivatedRoute,
-    private movieService: MoviesService,
-    private router: Router,
-    private singleMovieService: SingleMovieService
-  ) {
-    this.movieName.movie = myRoute.snapshot.params['movie-name'];
-  }
-  ngOnInit(): void {
-    window.scrollTo(0, 0);
-
-    this.singleMovieService.GetMovieByName(this.movieName).subscribe({
-      next: (data: any) => {
-        this.movieDetails = data;
-        // console.log(data);
-        this.value = Number(this.movieDetails.Ratings[0].Value);
-      },
-      error: (err: any) => {
-        console.log(err.message);
-      },
-    });
-    //get All Movies
-    this.movieService.getAllMovies().subscribe({
-      next: (data) => {
-        this.allMovies = data;
-      },
-    });
-    //comments
-    this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
-      next: (data: any) => {
-        this.checkedReview = data.reviewed;
-      },
-    });
-    //favorites
-    this.singleMovieService.CheckFavourites(this.movieName).subscribe({
-      next: (data: any) => {
-        this.favorite = data.favourited;
-        console.log(this.favorite);
-      },
-    });
-    //get all comments on the film
-    this.singleMovieService.GetReviews(this.movieName).subscribe({
-      next: (data: any) => {
-        this.reviews = data;
-      },
-    });
   }
 }

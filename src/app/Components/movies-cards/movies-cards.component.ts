@@ -5,7 +5,7 @@ import { RatingModule } from 'primeng/rating';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule } from '@angular/forms';
 import { CarouselModule } from 'primeng/carousel';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movies-cards',
@@ -27,10 +27,13 @@ export class MoviesCardsComponent implements OnInit {
 
   constructor(private router: Router) { }
   ngOnInit(): void {
-    this.value = Number(this.movie.Ratings[0].Value);
-    console.log(this.movie, "ddddd")
-  }
+    
+     this.value = Number(this.movie.Ratings[0].Value);
+   }
   // routeMovie() {
   //   this.router.navigate(['movie/' + this.movie.id]);
   // }
+  routeToSingleMovie(movie:any){
+    this.router.navigate(['/movie',`${movie.Title}`])
+      }
 }

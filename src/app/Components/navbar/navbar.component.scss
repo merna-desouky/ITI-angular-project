@@ -147,9 +147,10 @@ button {
 }
 
 .mySearch {
+  scrollbar-width: thin;
   display: flex;
   flex-direction: column;
-  background-color: rgb(53 47 47);
+  background-color: rgb(47, 48, 53);
   box-shadow: 1px 1px 4px 3px #1c1818;
   position: absolute;
   width: 350px;
@@ -177,6 +178,7 @@ button {
       .name {
         color: var(--color-var3);
         font-size: 1.4rem;
+        font-weight: 600;
       }
       .catg {
         color: #aca6a5;
@@ -324,6 +326,7 @@ button {
   display: flex;
   align-items: center;
   gap: 10px;
+
   img {
     width: 38px;
     height: 38px;
@@ -336,6 +339,12 @@ button {
 
   img:hover {
     transform: scale(1.15);
+  }
+
+  @media (max-width: 768px) {
+    button {
+      margin-top: 10px;
+    }
   }
 
   p {
