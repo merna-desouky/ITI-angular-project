@@ -138,8 +138,8 @@ export class SingleMovieComponent implements OnInit {
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => {},
-        error: (err: any) => {},
+        next: (data: any) => { },
+        error: (err: any) => { },
       });
   }
 

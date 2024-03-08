@@ -6,7 +6,7 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { RouterLink, RouterModule, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterModule, RouterLinkActive, NavigationEnd, RouterOutlet, Router } from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -21,6 +21,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
   standalone: true,
   imports: [
     RouterModule,
+    RouterOutlet,
     FormsModule,
     HttpClientModule,
     RouterLink,
@@ -45,6 +46,7 @@ export class NavbarComponent implements OnInit {
   userFirstLetter: any = null;
 
   noUser: any = true;
+  hideLinks: boolean = false;
 
   movies: any;
   item: any;
@@ -56,12 +58,14 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private usersService: UsersServicesService
-  ) {}
+    private usersService: UsersServicesService, private router: Router
+  ) { }
 
   private decodeToken(token: string) {
     return JSON.parse(atob(token.split('.')[1]));
   }
+
+
 
   ngOnInit(): void {
     this.moviesService.getAllMovies().subscribe({
@@ -97,6 +101,15 @@ export class NavbarComponent implements OnInit {
 
     // console.log(`${this.noUser},${this.mongoUser},${this.googleUser} `);
     // console.log(localStorage.getItem('token'));
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        const currentRoute = this.router.url;
+        this.hideLinks =
+          currentRoute === '/dashboard';
+
+
+      }
+    });
   }
 
   handleSignOut() {
