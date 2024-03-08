@@ -22,7 +22,7 @@ import { AuthServiceService } from '../../Services/auth-service.service';
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss'],
 })
-export class CheckoutComponent implements OnInit, OnChanges {
+export class CheckoutComponent implements OnInit {
   // Data will be fetched from the query string + service
   paymentOption: string = '';
   movies: any[] = [];
@@ -46,9 +46,9 @@ export class CheckoutComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     window.scrollTo(0, 0);
 
-    if (!this.authService.isLoggedIn()) {
-      window.location.href = '/sign-in';
-    }
+    // if (!this.authService.isLoggedIn()) {
+    //   window.location.href = '/sign-in';
+    // }
 
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
@@ -91,9 +91,9 @@ export class CheckoutComponent implements OnInit, OnChanges {
     });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    this.extractDataFromCart();
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   this.extractDataFromCart();
+  // }
 
   extractDataFromCart() {
     this.userCart.cart.forEach((item: any, index: number) => {
@@ -132,6 +132,7 @@ export class CheckoutComponent implements OnInit, OnChanges {
         console.log(data);
 
         this.userCart.cart = [];
+        this.userCart.totalPrice = 0;
       },
       error: (err) => {
         console.log(err);
