@@ -74,11 +74,13 @@
       </div>
       }
     </div>
+    @if (!hideLinks) {
     <div class="mob-links">
       <a routerActiveLink="active" routerLink="/">Home</a>
       <a href="#Trending">Trending</a>
       <a routerActiveLink="active" routerLink="/checkout">Cart</a>
     </div>
+    }
 
     <div class="mob-btns">
       @if(googleUser) {
@@ -124,6 +126,7 @@
   <!--------------------------------------------------------------------------------------->
   <!--------------------------------------------------------------------------------------->
 
+  @if (!hideLinks) {
   <div class="links">
     <a
       [routerLink]="['/']"
@@ -134,6 +137,7 @@
     <a href="#Trending">Trending</a>
     <a routerActiveLink="active" routerLink="/checkout">Cart</a>
   </div>
+  }
 
   <div class="btns">
     @if(googleUser) {

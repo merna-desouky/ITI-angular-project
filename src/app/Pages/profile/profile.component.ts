@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
     this.profileService.getUser().subscribe({
       next: (data) => {
         this.user = data
-        console.log(this.user.favourite, "hey")
+        console.log(this.user, "hey")
       },
       error: (err) => {
         console.log(err)
