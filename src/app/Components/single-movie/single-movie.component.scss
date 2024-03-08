@@ -494,6 +494,12 @@ p {
         width: 100%;
       }
     }
+
+    button:disabled {
+      background-color: var(--color-var1);
+      color: var(--color-var2);
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -536,5 +542,21 @@ p {
   .reserve-small {
     width: 75%;
     font-size: 1.8rem;
+  }
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 4rem;
+  row-gap: 3.5rem;
+  margin-top: 4rem;
+
+  @media (max-width: "1024px") {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: "768px") {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
