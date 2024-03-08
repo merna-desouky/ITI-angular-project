@@ -77,6 +77,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   siventh: any;
   eight: any;
   flag = true;
+  reservedSeatsByCurrentUser:any[]=[];
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -107,7 +108,13 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     this.sixth = [];
     this.siventh = [];
     this.eight = [];
-    window.location.reload();
+    for (let i = 0; i < this.reservedSeatsByCurrentUser.length; i++) {
+      this.seatState.updateSeatColor(this.reservedSeatsByCurrentUser[i].row, this.reservedSeatsByCurrentUser[i].num, 'gray');
+      
+    }
+
+    
+    
   }
   getDates() {
     this.bookingService
@@ -143,7 +150,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   ) {}
 
   onInputChange() {
-    this.showOverlay = false;
+    
     this.bookingService
       .getReservedSeats({
         movie: this.receivedMovieName,
@@ -153,7 +160,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       })
       .subscribe((data) => {
         this.reserviedSeats = data;
-        console.log(this.reserviedSeats);
         this.firstRow = [
           { num: 1, isTaken: false, row: 1 },
           { num: 2, isTaken: false, row: 1 },
@@ -291,6 +297,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         this.updateIsTaken(this.siventh, this.reserviedSeats);
         this.updateIsTaken(this.eight, this.reserviedSeats);
       });
+      this.showOverlay = false;
     this.showSeats = true;
   }
 
@@ -308,7 +315,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     //isTaken==false&&isTakenByCurrentUser=false => red
     //isTaken==true&&isTakenByCurrentUser==false => alert
     //isTaken=true && isTakenByCurrentUser==true => gray
-
+    this.reservedSeatsByCurrentUser.push(seat);
     if (seat.isTaken == false && seat.isTakenByCurrentUser == false) {
       seat.isTaken = true;
       seat.isTakenByCurrentUser = true;
