@@ -154,6 +154,15 @@ export class SingleMovieComponent implements OnInit {
       })
       .subscribe({
         next: (data: any) => {
+          this.singleMovieService.GetReviews(this.movieName).subscribe({
+            next: (data: any) => {
+              this.reviews = data;
+              this.reviewUsers = this.reviews.map((review: any) => review.name);
+      
+             
+              
+            },
+          });
           // Update UI or do any necessary actions after successful review submission
         },
         error: (err: any) => {

@@ -125,6 +125,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         cinema: this.choosenCinema,
       })
       .subscribe((data) => {
+        
         this.dates = data;
       });
   }
@@ -136,6 +137,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         date: this.choosenDate,
       })
       .subscribe((data) => {
+        this.time=[]
         for (let i = 0; i < data.length; i++) {
           this.time.push(data[i].time);
         }
