@@ -6,7 +6,14 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-import { RouterLink, RouterModule, RouterLinkActive, NavigationEnd, RouterOutlet, Router } from '@angular/router';
+import {
+  RouterLink,
+  RouterModule,
+  RouterLinkActive,
+  NavigationEnd,
+  RouterOutlet,
+  Router,
+} from '@angular/router';
 import { MoviesService } from '../../Services/movies.service';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -58,14 +65,13 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private moviesService: MoviesService,
-    private usersService: UsersServicesService, private router: Router
-  ) { }
+    private usersService: UsersServicesService,
+    private router: Router
+  ) {}
 
   private decodeToken(token: string) {
     return JSON.parse(atob(token.split('.')[1]));
   }
-
-
 
   ngOnInit(): void {
     this.moviesService.getAllMovies().subscribe({
@@ -104,10 +110,7 @@ export class NavbarComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         const currentRoute = this.router.url;
-        this.hideLinks =
-          currentRoute === '/dashboard';
-
-
+        this.hideLinks = currentRoute === '/dashboard';
       }
     });
   }
@@ -117,7 +120,7 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
     this.usersService.GoogleLogOut();
 
-    this.usersService.Logout()
+    this.usersService.Logout();
 
     this.googleUser = false;
     this.mongoUser = false;
@@ -137,6 +140,10 @@ export class NavbarComponent implements OnInit {
         }
       }
     }
+  }
+
+  routeToSingleMovie(movie: any) {
+    this.router.navigate(['/movie', `${movie.Title}`]);
   }
 
   @HostListener('document:click', ['$event'])

@@ -150,7 +150,7 @@ button {
   scrollbar-width: thin;
   display: flex;
   flex-direction: column;
-  background-color: rgb(47, 48, 53);
+  background-color: var(--color-var5);
   box-shadow: 1px 1px 4px 3px #1c1818;
   position: absolute;
   width: 350px;

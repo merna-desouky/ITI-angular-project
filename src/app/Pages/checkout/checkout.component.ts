@@ -6,12 +6,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../Services/cart.service';
 import { render } from 'creditcardpayments/creditCardPayments';
 
-import {
-  FormGroup,
-  FormBuilder,
-  Validators,
-  FormsModule,
-} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AuthServiceService } from '../../Services/auth-service.service';
 
 @Component({
@@ -45,10 +40,6 @@ export class CheckoutComponent implements OnInit {
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
-    // if (!this.authService.isLoggedIn()) {
-    //   window.location.href = '/sign-in';
-    // }
 
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
@@ -90,10 +81,6 @@ export class CheckoutComponent implements OnInit {
       },
     });
   }
-
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   this.extractDataFromCart();
-  // }
 
   extractDataFromCart() {
     this.userCart.cart.forEach((item: any, index: number) => {

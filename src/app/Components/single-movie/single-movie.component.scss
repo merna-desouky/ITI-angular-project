@@ -226,16 +226,17 @@
 
 .single {
   margin: 0 24px;
-  background: #141e30;
-  background: -webkit-linear-gradient(to right, #21364e 0%, #1b1e25 80%);
-  background: linear-gradient(to right, #21364e 0%, #1b1e25 80%);
+  background: #1e130c;
+  background: -webkit-linear-gradient(to right, #56463e, #221f1f);
+  background: linear-gradient(to right, #56463e, #221f1f);
+
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 40px;
 
   @media (max-width: 768px) {
-    background: -webkit-linear-gradient(to bottom, #21364e, #1b1e25) !important;
-    background: linear-gradient(to bottom, #21364e, #1b1e25) !important;
+    background: -webkit-linear-gradient(to bottom, #21364e, #221f1f) !important;
+    background: linear-gradient(to bottom, #21364e, #221f1f) !important;
     padding: 10px;
   }
 }
@@ -370,6 +371,10 @@ p {
   justify-content: space-between;
   align-items: center;
   width: 70%;
+
+  .flex-second-column {
+    align-self: flex-end;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;

@@ -17,7 +17,7 @@
       @if (resultMovies.length!=0 &&showResults) {
       <div class="mySearch">
         @for (movie of resultMovies; track movie.id) {
-        <div class="singleRes" routerLink="movie/{{ movie.id }}">
+        <div class="singleRes" (click)="routeToSingleMovie(movie)">
           <div class="poster">
             <img src="{{ movie.Poster }}" />
           </div>
