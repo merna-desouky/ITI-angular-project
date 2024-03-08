@@ -106,11 +106,14 @@ This project require some perquisites and dependencies to be installed, you can 
    npm install
    ```
 
-4. Run development server
+4. Make sure that you have mongoDB installed and Run development server
 
    ```sh
     node server.js
    ```
+   
+5. Import data files from (Backend/Datafiles) into mongoDB 
+
 
 #### Frontend
 
