@@ -272,7 +272,7 @@
       <h1 class="movie-title">Reviews</h1>
     </div>
 
-    @if (!checkedReview) {
+    @if (viewComment) {
 
     <div class="review-container">
       <h2>Add your review :</h2>
@@ -294,11 +294,11 @@
     }
 
     <div class="reviews-grid">
-      @for (review of reviews; track $index) {
+      @if(reviews) { @for (review of reviews.reverse(); track $index) {
       <div style="display: flex; flex-direction: column; gap: 10px">
         <div>
           <p-avatar
-            [label]="review.name[0]"
+            [label]="review?.name[0]"
             icon="pi pi-user"
             size="large"
             shape="circle"
@@ -321,7 +321,7 @@
           ></p-rating>
         </div>
       </div>
-      }
+      } }
     </div>
   </div>
 </div>

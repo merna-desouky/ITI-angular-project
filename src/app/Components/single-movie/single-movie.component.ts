@@ -100,6 +100,7 @@ export class SingleMovieComponent implements OnInit {
       next: (data: any) => {
         this.checkedReview = data.reviewed;
         console.log(this.checkedReview);
+        this.viewComment = !this.checkedReview;
       },
     });
 
@@ -128,17 +129,6 @@ export class SingleMovieComponent implements OnInit {
         console.log(this.reviewUsers);
       },
     });
-
-    // // Disable review button if user has already reviewed
-    // this.userService.getUser().subscribe({
-    //   next: (data: any) => {
-    //     this.userName = data.username;
-    //     if ((this.reviewUsers as string[]).includes(this.userName)) {
-    //       this.checkedReview = false;
-    //       console.log('user already hereeeeeeeeeee');
-    //     }
-    //   },
-    // });
   }
 
   // Booking page
@@ -146,26 +136,37 @@ export class SingleMovieComponent implements OnInit {
     this.router.navigate(['booking/', `${this.movieName.movie}`]);
   }
 
+  // Add review to the movie
   reviewData(comment: any, rate: any) {
     this.userComment = comment;
     this.userRate = rate;
 
-    this.reviews.push({
+    const newReview = {
       comment: this.userComment,
       stars: this.userRate,
-    });
+    };
 
+    // Send the new review to the backend
     this.singleMovieService
       .SendReview({
         movie: `${this.movieName.movie}`,
         review: { stars: `${this.userRate}`, comment: `${this.userComment}` },
       })
       .subscribe({
-        next: (data: any) => {},
-        error: (err: any) => {},
+        next: (data: any) => {
+          // Update UI or do any necessary actions after successful review submission
+        },
+        error: (err: any) => {
+          // Handle error if necessary
+        },
       });
+
+    // Push the new review to the local array
+    this.reviews.push(newReview);
+    this.viewComment = false;
   }
 
+  // Toggle the favorite icon
   toggleHeartClassAndColor() {
     if (this.favorite) {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
