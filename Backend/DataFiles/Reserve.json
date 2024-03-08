@@ -1,0 +1,946 @@
+[
+
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "20,April 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "20,April 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 6,
+    "date": "12,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "12,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "13,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "13,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 6,
+    "date": "13,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "13,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "11,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "11,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 6,
+    "date": "11,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "11,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "14,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "14,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 6,
+    "date": "14,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "14,Oct 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+
+
+  {
+    "cinema": "Vox",
+    "time": 12,
+    "date": "12,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 3,
+    "date": "12,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 6,
+    "date": "12,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 9,
+    "date": "12,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 12,
+    "date": "13,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 3,
+    "date": "13,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 6,
+    "date": "13,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 9,
+    "date": "13,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 12,
+    "date": "11,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 3,
+    "date": "11,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "11,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 9,
+    "date": "11,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "10,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "10,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "10,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 9,
+    "date": "10,March 2025",
+    "movie-name": "The Shawshank Redemption",
+    "reserved": []
+  },
+ 
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "12,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 3,
+    "date": "12,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 6,
+    "date": "12,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 9,
+    "date": "12,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 12,
+    "date": "15,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 3,
+    "date": "15,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 6,
+    "date": "15,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 9,
+    "date": "15,Oct 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "20,April 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "20,April 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "20,April 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 9,
+    "date": "20,April 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Vox",
+    "time": 12,
+    "date": "18,March 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "18,March 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 6,
+    "date": "18,March 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "18,March 2025",
+    "movie-name": "The Godfather",
+    "reserved": []
+  },
+
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "17,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "17,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "17,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "17,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+ 
+  {
+    "cinema": "Imax",
+    "time": 12,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "16,Oct 2025",
+    "movie-name": "The Godfather: Part II",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "16,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "17,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "12,March 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "17,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "17,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "15,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "16,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "17,Oct 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "12,March 2025",
+    "movie-name": "The Lord of the Rings",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "16,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "17,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "12,March 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "17,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "17,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "15,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "17,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "17,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "15,Oct 2025",
+    "movie-name": "12 Angry Men",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "16,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "16,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 9,
+    "date": "16,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "17,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "17,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "17,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "17,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 3,
+    "date": "12,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 6,
+    "date": "12,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 9,
+    "date": "12,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 12,
+    "date": "15,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 3,
+    "date": "15,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "15,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 9,
+    "date": "15,Oct 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 12,
+    "date": "20,April 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 3,
+    "date": "20,April 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 6,
+    "date": "20,April 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Galaxy",
+    "time": 9,
+    "date": "20,April 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 12,
+    "date": "18,March 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 3,
+    "date": "18,March 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "18,March 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 9,
+    "date": "18,March 2025",
+    "movie-name": "The Dark Knight",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 12,
+    "date": "18,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "18,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 6,
+    "date": "18,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 9,
+    "date": "18,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 12,
+    "date": "19,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 3,
+    "date": "19,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "19,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 9,
+    "date": "19,Oct 2025",
+    "movie-name": "Schindler's List",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "23,Oct 2025",
+    "movie-name": "It's a Wonderful Life",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 3,
+    "date": "23,Oct 2025",
+    "movie-name": "It's a Wonderful Life",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 6,
+    "date": "23,Oct 2025",
+    "movie-name": "It's a Wonderful Life",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 9,
+    "date": "23,Oct 2025",
+    "movie-name": "It's a Wonderful Life",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "5,Jan 2025",
+    "movie-name": "City of God",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 3,
+    "date": "5,Jan 2025",
+    "movie-name": "City of God",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 6,
+    "date": "5,Jan 2025",
+    "movie-name": "City of God",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 9,
+    "date": "5,Jan 2025",
+    "movie-name": "City of God",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "10,Nov 2025",
+    "movie-name": "Interstellar",
+    "reserved": []
+  },
+  {
+    "cinema": "Imax",
+    "time": 3,
+    "date": "3,Nov 2025",
+    "movie-name": "Interstellar",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 6,
+    "date": "5,Nov 2025",
+    "movie-name": "Interstellar",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "1,Nov 2025",
+    "movie-name": "Interstellar",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "4,Nov 2025",
+    "movie-name": "Psycho",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 3,
+    "date": "4,Nov 2025",
+    "movie-name": "Psycho",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "25,Nov 2025",
+    "movie-name": "Psycho",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "4,Nov 2025",
+    "movie-name": "Psycho",
+    "reserved": []
+  },
+
+
+  
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "4,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "1,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 3,
+    "date": "8,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "25,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "4,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  }
+  ,
+  
+  
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "4,Nov 2025",
+    "movie-name": "The Good, the Bad and the Ugly",
+    "reserved": []
+  },
+  {
+    "cinema": "Americana Plaza",
+    "time": 12,
+    "date": "1,Nov 2025",
+    "movie-name": "The Good, the Bad and the Ugly",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 3,
+    "date": "8,Nov 2025",
+    "movie-name": "The Good, the Bad and the Ugly",
+    "reserved": []
+  },
+  {
+    "cinema": "Culturama Historical",
+    "time": 6,
+    "date": "25,Nov 2025",
+    "movie-name": "The Good, the Bad and the Ugly",
+    "reserved": []
+  },
+  {
+    "cinema": "Point 90",
+    "time": 9,
+    "date": "4,Nov 2025",
+    "movie-name": "Pulp Fiction",
+    "reserved": []
+  }
+]
