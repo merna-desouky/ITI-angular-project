@@ -12,11 +12,17 @@ export class AuthServiceService {
     return this.token;
   }
 
-  DecodedToken() {
-    if (this.token) {
+  DecodedToken(token:any):any {
+    if (token) {
+      let decoded = jwt_decode.jwtDecode(token);
+      return decoded;
+     
+    }else if(this.token){
       let decoded = jwt_decode.jwtDecode(this.token);
       return decoded;
+    }else{
+      return false;
+
     }
-    return false;
   }
 }
