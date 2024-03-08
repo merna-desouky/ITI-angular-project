@@ -36,14 +36,10 @@ export class CheckoutComponent implements OnInit {
     private cartService: CartService,
     private httpClient: HttpClient,
     private authService: AuthServiceService
-  ) {}
-
-  ngOnInit(): void {
-    window.scrollTo(0, 0);
-
+  ) {
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
-        console.log(data);
+
         this.userCart = data;
 
         if (this.userCart.cart.length !== 0) {
@@ -54,22 +50,10 @@ export class CheckoutComponent implements OnInit {
         console.log(err);
       },
     });
+  }
 
-    setTimeout(() => {
-      this.cartService.getUserCart().subscribe({
-        next: (data: any) => {
-          console.log(data);
-          this.userCart = data;
-
-          if (this.userCart.cart.length !== 0) {
-            this.extractDataFromCart();
-          }
-        },
-        error: (err) => {
-          console.log(err);
-        },
-      });
-    }, 500);
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
 
     // PayPal API Integration
     render({
@@ -99,13 +83,23 @@ export class CheckoutComponent implements OnInit {
   removeMovie(movie: any) {
     this.cartService.removeMovieFromCart({ deletedMovie: movie }).subscribe({
       next: (data: any) => {
-        console.log(data);
+ 
         console.log(`Movie removed from cart + ${movie['cinema']}`);
 
-        this.userCart.cart = this.userCart.cart.filter(
-          (item: any) => item !== movie
-        );
-        this.extractDataFromCart();
+        this.cartService.getUserCart().subscribe({
+          next: (data: any) => {
+           
+            this.userCart = data;
+
+            if (this.userCart.cart.length !== 0) {
+              this.extractDataFromCart();
+            }
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+       
       },
       error: (err: any) => {
         console.log(err);
