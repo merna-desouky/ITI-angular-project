@@ -54,6 +54,14 @@
       color: var(--color-var3);
       font-weight: 700;
       font-size: 1.3rem;
+      span {
+        color: #aca6a5;
+      }
+    }
+    .time {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
   }
   button {

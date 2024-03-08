@@ -63,9 +63,10 @@
             @if (user.purchased) {
             <div class="purchased">
               <div class="row gy-5">
-                @for (movie of user.purchased; track user.id ;) {
+                @for (movie of displayedMovieNamesForUser; track user.id ;) {
+
                 <div class="col-lg-6 col-sm-12">
-                  <app-movies-cards [movie]="movie"></app-movies-cards>
+                  <app-movies-cards [purchased]="movie"></app-movies-cards>
                 </div>
                 }
               </div>

@@ -22,6 +22,37 @@
   <span class="cards--one__tri"></span>
   <button class="watch-btn">Watch Now!</button>
 </div>
+} @else if (purchased) {
+<div class="cards cards--one" (click)="routeToSingleMoviePurchased(purchased)">
+  <div>
+    <div class="myPoster">
+      <img
+        src="{{ purchased['movie-img'] }}"
+        class="img-responsive myimg"
+        alt="Cards Image"
+        loading="lazy"
+      />
+    </div>
+    <div class="desc">
+      <div class="name">{{ purchased["movie-name"] }}</div>
+      <div class="imdb">
+        Cinema:<span> {{ purchased.cinema }}</span>
+      </div>
+      <div class="time">
+        <div class="imdb">
+          Time: <span>{{ purchased.time }}</span>
+        </div>
+        <div class="imdb">
+          Date:<span> {{ purchased.date }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <span class="cards--one__rect"></span>
+  <span class="cards--one__tri"></span>
+  <button class="watch-btn">Watch Now!</button>
+</div>
 } @else {
 <div
   class="spinner-border text-danger"

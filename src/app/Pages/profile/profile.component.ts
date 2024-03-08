@@ -14,6 +14,8 @@ import { MoviesCardsComponent } from '../../Components/movies-cards/movies-cards
 })
 export class ProfileComponent implements OnInit {
   user: any
+  displayedMovieNames: any[] = []
+  displayedMovieNamesForUser: any[] = []
   constructor(private profileService: ProfileService) {
 
   }
@@ -21,13 +23,23 @@ export class ProfileComponent implements OnInit {
     this.profileService.getUser().subscribe({
       next: (data) => {
         this.user = data
-        console.log(this.user, "hey")
+
+        //check if film duplicate or not
+        for (let i = 0; i < this.user.purchased.length; i++) {
+          if (!this.displayedMovieNames.includes(this.user.purchased[i]['movie-name'])) {
+            this.displayedMovieNames.push(this.user.purchased[i]['movie-name']);
+            this.displayedMovieNamesForUser.push(this.user.purchased[i]);
+          }
+
+        }
+
       },
       error: (err) => {
         console.log(err)
       }
     }
     )
+
   }
 
 }

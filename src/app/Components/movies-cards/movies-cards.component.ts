@@ -23,17 +23,25 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 })
 export class MoviesCardsComponent implements OnInit {
   @Input() movie: any;
+  @Input() purchased: any;
   value: any;
-
+  purchasedArr: any[] = []
   constructor(private router: Router) { }
   ngOnInit(): void {
-    
-     this.value = Number(this.movie.Ratings[0].Value);
-   }
-  // routeMovie() {
-  //   this.router.navigate(['movie/' + this.movie.id]);
-  // }
-  routeToSingleMovie(movie:any){
-    this.router.navigate(['/movie',`${movie.Title}`])
-      }
+
+    if (this.movie) {
+      this.value = Number(this.movie.Ratings[0].Value);
+
+    }
+
+  }
+
+  routeToSingleMovie(movie: any) {
+    console.log(this.purchased)
+    this.router.navigate(['/movie', `${movie.Title}`])
+  }
+
+  routeToSingleMoviePurchased(purchased: any) {
+    this.router.navigate(['/movie', `${purchased['movie-name']}`])
+  }
 }
