@@ -79,7 +79,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   eight: any;
   flag = true;
 
-
   ngOnInit() {
     window.scrollTo(0, 0);
     this.route.params.subscribe((params) => {
@@ -97,6 +96,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       .getMovieByName({ movie: this.receivedMovieName })
       .subscribe((data) => {
         this.movie = data;
+        this.value = Number(this.movie.Ratings[0].Value);
       });
   }
   ngOnChanges() {}
@@ -135,16 +135,14 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       });
   }
 
-
   constructor(
     private seatState: SeatStateService,
     public http: HttpClient,
     public bookingService: BookingServiceService,
     private route: ActivatedRoute,
-    private router:Router,
+    private router: Router,
     public location: Location
   ) {}
-
 
   onInputChange() {
     this.showOverlay = false;
@@ -374,7 +372,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       this.bookingService.addToCart(this.objToSend).subscribe((data) => {
         console.log('object is sent to backend');
       });
-      this.router.navigate(['/checkout'])
+      this.router.navigate(['/checkout']);
     }
   }
 }

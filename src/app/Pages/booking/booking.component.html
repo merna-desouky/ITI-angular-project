@@ -206,21 +206,28 @@
                   }
                 </div>
               </div>
-              <div class="d-flex justify-content-evenly   ">
-                <div class=" d-flex">
-                  <div class="color-flag1" style="width:10px;height:10px;background-color: red;"></div>
-                  <p class="ms-2" style="font-size: smaller;">taken by you</p>
+              <div class="d-flex justify-content-evenly">
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: red"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">taken by you</p>
                 </div>
-                <div class=" d-flex">
-                  <div class="color-flag1" style="width:10px;height:10px;background-color: #3b3b3b;"></div>
-                  <p class="ms-2" style="font-size: smaller;">taken seat</p>
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: #3b3b3b"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">taken seat</p>
                 </div>
-                <div class=" d-flex">
-                  <div class="color-flag1" style="width:10px;height:10px;background-color: gray;"></div>
-                  <p class="ms-2" style="font-size: smaller;">untaken seat</p>
+                <div class="d-flex">
+                  <div
+                    class="color-flag1"
+                    style="width: 10px; height: 10px; background-color: gray"
+                  ></div>
+                  <p class="ms-2" style="font-size: smaller">untaken seat</p>
                 </div>
-                
-                
               </div>
               } @if(!showSeats){
               <div
@@ -237,18 +244,12 @@
                 ></app-table>
               </div>
               }
-              
-                
-                 <div class="btn-container w-100 d-flex justify-content-end mt-5">
-                  <div
-                  class="checkout primary-btn "
-                  (click)="sendDataToBackend()"
-                >
+
+              <div class="btn-container w-100 d-flex justify-content-end mt-5">
+                <div class="checkout primary-btn" (click)="sendDataToBackend()">
                   Checkout
                 </div>
-              
-                 </div>
-             
+              </div>
             </div>
           </div>
         </div>
