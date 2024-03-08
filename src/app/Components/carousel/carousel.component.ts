@@ -2,7 +2,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
 import { MoviesService } from '../../Services/movies.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-carousel',
   standalone: true,
@@ -17,7 +17,7 @@ export class CarouselComponent {
   @Input() sliderMovies: any;
   responsiveOptions: any[] | undefined;
 
-  constructor(private MoviesService: MoviesService) {}
+  constructor(private MoviesService: MoviesService,private route:ActivatedRoute,private router:Router) {}
 
   ngOnInit() {
     this.responsiveOptions = [
@@ -42,5 +42,10 @@ export class CarouselComponent {
         numScroll: 1,
       },
     ];
+
+
+  }
+  routeToSingleMovie(movie:any){
+this.router.navigate(['/movie',`${movie.Title}`])
   }
 }
