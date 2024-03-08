@@ -227,8 +227,8 @@
 .single {
   margin: 0 24px;
   background: #141e30;
-  background: -webkit-linear-gradient(to right, #21364e, #1b1e25);
-  background: linear-gradient(to right, #21364e, #1b1e25);
+  background: -webkit-linear-gradient(to right, #21364e 0%, #1b1e25 80%);
+  background: linear-gradient(to right, #21364e 0%, #1b1e25 80%);
   border-radius: 10px;
   padding: 30px;
   margin-bottom: 40px;
