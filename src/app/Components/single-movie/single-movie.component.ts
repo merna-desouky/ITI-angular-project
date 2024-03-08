@@ -93,8 +93,12 @@ export class SingleMovieComponent implements OnInit {
     if (this.favorite) {
       this.singleMovieService.RemoveFromFavourites(this.movieName).subscribe({
         next: (data: any) => {
+
           this.favorite = false;
         },
+        error:(err)=>{
+          console.log(err.message)
+        }
       });
     } else {
       this.singleMovieService.AddToFavourites(this.movieName).subscribe({
@@ -112,21 +116,26 @@ export class SingleMovieComponent implements OnInit {
     private router: Router,
     private singleMovieService: SingleMovieService
   ) {
-    this.movieName.movie = myRoute.snapshot.params['movie-name'];
+    this.favorite=false
+  
+    // this.movieName.movie = myRoute.snapshot.params['movie-name'];
   }
   ngOnInit(): void {
     window.scrollTo(0, 0);
-
-    this.singleMovieService.GetMovieByName(this.movieName).subscribe({
-      next: (data: any) => {
-        this.movieDetails = data;
-        // console.log(data);
-        this.value = Number(this.movieDetails.Ratings[0].Value);
-      },
-      error: (err: any) => {
-        console.log(err.message);
-      },
-    });
+    this.myRoute.params.subscribe((param)=>{
+      this.movieName.movie=param['movie-name']
+      this.singleMovieService.GetMovieByName(this.movieName).subscribe({
+        next: (data: any) => {
+          this.movieDetails = data;
+          // console.log(data);
+          this.value = Number(this.movieDetails.Ratings[0].Value);
+        },
+        error: (err: any) => {
+          console.log(err.message);
+        },
+      });
+    })
+  
     //get All Movies
     this.movieService.getAllMovies().subscribe({
       next: (data) => {
@@ -142,6 +151,7 @@ export class SingleMovieComponent implements OnInit {
     //favorites
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {
+        
         this.favorite = data.favourited;
         console.log(this.favorite);
       },
