@@ -15,7 +15,7 @@
 </br>
 <div align="center">
       <a href="https://react-ui-colors.vercel.app/">
-       <img src="./src/assets/readme/logo.png" alt="Logo" width="150" height="150">
+       <img src="./Frontend/src/assets/readme/logo.png" alt="Logo" width="150" height="150">
       </a>
 </div>
 
@@ -47,9 +47,9 @@
 I-WATCH is a site for reserving cinema seats and includes modern and old films .
 the site is characterized by its ease of use, the ability to book tickets and pay for them through the site.
 
-![Preview](./src/assets/readme/review1.png)
-![Preview](./src/assets/readme/review2.png)
-![Preview](./src/assets/readme/review3.png)
+![Preview](./Frontend/src/assets/readme/review1.png)
+![Preview](./Frontend/src/assets/readme/review2.png)
+![Preview](./Frontend/src/assets/readme/review3.png)
 
 ### Built With
 
@@ -111,9 +111,8 @@ This project require some perquisites and dependencies to be installed, you can 
    ```sh
     node server.js
    ```
-   
-5. Import data files from (Backend/Datafiles) into mongoDB 
 
+5. Import data files from (Backend/Datafiles) into mongoDB
 
 #### Frontend
 

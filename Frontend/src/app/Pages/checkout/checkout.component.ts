@@ -39,7 +39,6 @@ export class CheckoutComponent implements OnInit {
   ) {
     this.cartService.getUserCart().subscribe({
       next: (data: any) => {
-
         this.userCart = data;
 
         if (this.userCart.cart.length !== 0) {
@@ -64,6 +63,22 @@ export class CheckoutComponent implements OnInit {
         alert('Transaction Done Successfully');
       },
     });
+
+    setTimeout(() => {
+      this.cartService.getUserCart().subscribe({
+        next: (data: any) => {
+          console.log(data);
+          this.userCart = data;
+
+          if (this.userCart.cart.length !== 0) {
+            this.extractDataFromCart();
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }, 500);
   }
 
   extractDataFromCart() {
@@ -75,19 +90,14 @@ export class CheckoutComponent implements OnInit {
       this.movieImg = item.movieImg;
       this.movieSeats = item.seats.map((seat: any) => seat.num);
       this.movieRows = item.seats.map((seat: any) => seat.row);
-
     });
   }
 
   removeMovie(movie: any) {
     this.cartService.removeMovieFromCart({ deletedMovie: movie }).subscribe({
       next: (data: any) => {
- 
-       
-
         this.cartService.getUserCart().subscribe({
           next: (data: any) => {
-           
             this.userCart = data;
 
             if (this.userCart.cart.length !== 0) {
@@ -98,7 +108,6 @@ export class CheckoutComponent implements OnInit {
             console.log(err);
           },
         });
-       
       },
       error: (err: any) => {
         console.log(err);
@@ -109,8 +118,6 @@ export class CheckoutComponent implements OnInit {
   checkoutUserCart(cart: any) {
     this.cartService.checkoutUserCart(cart).subscribe({
       next: (data: any) => {
-
-
         this.userCart.cart = [];
         this.userCart.totalPrice = 0;
       },
