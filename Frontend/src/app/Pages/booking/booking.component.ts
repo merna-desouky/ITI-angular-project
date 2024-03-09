@@ -78,13 +78,13 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   siventh: any;
   eight: any;
   flag = true;
-  reservedSeatsByCurrentUser:any[]=[];
+  reservedSeatsByCurrentUser: any[] = [];
 
   ngOnInit() {
     window.scrollTo(0, 0);
     this.route.params.subscribe((params) => {
       this.receivedMovieName = params['movie-name'];
-      console.log(this.receivedMovieName);
+      // console.log(this.receivedMovieName);
     });
 
     this.bookingService
@@ -111,12 +111,12 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
     this.siventh = [];
     this.eight = [];
     for (let i = 0; i < this.reservedSeatsByCurrentUser.length; i++) {
-      this.seatState.updateSeatColor(this.reservedSeatsByCurrentUser[i].row, this.reservedSeatsByCurrentUser[i].num, 'gray');
-      
+      this.seatState.updateSeatColor(
+        this.reservedSeatsByCurrentUser[i].row,
+        this.reservedSeatsByCurrentUser[i].num,
+        'gray'
+      );
     }
-
-    
-    
   }
   getDates() {
     this.bookingService
@@ -125,7 +125,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         cinema: this.choosenCinema,
       })
       .subscribe((data) => {
-        
         this.dates = data;
       });
   }
@@ -137,7 +136,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         date: this.choosenDate,
       })
       .subscribe((data) => {
-        this.time=[]
+        this.time = [];
         for (let i = 0; i < data.length; i++) {
           this.time.push(data[i].time);
         }
@@ -154,7 +153,6 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   ) {}
 
   onInputChange() {
-    
     this.bookingService
       .getReservedSeats({
         movie: this.receivedMovieName,
@@ -301,7 +299,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
         this.updateIsTaken(this.siventh, this.reserviedSeats);
         this.updateIsTaken(this.eight, this.reserviedSeats);
       });
-      this.showOverlay = false;
+    this.showOverlay = false;
     this.showSeats = true;
   }
 
@@ -328,7 +326,7 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
       this.totalPrice += 100;
       this.tickets = this.tickets + 1;
     } else if (seat.isTaken == true && seat.isTakenByCurrentUser == false) {
-      alert('this seat is taken By Others');
+      alert('This seat is taken by others');
     } else if (seat.isTaken == true && seat.isTakenByCurrentUser == true) {
       //cancel the seat for current user
       seat.isTakenByCurrentUser = false;
@@ -359,8 +357,8 @@ export class BookingComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   sendDataToBackend() {
-    if (this.takenSeats.length == 0) {
-      alert('choose seats first !');
+    if (this.takenSeats?.length == 0) {
+      alert('Choose seats first !');
     } else {
       this.objToSend = {
         cinema: this.choosenCinema,

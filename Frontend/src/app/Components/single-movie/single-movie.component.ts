@@ -99,7 +99,7 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.checkIfReviewed(this.movieName).subscribe({
       next: (data: any) => {
         this.checkedReview = data.reviewed;
-        console.log(this.checkedReview);
+        // console.log(this.checkedReview);
         this.viewComment = !this.checkedReview;
       },
     });
@@ -108,7 +108,7 @@ export class SingleMovieComponent implements OnInit {
     this.singleMovieService.CheckFavourites(this.movieName).subscribe({
       next: (data: any) => {
         this.favorite = data.favourited;
-        console.log(this.favorite);
+        // console.log(this.favorite);
 
         if (this.favorite) {
           this.heartIconClass = 'pi pi-heart-fill';
@@ -126,7 +126,7 @@ export class SingleMovieComponent implements OnInit {
         this.reviews = data;
         this.reviewUsers = this.reviews.map((review: any) => review.name);
 
-        console.log(this.reviewUsers);
+        // console.log(this.reviewUsers);
       },
     });
   }
@@ -158,9 +158,6 @@ export class SingleMovieComponent implements OnInit {
             next: (data: any) => {
               this.reviews = data;
               this.reviewUsers = this.reviews.map((review: any) => review.name);
-      
-             
-              
             },
           });
           // Update UI or do any necessary actions after successful review submission

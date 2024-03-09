@@ -41,7 +41,7 @@ export class CheckoutComponent implements OnInit {
       next: (data: any) => {
         this.userCart = data;
 
-        if (this.userCart.cart.length !== 0) {
+        if (this.userCart?.cart.length !== 0) {
           this.extractDataFromCart();
         }
       },
@@ -67,10 +67,10 @@ export class CheckoutComponent implements OnInit {
     setTimeout(() => {
       this.cartService.getUserCart().subscribe({
         next: (data: any) => {
-          console.log(data);
+          // console.log(data);
           this.userCart = data;
 
-          if (this.userCart.cart.length !== 0) {
+          if (this.userCart?.cart.length !== 0) {
             this.extractDataFromCart();
           }
         },
@@ -100,7 +100,7 @@ export class CheckoutComponent implements OnInit {
           next: (data: any) => {
             this.userCart = data;
 
-            if (this.userCart.cart.length !== 0) {
+            if (this.userCart?.cart.length !== 0) {
               this.extractDataFromCart();
             }
           },
@@ -130,7 +130,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   disableCheckoutButton() {
-    if (this.userCart.cart.length === 0) {
+    if (this.userCart?.cart.length === 0) {
       return true;
     }
     return false;
