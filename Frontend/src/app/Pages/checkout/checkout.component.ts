@@ -76,7 +76,6 @@ export class CheckoutComponent implements OnInit {
       this.movieSeats = item.seats.map((seat: any) => seat.num);
       this.movieRows = item.seats.map((seat: any) => seat.row);
 
-      console.log(this.movieSeats, this.movieRows);
     });
   }
 
@@ -84,7 +83,7 @@ export class CheckoutComponent implements OnInit {
     this.cartService.removeMovieFromCart({ deletedMovie: movie }).subscribe({
       next: (data: any) => {
  
-        console.log(`Movie removed from cart + ${movie['cinema']}`);
+       
 
         this.cartService.getUserCart().subscribe({
           next: (data: any) => {
@@ -110,7 +109,7 @@ export class CheckoutComponent implements OnInit {
   checkoutUserCart(cart: any) {
     this.cartService.checkoutUserCart(cart).subscribe({
       next: (data: any) => {
-        console.log(data);
+
 
         this.userCart.cart = [];
         this.userCart.totalPrice = 0;
