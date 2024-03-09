@@ -1,5 +1,5 @@
 .dash-cover {
-  background-color: #262931;
+  background-color: #353131;
   height: 210px;
 
   .title {
@@ -26,14 +26,13 @@
     margin-top: -120px;
     .dash-card {
       box-shadow: 1px 1px 4px 3px #1c1818;
-      background-color: #1b1e25;
+      background-color: var(--color-var5);
       display: flex;
       flex-direction: column;
       justify-content: center;
       border-radius: 12px;
       height: 100%;
       padding: 15px 30px;
-      width: 265px;
       .img {
         background-color: var(--color-var4);
         border-radius: 50%;
@@ -59,18 +58,14 @@
         font-size: 1.5rem;
         color: #a5a2a2;
       }
-      @media (max-width: "1400px") {
-        width: auto;
-      }
     }
   }
   .charts {
     margin-top: 60px;
 
     .card {
-      background-color: #1b1e25;
+      background-color: var(--color-var5);
       box-shadow: 1px 1px 4px 3px #1c1818;
-
       margin-bottom: 60px;
       padding: 15px;
       @media (max-width: 500px) {
