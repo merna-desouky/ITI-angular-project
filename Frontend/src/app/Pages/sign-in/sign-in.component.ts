@@ -64,7 +64,7 @@ export class SignInComponent implements OnInit {
       // console.log(JSON.stringify(response.credential));
       const payload = this.decodeToken(response.credential);
 
-      console.log(payload);
+      // console.log(payload);
       this.usersService.Login({ email: payload.email, gmail: true }).subscribe(
         (data) => {
           localStorage.setItem('token', data.token);
