@@ -56,6 +56,7 @@ the site is characterized by its ease of use, the ability to book tickets and pa
 
 - Angular
 - Typescript
+- Scss
 - Node js
 - Express js
 - MongoDB
