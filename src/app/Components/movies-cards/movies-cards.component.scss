@@ -62,6 +62,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-top: 10px;
+      .imdb {
+        img {
+          width: 18px;
+          height: 18px;
+          filter: invert(11%) sepia(99%) saturate(3970%) hue-rotate(350deg)
+            brightness(106%) contrast(84%);
+          margin-inline-end: 5px;
+        }
+      }
     }
   }
   button {

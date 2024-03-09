@@ -35,15 +35,21 @@
     </div>
     <div class="desc">
       <div class="name">{{ purchased["movie-name"] }}</div>
-      <div class="imdb">
-        Cinema:<span> {{ purchased.cinema }}</span>
-      </div>
+
       <div class="time">
         <div class="imdb">
-          Time: <span>{{ purchased.time }}</span>
+          <img src="/assets/images/movie.png" /><span>
+            {{ purchased.cinema }}</span
+          >
         </div>
         <div class="imdb">
-          Date:<span> {{ purchased.date }}</span>
+          <img src="/assets/images/time.png" />
+          <span>{{ purchased.time }}</span>
+        </div>
+        <div class="imdb">
+          <img src="/assets/images/date.png" /><span>
+            {{ purchased.date }}</span
+          >
         </div>
       </div>
     </div>
@@ -53,6 +59,7 @@
   <span class="cards--one__tri"></span>
   <button class="watch-btn">Watch Now!</button>
 </div>
+
 } @else {
 <div
   class="spinner-border text-danger"
