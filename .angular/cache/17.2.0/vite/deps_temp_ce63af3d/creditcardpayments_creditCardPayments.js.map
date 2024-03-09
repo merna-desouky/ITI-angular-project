@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../node_modules/creditcardpayments/creditCardPayments.js"],
+  "sourcesContent": [" \r\nexport function render(params){\r\n  paypal.Buttons(\r\n    {\r\n      createOrder: function(data, actions) {\r\n        // This function sets up the details of the transaction, including the amount and line item details.\r\n        return actions.order.create({\r\n          purchase_units: [{\r\n            amount: {\r\n              value: params.value\r\n            }\r\n          }]\r\n        });\r\n      },\r\n      onApprove: function(data, actions) {\r\n        // This function captures the funds from the transaction.\r\n        return actions.order.capture().then(function(details) {\r\n          params.onApprove(details);\r\n        });\r\n      }\r\n    }\r\n  ).render(params.id);\r\n}\r\n\r\n\r\n"],
+  "mappings": ";;;AACO,SAAS,OAAO,QAAO;AAC5B,SAAO;AAAA,IACL;AAAA,MACE,aAAa,SAAS,MAAM,SAAS;AAEnC,eAAO,QAAQ,MAAM,OAAO;AAAA,UAC1B,gBAAgB,CAAC;AAAA,YACf,QAAQ;AAAA,cACN,OAAO,OAAO;AAAA,YAChB;AAAA,UACF,CAAC;AAAA,QACH,CAAC;AAAA,MACH;AAAA,MACA,WAAW,SAAS,MAAM,SAAS;AAEjC,eAAO,QAAQ,MAAM,QAAQ,EAAE,KAAK,SAAS,SAAS;AACpD,iBAAO,UAAU,OAAO;AAAA,QAC1B,CAAC;AAAA,MACH;AAAA,IACF;AAAA,EACF,EAAE,OAAO,OAAO,EAAE;AACpB;",
+  "names": []
+}
