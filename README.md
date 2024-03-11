@@ -15,7 +15,7 @@
 <!-- PROJECT LOGO -->
 </br>
 <div align="center">
-      <a href="https://react-ui-colors.vercel.app/">
+      <a href="https://iwatch.vercel.app/">
        <img src="./Frontend/src/assets/readme/logo.png" alt="Logo" width="150" height="150">
       </a>
 </div>
